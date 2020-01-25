@@ -1,0 +1,1 @@
+* My Personal configuration file for *Emacs*
