@@ -4,6 +4,6 @@ backups
 bookmarks
 elpa
 ido.last
-projectile-bookmarks.eld
+projectile*
 settings.el
 transient
