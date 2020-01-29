@@ -509,6 +509,9 @@
     :bind
     ("C-x t" . sane-term)
     ("C-x T" . sane-term-create))
+
+  (eval-after-load "term"
+    '(define-key term-raw-map (kbd "C-c C-y") 'term-paste))
 #+END_SRC
 ** Bitbake
 #+BEGIN_SRC emacs-lisp
