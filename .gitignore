@@ -6,5 +6,5 @@ elpa
 ido.last
 projectile*
 settings.el
-transient
+transient/history.el
 forge-database.sqlite
