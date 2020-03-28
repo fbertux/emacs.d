@@ -58,9 +58,10 @@
   (if (system-is-desktop)
       (set-frame-font "Source Code Pro-12" nil t))
 
-  (use-package color-theme-sanityinc-tomorrow
-    :init
-    (load-theme 'sanityinc-tomorrow-eighties t))
+(use-package doom-themes
+  :config
+  (load-theme 'doom-one t)
+  (doom-themes-org-config))
 #+END_SRC
 ** Personal Information
 #+BEGIN_SRC emacs-lisp
