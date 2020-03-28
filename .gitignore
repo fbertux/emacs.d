@@ -7,3 +7,4 @@ ido.last
 projectile*
 settings.el
 transient
+forge-database.sqlite
