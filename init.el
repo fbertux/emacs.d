@@ -21,7 +21,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode ws-butler use-package undo-tree systemd smex smartparens sane-term rainbow-delimiters projectile pkgbuild-mode pdf-tools ob-async mmm-mode latex-preview-pane json-mode go-guru go-eldoc gnu-elpa-keyring-update git-timemachine git-gutter forge flycheck flx-ido expand-region dts-mode doom-themes dockerfile-mode diminish company color-theme-sanityinc-tomorrow browse-kill-ring auctex aggressive-indent))))
+    (yaml-mode ws-butler use-package undo-tree systemd smex smartparens sane-term rainbow-delimiters projectile pkgbuild-mode pdf-tools ob-async mmm-mode markdown-mode magit latex-preview-pane json-mode go-guru go-eldoc gnu-elpa-keyring-update git-timemachine git-gutter flycheck flx-ido expand-region dts-mode doom-themes dockerfile-mode diminish company browse-kill-ring auctex aggressive-indent))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
