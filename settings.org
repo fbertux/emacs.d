@@ -71,6 +71,19 @@
   (doom-themes-org-config))
 #+END_SRC
 
+*** Use a thin window divider in terminal
+
+#+BEGIN_SRC emacs-lisp
+  (set-face-inverse-video-p 'vertical-border nil)
+  (set-face-background 'vertical-border (face-background 'default))
+  (set-display-table-slot standard-display-table
+                          'vertical-border
+                          (make-glyph-code ?┃))
+#+END_SRC
+
+**** Reference:
+- https://stackoverflow.com/questions/18210631/how-to-change-the-character-composing-the-emacs-vertical-border
+
 ** Personal Information
 
 #+BEGIN_SRC emacs-lisp
