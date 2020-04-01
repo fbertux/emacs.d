@@ -471,16 +471,14 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
 
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t)" "DOING(s)" "NEXT(n)" "|" "DONE(d)")
-                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
+        (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d)")
+                (sequence "WAITING(w@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "red" :weight bold)
                 ("DOING" :foreground "yellow" :weight bold)
-                ("NEXT" :foreground "blue" :weight bold)
                 ("DONE" :foreground "forest green" :weight bold)
                 ("WAITING" :foreground "orange" :weight bold)
-                ("HOLD" :foreground "magenta" :weight bold)
                 ("CANCELLED" :foreground "forest red" :weight bold)
                 ("SOMEDAY" :foreground "forest yellow" :weight bold))))
 
@@ -488,11 +486,9 @@
         (quote (("CANCELLED" ("CANCELLED" . t))
                 ("WAITING" ("WAITING" . t))
                 ("DOING" ("DOING" . t))
-                ("HOLD" ("WAITING") ("HOLD" . t))
-                (done ("WAITING") ("HOLD") ("DOING"))
-                ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
-                ("NEXT" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
-                ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
+                (done ("WAITING") ("DOING"))
+                ("TODO" ("WAITING") ("CANCELLED") ("DOING"))
+                ("DONE" ("WAITING") ("CANCELLED") ("DOING")))))
 #+END_SRC
 
 *** References:
