@@ -498,6 +498,35 @@
                 ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
 #+END_SRC
 
+*** Blogging with Org Mode and Jekyll on Github Pages
+#+BEGIN_SRC emacs-lisp
+  (setq org-publish-project-alist
+        '(
+          ("org-fbertux"
+           :base-directory "~/workspace/fbertux.github.io/org"
+           :base-extension "org"
+           :publishing-directory "~/workspace/fbertux.github.io"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :with-toc nil
+           :headline-levels 4
+           :auto-preamble nil
+           :auto-sitemap nil
+           :html-extension "html"
+           :body-only t
+           )
+
+          ("org-static-fbertux"
+           :base-directory "~/workspace/fbertux.github.io/org"
+           :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+           :publishing-directory "~/workspace/fbertux.github.io"
+           :recursive t
+           :publishing-function org-publish-attachment)
+
+          ("fbertux" :components ("org-fbertux" "org-static-fbertux"))
+          ))
+#+END_SRC
+
 *** References:
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
