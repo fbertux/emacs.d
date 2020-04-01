@@ -474,7 +474,7 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
 
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d)")
+        (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
                 (sequence "WAITING(w@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
   (setq org-todo-keyword-faces
@@ -498,6 +498,7 @@
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
 - http://doc.norang.ca/org-mode.html
+- https://orgmode.org/manual/Tracking-TODO-state-changes.html#Tracking-TODO-state-changes
 
 ** Shell
 
