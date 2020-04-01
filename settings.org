@@ -475,13 +475,14 @@
 
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
-                (sequence "WAITING(w@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
+                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "red" :weight bold)
                 ("DOING" :foreground "yellow" :weight bold)
                 ("DONE" :foreground "forest green" :weight bold)
                 ("WAITING" :foreground "orange" :weight bold)
+                ("HOLD" :foreground "magenta" :weight bold)
                 ("CANCELLED" :foreground "forest red" :weight bold)
                 ("SOMEDAY" :foreground "forest yellow" :weight bold))))
 
@@ -489,9 +490,10 @@
         (quote (("CANCELLED" ("CANCELLED" . t))
                 ("WAITING" ("WAITING" . t))
                 ("DOING" ("DOING" . t))
-                (done ("WAITING") ("DOING"))
-                ("TODO" ("WAITING") ("CANCELLED") ("DOING"))
-                ("DONE" ("WAITING") ("CANCELLED") ("DOING")))))
+                ("HOLD" ("WAITING") ("HOLD" . t))
+                (done ("WAITING") ("HOLD") ("DOING"))
+                ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
+                ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
 #+END_SRC
 
 *** References:
