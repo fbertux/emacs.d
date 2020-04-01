@@ -431,6 +431,9 @@
 ** Org
 
 #+BEGIN_SRC emacs-lisp
+  (use-package htmlize
+    :init (require 'htmlize))
+
   (use-package ob-async
     :config
     (require 'ob-async))
