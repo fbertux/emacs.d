@@ -494,6 +494,7 @@
 *** References:
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
+- http://doc.norang.ca/org-mode.html
 
 ** Shell
 
