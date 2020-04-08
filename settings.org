@@ -527,6 +527,13 @@
           ))
 #+END_SRC
 
+*** Blogging Org Mode with Hugo
+
+#+BEGIN_SRC emacs-lisp
+(use-package ox-hugo
+  :after ox)
+#+END_SRC
+
 *** References:
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
