@@ -233,8 +233,8 @@
       )
     )
 
-  (global-set-key (kbd "C-c c") 'copy-to-clipboard)
-  (global-set-key (kbd "C-c v") 'paste-from-clipboard)
+  (global-set-key (kbd "C-x c") 'copy-to-clipboard)
+  (global-set-key (kbd "C-x v") 'paste-from-clipboard)
 
   ;; Indent commit messages
   (fset 'indent-commit
