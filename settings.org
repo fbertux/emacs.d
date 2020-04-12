@@ -439,6 +439,7 @@
   (global-set-key (kbd "C-c c") 'org-capture)
 #+END_SRC
 
+*** Org package configuration
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
     :init (require 'htmlize))
@@ -502,6 +503,19 @@
                 (done ("WAITING") ("HOLD") ("DOING"))
                 ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
                 ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
+
+  (setq org-agenda-files '("~/org/engineering.org"
+                           "~/org/todo.org"
+                           "~/org/projects.org"))
+
+  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                 (file+headline "~/org/inbox.org" "Tasks")
+                                 "* TODO %i%?")))
+
+  (setq org-default-notes-file (concat org-directory "~/org/inbox.org"))
+
+  (setq org-refile-targets '(("~/org/todo.org" :level . 1)
+                             ("~/org/projects.org" :level . 1)))
 #+END_SRC
 
 *** Blogging with Org Mode and Jekyll on Github Pages
@@ -545,6 +559,7 @@
 - https://endlessparentheses.com/ispell-and-org-mode.html
 - http://doc.norang.ca/org-mode.html
 - https://orgmode.org/manual/Tracking-TODO-state-changes.html#Tracking-TODO-state-changes
+- https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 
 ** Shell
 
