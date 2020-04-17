@@ -1,0 +1,1673 @@
+2020-03-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.50 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2020-02-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el (devbook-mode): Make nxml-child-indent local
+	in the current buffer.
+
+2020-02-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el: New file. Major mode for editing the
+	Gentoo Devmanual, derived mode of nxml-mode.
+	* ebuild-mode.texi (devbook-mode): Document it.
+	* Makefile (DISTFILES): Add devbook-mode.el.
+
+2019-12-21  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.49 released.
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-eclass-deprecated): Add elisp-need-emacs.
+	(ebuild-mode-keywords-*): Regenerated.
+
+2019-12-11  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.48 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* glep-mode.el (glep-mode-insert-skeleton): Update template to use
+	the CC-BY-SA-4.0 license, following the change in GLEP 2.
+
+2019-07-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.47 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2018-09-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.46 released.
+
+2018-09-16  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-update-copyright)
+	(ebuild-mode-insert-skeleton): Use UTC to avoid flapping.
+
+	* ebuild-mode.el (ebuild-mode-update-copyright): Extend function
+	and custom variable to control whether copyright year or author
+	are updated.
+	(ebuild-mode-copyright-regexp): Allow for a single year rather
+	than a range of years. Match authors in an additional group.
+	(ebuild-mode-insert-skeleton): New default year and authors.
+
+2018-09-04  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.45 released.
+
+	* ebuild-mode.el (ebuild-mode-arch-list): Add arm64 to default.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2018-08-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-portdir): Default to
+	/var/db/repos/gentoo with fallback to /usr/portage, bug 662998.
+
+2018-06-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.44 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2018-06-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-eapi-list): Add 7.
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-eclass-documentation): Update keywords
+	from eclass-to-manpage.awk.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi-deprecated)
+	(ebuild-mode-keywords-0): dolib and libopts are deprecated.
+	(ebuild-mode-keywords-eapi7): New variable for EAPI 7 commands.
+
+2018-06-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-insert-skeleton): Fold lines as in the
+	standard GLEP footer.
+
+2018-04-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.43 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2018-04-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-insert-skeleton): Use 9999 as dummy GLEP
+	number, because XXX causes a warning in docutils-glep. Bug 653126.
+
+2018-02-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-run-command):
+	* glep-mode.el (glep-mode-format-html): Don't autoload.
+
+2018-01-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.42 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* keyword-generation.sh: Automatically update keywords in
+	ebuild-mode-keywords.el.
+	* ebuild-mode-keywords.el: Insert tokens to mark begin and end
+	of automatically generated keywords.
+
+2018-01-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-format-html): New command.
+	(glep-mode-map): Bind to "C-c C-f".
+	(glep-mode-menu): Add to menu.
+
+	* glep-mode.el (glep-mode-insert-skeleton): Add missing
+	Content-Type header line.
+
+2018-01-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Flip order of
+	DEPEND and RDEPEND. Suggested by Aaron Swenson.
+
+2018-01-12  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh (OBSOLETE): Cleanup.
+
+2017-12-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.41 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2017-11-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode): Make sentence-end-double-space local
+	in this buffer.
+
+2017-10-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (glep-mode): Document that glep-mode does not
+	work with XEmacs.
+
+2017-10-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.40 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* glep-mode.el (font-lock-beg, font-lock-end): Define to suppress
+	byte-compiler warnings.
+
+	* glep-mode.el (glep-mode-update-last-modified): New function,
+	updates the Last-Modified header when saving the file.
+	(glep): New customisation group.
+	(glep-mode-update-last-modified): New custom variable.
+	(glep-mode-last-modified-re): New variable.
+	(glep-mode-before-save): New function.
+	(glep-mode): Add glep-mode-before-save to write-contents-hook.
+
+2017-10-27  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild): Rename customisation group.
+	(ebuild-mode-portdir, ebuild-mode-eapi-list)
+	(ebuild-mode-fix-whitespace, ebuild-mode-update-copyright)
+	(ebuild-mode-delete-cvs-line): Update accordingly.
+	(ebuild-mode-update-copyright): Update lwarn type.
+
+	* glep-mode.el (glep-mode-insert-skeleton): Update from GLEP 2.
+	Inclusion of that modification under GPL-2+ acked by mgorny.
+
+2017-10-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el: The template text in glep-mode-insert-skeleton has
+	not much changed from the last CVS version of GLEP 2, which is in
+	the public domain. We can therefore base it on that version and
+	avoid the complications of including CC-BY-SA licensed material.
+	Relicense glep-mode to GPL version 2, or any later version.
+
+	* ebuild-mode.el (ebuild-run-echangelog): Drop echangelog support,
+	gentoolkit-dev is deprecated and gentoolkit does not provide the
+	command any more.
+	(ebuild-mode-map, ebuild-mode-menu): Drop keybinding and menu
+	entry for ebuild-run-echangelog.
+	* ebuild-mode.texi (ebuild-mode): Update documentation.
+
+	* glep-mode.el (glep-mode-insert-skeleton): Update URLs of GLEP 1
+	and GLEP 2. Update info on header format from GLEP 1.
+
+2017-10-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.39 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* ebuild-mode.texi (glep-mode): Document the new mode.
+
+2017-09-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el: New file. Mode for editing Gentoo Linux
+	Enhancement Proposals that are written in reStructuredText.
+	* Makefile (DISTFILES): Add glep-mode.el.
+
+2017-09-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.38 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2017-04-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.37 released.
+
+	* ebuild-mode.el (ebuild-mode-make-keywords-list): XEmacs 21.4
+	doesn't have delete-dups, use delete-duplicates instead.
+
+	* Version 1.36 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* ebuild-mode.el (ebuild-mode-make-keywords-list): Call regexp-opt
+	without duplicates in its argument list.
+
+2017-03-31  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-before-save):
+	Call ebuild-mode-update-copyright only once per buffer.
+
+2017-03-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.35 released.
+
+2017-03-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
+	Account for news item format 2.0.
+	(gentoo-newsitem-format-list): New variable.
+
+2017-03-06  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.34 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2017-03-04  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-eapi-list): New custom variable.
+	(ebuild-mode-insert-skeleton): Use it in a completing-read.
+
+	* ebuild-mode.el (ebuild-mode-protocols-homepage)
+	(ebuild-mode-protocols-src_uri): New variables.
+	(ebuild-mode-insert-skeleton): Add https:// to completions
+	for HOMEPAGE and SRC_URI.
+
+	* ebuild-mode.el (ebuild-mode-update-copyright): Modify the buffer
+	only if necessary. Warn about equal first and last year.
+
+2017-02-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.33 released.
+
+	* ebuild-mode.el (ebuild-mode-update-copyright)
+	(ebuild-mode-delete-cvs-line): New custom variables, default to t.
+	(ebuild-mode-copyright-regexp, ebuild-mode-cvs-header-regexp):
+	New variables.
+	(ebuild-mode-update-copyright, ebuild-mode-delete-cvs-line):
+	New functions.
+	(ebuild-mode-before-save): Update copyright years and remove CVS
+	Id or Header line, when customised to do so, respectively.
+
+2017-02-27  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode): New customisation group.
+	(ebuild-mode-portdir): Change to custom variable.
+	(ebuild-mode-fix-whitespace): New custom variable, defaults to t.
+	(ebuild-mode-before-save): Make fixing of whitespace conditional.
+
+	* ebuild-mode.el:
+	* ebuild-mode.texi: Update documentation to use generic terms
+	where possible, instead of being Portage specific.
+
+2017-02-26  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.32 released.
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Remove $Id$ line
+	from ebuild header.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2017-01-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-get-keywords)
+	(ebuild-mode-put-keywords): Improve error handling.
+
+2016-06-19  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.31 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2016-06-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (Commands): Update Bugzilla URL to https.
+
+2016-05-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (auto-mode-alist): Drop eblit support.
+
+2016-05-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.30 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* keyword-generation.sh (OBSOLETE): Cleanup.
+
+2015-12-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.29 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-0): Match list
+	of commands against PMS.
+	(ebuild-mode-keywords-EAPI): New variable, contains only "EAPI".
+	(ebuild-mode-keywords-eapi6): New variable, EAPI 6 commands.
+	(ebuild-mode-keywords-eapi-deprecated)
+	(ebuild-mode-keywords-eclass-deprecated): New variables, splitting
+	ebuild-mode-keywords-deprecated.
+	(ebuild-mode-keywords-eclass): Variable removed, merged into
+	ebuild-mode-keywords-0.
+
+2015-08-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.28 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+2015-08-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Insert $Id$
+	instead of $Header$, following the Git migration.
+
+2014-11-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.27 released.
+
+2014-11-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* keyword-generation.sh (OBSOLETE): Cleanup list, some eclasses
+	have been removed.
+
+2014-02-02  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.26 released.
+
+2014-01-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* keyword-generation.sh: Exclude functions that are marked as
+	internal in eclass documentation.
+
+2014-01-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.25 released.
+
+2014-01-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* keyword-generation.sh (ECLASSES, ECLASSFILES): Avoid deprecated
+	"portageq portdir" call.
+
+2013-10-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-eclass-documentation): Add new keywords
+	@BUGREPORTS and @VCSURL from eclass-to-manpage.awk.
+
+2013-09-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Remove special
+	treatment for EAPI=0.
+
+2013-09-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.24 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* gentoo-newsitem-mode.el (gentoo-newsitem-font-lock-keywords):
+	Add missing pair of parentheses.
+
+2013-09-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.23 released.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated
+	from eclasses.
+
+	* keyword-generation.sh (OBSOLETE): Cleanup list.
+	(ECLASSES): Strip filename suffix and sort the list of eclasses.
+
+2013-07-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el: Add no-update-autoloads to file
+	variables.
+
+	* ebuild-mode.el (ebuild-mode-arch-list): Add amd64-fbsd to
+	fallback list.
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Work around
+	problem with nested interactors in XEmacs. Suppress IUSE if its
+	value is empty; the variable is no longer mandatory.
+
+2013-07-06  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.22 released.
+
+2013-07-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (interpreter-mode-alist): Don't add runscript.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated
+	from eclasses.
+
+	* keyword-generation.sh (OBSOLETE): Clean up list of obsolete
+	eclasses.
+
+	* Rename package to ebuild-mode.
+	* ebuild-mode.el: File renamed from gentoo-syntax.el.
+	(gentoo-syntax): Don't provide feature.
+	* ebuild-mode.texi: File renamed from gentoo-syntax.texi.
+	* Makefile (PN): Rename to ebuild-mode.
+	(PV, DISTFILES): Update.
+	(ebuild-mode.info): Rename.
+
+	* gentoo-newsitem-mode.el: New file, split off from
+	gentoo-syntax.el.
+	* gentoo-syntax.el (gentoo-newsitem-font-lock-keywords)
+	(gentoo-newsitem-mode, gentoo-newsitem-insert-skeleton):
+	Variable and functions moved to gentoo-newsitem-mode.el.
+	* Makefile (DISTFILES): Update.
+
+2013-07-04  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el: Remove eselect-mode; it will be maintained
+	in the eselect repository.
+	(eselect-mode-font-lock-keywords, eselect-mode): Variable and
+	function removed.
+	* eselect-mode-keywords.el: File removed.
+	* gentoo-syntax.texi: Don't mention eselect-mode.
+	* Makefile (DISTFILES): Update.
+
+2013-03-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.21 released.
+
+	* Makefile (dist): Use xz for compression.
+	(clean): Also remove *.xz.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated
+	from eclasses.
+
+	* keyword-generation.sh: Don't output variables with an empty list
+	of functions.
+
+2013-01-13  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-collect-equal-cdrs): New optional
+	argument LIMIT starts a new element in the destination list, after
+	that number of elements from the source list have been collected.
+	(ebuild-mode-font-lock-keywords): Limit regexp size by calling
+	ebuild-mode-collect-equal-cdrs with the limit argument; a value
+	of 1000 appears to keep the size below the 32 kbyte limit.
+	See also the change of 2012-09-22.
+
+2012-09-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
+	Fix quoting.
+
+2012-09-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.20 released.
+
+	* Makefile (DISTFILES): Include keyword-generation.sh.
+
+	* gentoo-syntax.el (ebuild-mode-font-lock-keywords): Addition of
+	keywords in the previous change had caused this variable to exceed
+	the 32 kbyte size limit for regular expressions. Unfortunately,
+	this is a hard limit in Emacs' C code, MAX_BUF_SIZE in regex.c,
+	that cannot be increased.
+	* keyword-generation.sh: Filter all function names starting with
+	an underscore, in order to shorten the keywords list.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi5):
+	New variable, functions that are new in EAPI 5.
+	(ebuild-mode-keywords-functions-default): Add "default".
+	(ebuild-mode-keywords-eclass-documentation): Add new keywords from
+	eclass-to-manpage.awk.
+	(ebuild-mode-keywords-boost-utils, ebuild-mode-keywords-chromium)
+	(ebuild-mode-keywords-intel-sdp, ebuild-mode-keywords-l10n)
+	(ebuild-mode-keywords-mozlinguas)
+	(ebuild-mode-keywords-multiprocessing)
+	(ebuild-mode-keywords-myspell-r2, ebuild-mode-keywords-oasis)
+	(ebuild-mode-keywords-python-distutils-ng)
+	(ebuild-mode-keywords-unpacker, ebuild-mode-keywords-vala)
+	(ebuild-mode-keywords-vcs-snapshot)
+	(ebuild-mode-keywords-vdr-plugin-2): New variables.
+	(ebuild-mode-keywords-tla, ebuild-mode-keywords-vmware)
+	(ebuild-mode-keywords-vmware-mod): Variables removed.
+	(ebuild-mode-keywords-*): Regenerated from eclasses.
+
+	* keyword-generation.sh: Drop dead or removed eclasses from
+	obsolete list. Sort it alphabetically. Skip any eclass that is
+	marked with a @DEAD token. Use the shell for parsing of eclasses'
+	environment.
+	(has): New function.
+	(ECLASSDIR, OBSOLETE): New variables.
+
+2012-04-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.texi: Small syntax fixes.
+
+2012-02-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-arch-regexp): Allow whitespace at
+	beginning of line, bug 402573.
+
+2012-01-21  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-savedconfig):
+	Add savedconfig_pkg_postinst() function
+	(ebuild-mode-keywords-autotools): Add config_rpath_update() function
+	(ebuild-mode-keywords-cdrom): Add cdrom.eclass
+	(ebuild-mode-keywords-flag-o-matic): Remove has_hardened()
+	function, mark has_m64() and has_m32() as deprecated, add
+	all-flag-vars() function
+	(ebuild-mode-keywords-python): Add python_clean_py-compile_files()
+	function
+
+2011-12-31  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: Set C locale for grep. Reformat output.
+
+2011-12-30  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el: All keywords are now from a
+	auto-generated list apart from some special sections.  So many new
+	functions, some go away.
+
+2011-12-29  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
+	Add functions tc-getBUILD_AR(), tc-getBUILD_AS(),
+	tc-getBUILD_LD(), tc-getBUILD_STRIP(), tc-getBUILD_NM(),
+	tc-getBUILD_RANLIB(), tc-getBUILD_OBJCOPY() and
+	tc-getBUILD_PKG_CONFIG()
+	(ebuild-mode-keywords-toolchain): Add gcc-multilib-configure()
+	function.  Remove functions gcc-library-configure() and
+	add_version to shared()
+	(ebuild-mode-keywords-eutils): Add functions in_iuse(),
+	use_if_iuse() and usex()
+	(ebuild-mode-keywords-autotools): Add eaclocal_amflags() function
+	(ebuild-mode-keywords-multilib): Remove functions
+	get_libdir_override() and get_multilibdir()
+	(ebuild-mode-keywords-java-vm-2): Add java-vm-2.eclass
+	(ebuild-mode-keywords-libtool): Add elt_patch_dir() function
+	(ebuild-mode-keywords-nsplugin): Add share_plugins_dir() function
+	(ebuild-mode-keywords-kernel-2): Remove generate_sparc_asm() function
+	(ebuild-mode-keywords-qt4-build):
+	Rename skip_project_generation_patch() and skip_qmake_build_patch()
+	(ebuild-mode-keywords-gnome2-utils):
+	Add gnome2_environment_reset() function
+
+2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-systemd):
+	Add systemd_dotmpfilesd() and systemd_newunit() functions
+	(ebuild-mode-keywords-check_reqs): Add check_reqs.eclass
+	(ebuild-mode-keywords-office-ext): Add office_ext.eclass
+	(ebuild-mode-keywords-toolchain-funcs): Add tc-getBUILD_PROG(),
+	tc-getBUILD_CPP(), tc-getBUILD_CXX() functions
+	(ebuild-mode-keywords-bash-completion-r1):
+	Add bash-completion-r1.eclass and deprecate old version
+
+2011-12-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.19 released.
+
+2011-06-02  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ghc-packages):
+	Add ghc-package.eclass
+	(ebuild-mode-keywords-systemd): Add systemd.eclass
+
+2011-04-10  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools):
+	Add autotools_m4dir_include() function
+
+2011-03-26  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain):
+	Add setup_multilib_osdirnames() and remove
+	disgusting_gcc_multilib_HACK() instead.
+
+2011-03-19  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build):
+	Add prepare_directories() function.
+	(ebuild-mode-keywords-multilib): Remove a bunch of functions that
+	are not available anymore.
+	Remove mozconfig-2.eclass, mocoreconf.eclass and games-q3mod.eclass
+
+2011-03-18  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2):
+	Add ejunit4() function.
+	(ebuild-mode-keywords-vmware-bundle): Add vmware-bundle eclass.
+
+2011-02-12  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-mount-boot):
+	Add mount-boot eclass.
+	(ebuild-mode-keywords-pam): Add pammod_hide_symbols() function.
+
+2011-01-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-xfconf): Fix typo
+	in variable name.
+
+2011-01-04  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem):
+	Add ruby_fakegem_install_gemspec(),
+	ruby_fakegem_metadata_gemspec() functions
+	(ebuild-mode-keywords-python):
+	Add python_merge_intermediate_installation_images() function
+
+2011-01-01  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi4)
+	(ebuild-mode-keywords-functions-eapi4): New variables for keywords
+	and functions of EAPI 4.
+	(ebuild-mode-keywords-functions-default):
+	Add default_src_install() function.
+
+2010-12-12  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2-utils):
+	Add gnome2_schemas_savelist(), gnome2_schemas_update() functions
+
+2010-11-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp-common):
+	Add elisp-need-emacs function.
+
+2010-11-04  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-darcs):
+	Add darcs_patchcount() function
+
+2010-10-25  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-common):
+	Added texlive-common.eclass
+	(ebuild-mode-keywords-deprecated): python_mod_compile() is deprecated
+	(ebuild-mode-keywords-python): Add python_abi_depend() function
+
+2010-10-24  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-module):
+	Add texlive-module_synonyms_to_language_lua_line() and
+	texlive-module_make_language_lua_lines() functions
+
+2010-10-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.18 released.
+
+2010-10-18  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-scons-utils):
+	Add new eclass scons-utils
+	(ebuild-mode-keywords-java-ant-2): Add java-ant_remove-taskdefs()
+	function
+	(ebuild-mode-keywords-eutils): Add path_exists() function
+
+2010-10-16  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-commands-list): Alphabetic order.
+	Add "cleanrm", "depend", "fetchall", "info", and "pretend".
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic):
+	Update list of functions. Patch by Thomas Kahle <tom111@gmx.de>
+	in bug 341255.
+
+2010-10-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-commands-list): Add "prepare" and
+	"configure" ebuild commands.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-haskell-cabal):
+	Remove duplicate keywords.
+
+2010-08-24  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode): Set fill-column to 72.
+
+2010-08-09  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-haskell-cabal):
+	Add haskell-cabal.eclass
+
+2010-07-20  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools-utils):
+	Add new autotools-utils.eclass
+
+2010-07-19  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-versionator):
+	Add version_format_string() function
+
+2010-07-13  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build):
+	Add qt_assistant_cleanup() and qt_nolibx11() functions
+	(ebuild-mode-keywords-xorg-2): Remove cleanup_fonts() function
+	(ebuild-mode-keywords-python): Remove validate_PYTHON_ABIS() as it
+	is an internal function, rename python_clean_sitedir() to
+	python_clean_installation_image()
+	(ebuild-mode-keywords-kde4-base): Add get_build_type() function
+	(ebuild-mode-keywords-perl-helper): Add support for new
+	perl-helper.eclass
+	(ebuild-mode-keywords-perl-module): Remove perl-module.eclass as
+	no functions are needed anymore
+
+2010-07-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.17 released.
+
+2010-04-26  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng):
+	Add ruby_rbconfig_value() function
+
+2010-04-22  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
+	Add tc-is-hardfloat()
+
+2010-04-20  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-font):
+	Add fonts.eclass
+
+2010-04-07  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng):
+	Add ruby_get_version() and ruby_get_implementation()
+	(ebuild-mode-keywords-flag-o-matic): Add append-libs()
+
+2010-03-29  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt3):
+	Remove entire deprecated block
+	(ebuild-mode-xfconf): Import new eclass
+
+2010-03-22  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Remove python_set_build_dir_symlink() function
+
+2010-03-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
+	Add tc-getRC() and tc-getDLLWRAP()
+
+2010-03-15  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_clean_sitedirs()
+	(ebuild-mode-keywords-xorg-2): Add xorg-2.eclass
+	(ebuild-mode-keywords-mysql): Add pbxt_available()
+
+2010-03-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-arch-stable-list):
+	Initialise from profiles.desc, bug 304133.
+
+2010-03-02  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	python_mod_exists(), python_tkinter_exists() are deprecated
+
+2010-02-21  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-mysql):
+	Add xtradb_applicable() and pbxt_applicable()
+
+2010-02-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-ant-2):
+	Add java-pkg_get-bootclasspath()
+
+2010-02-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el: Partially undo change of 2009-08-21.
+	(ebuild-mode-arch-stable-list): Reintroduce variable.
+	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete)
+	(ebuild-mode-insert-skeleton): Use it.
+	(ebuild-mode-arch-list, ebuild-mode-use-flags): Don't test if
+	files are readable, because we ignore errors anyway.
+	(ebuild-mode-arch-list, ebuild-mode-licenses)
+	(ebuild-mode-eclasses, ebuild-mode-use-flags): Handle only file
+	errors in condition-case.
+	(ebuild-mode-arch-lessp): New function, predicate for sort.
+	(ebuild-mode-arch-list): Sort list of architectures.
+	(ebuild-mode-sort-keywords): Function removed.
+	(ebuild-mode-modify-keywords): Pass ebuild-mode-arch-lessp as
+	predicate function for sort.
+
+2010-02-11  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
+	python_get_implementation() and python_get_implementational_package()
+
+2010-02-02  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_get_library(), python_get_version(),
+	python_execute_nosetest(), python_execute_py.test(),
+	python_execute_trial()
+
+2010-01-17  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-mod):
+	Add linux-mod_pkg_setup_binary function
+	(ebuild-mode-keywords-linux-info):
+	Add get_makefile_extract_function function
+
+2010-01-15  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools):
+	Add eautopoint function
+
+2010-01-13  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng-gnome2):
+	Add ruby-ng-gnome2.eclass
+
+2010-01-11  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-base):
+	Add base.eclass
+
+2010-01-07  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-module):
+	Add texlive-module.eclass
+
+2009-12-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-run-command): Use file-relative-name,
+	to make it work for ebuild files on remote systems.
+
+2009-12-27  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_generate_wrapper_scripts and python_set_active_version
+	functions
+	(ebuild-mode-keywords-qt4-build): Add qt4-build eclass
+
+2009-12-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem):
+	Add ruby-fakegem eclass
+	(ebuild-mode-keywords-ruby-ng): Add ruby-ng eclass
+	(ebuild-mode-keywords-git): Add git_submodules function
+
+2009-12-15  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-r2): Add new
+	eclass qt4-r2
+	* ebuild-mode-keywords-kde-meta
+	* ebuild-mode-keywords-kde-functions: Remove obsolete eclasses for
+	KDE 3
+
+2009-12-13  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eutils):
+	Add eshopts_push and eshopts_pop functions
+
+2009-12-01  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.16 released.
+
+2009-12-01  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
+	add tc-getPKG_CONFIG and tc-has-tls functions. remove many
+	obsolete eclasses: check-kernel, db4-fix, games-etmod,
+	games-ut2k4mod, gnustep-funcs, gst-plugins, gtk-sharp-component,
+	mozconfig, x11, 64-bit, kernel-mod, php5-sapi-r3, php-ext
+
+2009-11-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-output):
+	Add is_output_mode function.
+
+2009-11-09  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-ant-2):
+	function java-ant_rewrite-bootclasspath added
+
+2009-10-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-warn):
+	New variable.
+
+	* Makefile (DISTFILES): Omit the Info file from the tarball.
+	(gentoo-syntax.info): Use automatic variable.
+
+2009-10-18  Christian Faulhammer  <fauli@gentoo.org>
+
+	* gentoo-syntax.texi (Top): Describe menu items correctly
+	(gentoo-newsitem-mode): Describe newsitem-mode
+
+2009-10-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_convert_shebangs function
+
+2009-10-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp):
+	Add ELISP_TEXINFO variable.
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-path-manipulation):
+	Add relative_name function.
+
+2009-10-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.15 released.
+
+	* gentoo-syntax.el (gentoo-newsitem-mode): Fix typo.
+
+2009-10-06  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions):
+	add_blocker, block_other_slots and add_kdebase_dep are new
+	functions
+
+2009-10-04  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic):
+	add no-as-needed function
+
+2009-10-03  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-games-mods):
+	Changes for updated eclass
+
+2009-09-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-hook, eselect-mode-hook):
+	Move adding of font-lock keywords into mode hooks.
+
+2009-09-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (gentoo-newsitem-font-lock-keywords)
+	(gentoo-newsitem-mode, gentoo-newsitem-insert-skeleton)
+	(gentoo-newsitem-mode-map, gentoo-newsitem-mode-menu):
+	New mode for editing of GLEP 42 news item files.
+	(auto-mode-alist): Add filename pattern for news items.
+
+	* Version 1.14 released.
+
+	* gentoo-syntax.el (ebuild-mode-licenses): Don't supply a default
+	list if licences can't be read from the Portage tree.
+	(ebuild-mode-use-flags): Allow only space or tab as separators.
+	Fixes issue with Emacs 22, bug 285989.
+
+	* Version 1.13 released.
+
+2009-09-22  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el: Remove highlighting for xfce44.eclass,
+	which is deprecated
+
+2009-09-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (auto-mode-alist): Recognise eblit files.
+
+2009-09-13  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp): Update.
+
+2009-09-07  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info):
+	Add linux-info_get_any_version function
+
+2009-09-01  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions):
+	Add slot_is_at_least
+
+2009-08-31  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info):
+	Add getfilevar_noexec highlighting
+
+2009-08-27  Ulrich Müller  <ulm@gentoo.org>
+
+	* Makefile (DISTFILES): Include Texinfo source in tarball.
+
+	* gentoo-syntax.el (ebuild-mode-eclasses): New variable.
+	(ebuild-mode-insert-skeleton): Ask for inherited eclasses.
+
+2009-08-27  Christian Faulhammer  <fauli@gentoo.org>
+
+	* gentoo-syntax.texi (Functions): Describe ekeyword syntax usage
+	(Functions): Document Portage interaction
+	(eclass-mode): Describe eclass-mode
+	(eselect-mode): Describe eselect-mode
+
+2009-08-26  Christian Faulhammer  <fauli@gentoo.org>
+
+	* gentoo-syntax.texi (Functions): Describe how to start an ebuild
+	from scratch
+	(Functions): Describe keywording possibilities
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp): Add ebuild
+	phases to highlighted keywords from elisp.eclass
+
+2009-08-25  Christian Faulhammer  <fauli@gentoo.org>
+
+	* gentoo-syntax.texi: Add new Info manual
+	* Makefile: Generate Info file and add it on tarball generation
+
+2009-08-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-multilib):
+	Change font to font-lock-type-face.
+
+2009-08-21  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el:
+	* eselect-mode-keywords.el: Add no-byte-compile to file variables.
+	These files are loaded by gentoo-syntax.el at compile time,
+	therefore the .elc files are not needed at run time.
+
+	* gentoo-syntax.el (ebuild-mode-portdir): New variable.
+	(ebuild-mode-licenses, ebuild-mode-use-flags): New variables,
+	initialised from license and profile directories of Portage tree.
+	(ebuild-mode-restrict-list): New variable.
+	(ebuild-mode-arch-list): Initialise from profile directory.
+	(ebuild-mode-arch-stable-list): Variable removed.
+	(ebuild-mode-insert-skeleton): Interactively ask for values.
+	Move function behind mode definitions and completion code.
+	(ebuild-mode-menu): Add ebuild-mode-insert-skeleton to menu.
+	(ebuild-mode-all-keywords-unstable): New function for this very
+	common operation, bind to C-c C-b key (mnemonics: "bump").
+
+2009-08-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-make-keywords-list): Increase
+	max-specpdl-size to avoid an error in regexp-opt for Emacs 21.
+	At present, a minimum value of 650 is needed (while it is only
+	600 in Emacs 21).
+
+2009-08-20  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions),
+	(ebuild-mode-keywords-kde4-base),
+	(ebuild-mode-keywords-kde4-meta): Add new functions for KDE 4
+	eclasses
+
+	* gentoo-syntax.el (ebuild-mode-insert-skeleton): Add new function
+	which inserts a skeleton ebuild on C-c C-n.  Code example taken
+	in parts from skel.ebuild.
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add keywords from reworked python.eclass
+
+2009-08-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-font-lock-keywords)
+	(eselect-mode-font-lock-keywords): It is more efficient to collect
+	all keywords for a font first, before computing their regexp.
+	Thanks to Elias Pipping for pointing this out.
+	(ebuild-mode-collect-equal-cdrs): New function.
+	(ebuild-mode-make-keywords-list): Define also at compile time.
+
+2009-08-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	python_makesym is not used anymore, thus remove
+
+2009-08-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-config)
+	(eselect-mode-keywords-core, eselect-mode-keywords-manip)
+	(eselect-mode-keywords-multilib, eselect-mode-keywords-output)
+	(eselect-mode-keywords-package-manager)
+	(eselect-mode-keywords-path-manipulation)
+	(eselect-mode-keywords-tests): New function names and update
+	according to doc/developer-guide.txt of current eselect version.
+
+2009-07-30  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Warn on
+	bindnow-flags usage
+
+2009-05-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.12 released.
+
+2009-05-24  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-sort-keywords): Change sorting
+	order, reflecting a change in gentoolkit-dev.
+
+2009-05-05  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-deprecated):
+	Add prepalldocs, dosed and dohard, as we don't want to encourage
+	people.
+
+2009-04-12  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2-utils):
+	Add gnome2_gconf_savelist and gnome2_icon_savelist functions, and
+	some corrections.
+
+2009-03-12  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-rpm):
+	add rpm_spec_epatch function
+	(ebuild-mode-keywords-cmake-utils): add support for cmake-utils.eclass
+
+2009-03-09  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2):
+	Add gnome2_src_unpack function
+
+2009-03-06  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-perl-module):
+	updatepod() has been pruned from the perl-module eclass.
+
+2009-01-27  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-before-save): New hook function,
+	collecting all actions to be done before saving.
+	(ebuild-mode, eselect-mode): Call it.
+
+2009-01-24  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic):
+	add append-cxxflags() function
+
+2009-01-19  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-go-mono):
+	Add new go-mono.eclass
+	(ebuild-mode-keywords-mono): Add new mono.eclass
+
+2009-01-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.11 released.
+
+2009-01-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* Makefile (PV): Extract PV from lisp instead of ChangeLog, so
+	that I won't forget updating it anymore (it was wrong in 1.10).
+
+	* gentoo-syntax.el: Update version number and copyright years.
+	(ebuild-mode-menu): Define variable to avoid a compiler warning.
+	(ebuild-mode-ekeyword-complete): Account for completion-boundaries
+	in GNU Emacs 23. Substitute the test-completion function in case
+	it is undefined (it's missing in Emacs 21 and XEmacs). Don't use
+	character classes in regexps since XEmacs doesn't support them.
+
+2009-01-04  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el: join the two independent kde function
+	definitions
+
+2008-12-30  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2):
+	Add EANT_NEEDS_TOOLS variable
+
+2008-12-27  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.10 released.
+
+2008-11-14  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gems):
+	Add gems.eclass' functions
+
+2008-10-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-font-lock-keywords)
+	(eselect-mode-font-lock-keywords): Move definitions from
+	{ebuild,eselect}-mode-keywords.el to here to avoid warnings
+	during byte-compilation.
+
+2008-10-27  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	add python_need_rebuild function
+	(ebuild-mode-keywords-autotools): add WANT_AUTOCONF and
+	WANT_AUTOMAKE variables
+	(ebuild-mode-keywords-gnome2): add DOCS variable
+
+2008-10-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-font-lock-keywords):
+	Determine list of variables from obarray.
+
+	* eselect-mode-keywords.el (eselect-mode-font-lock-keywords):
+	Likewise.
+
+2008-10-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Move face
+	definitions to individual variables.
+	(ebuild-mode-font-lock-keywords): New variable; move actual call
+	of font-lock-add-keywords to gentoo-syntax.el.
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-*)
+	(eselect-mode-font-lock-keywords): Likewise.
+
+	* gentoo-syntax.el (ebuild-mode-menu): Remove pointless submenus
+	for keyword manipulation.
+	(ebuild-mode-arch-regexp): Rename from ebuild-mode-keywords-regexp
+	to avoid confusion with variables for syntactic keywords.
+
+2008-10-22  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-eclass-documentation): add documentation
+	strings of eclasses.  Still needs some work as comment-face will
+	always override it
+	(ebuild-mode-keywords-bzr): add bzr.eclass functions, though not
+	officially in the tree, it will get there soon
+
+2008-10-21  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-mercurial): add mercurial_fetch()
+	(ebuild-mode-keywords-git): add git_fetch() and git_bootstrap
+	(ebuild-mode-keywords-subversion): rename subversion_svn_fetch()
+	to subversion_fetch() (eclass has changed)
+	(ebuild-mode-keywords-distutils): add distutils_src_unpack() as it
+	is used sometimes
+	(ebuild-mode-keywords-python): add python_get_{lib,site}dir
+	(ebuild-mode-keywords-functions-eapi2): Add functions introduced
+	with EAPI=2
+	(ebuild-mode-keywords-functions-default): Add default functions
+	introduced with EAPI=2
+
+2008-10-19  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-make-keywords-list): Revert change
+	of 2008-09-26, not compatible with XEmacs and Emacs <=21
+
+2008-10-19  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode, eselect-mode): Remove explicit
+	"run-hooks", since major mode hooks are already implicitely called
+	and would therefore run twice.
+	(ebuild-mode-hook, eselect-mode-hook): Don't define.
+	(font-lock): Require, needed for XEmacs.
+
+2008-10-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-action-alist): New variable.
+	(ebuild-mode-keyword): Use it.
+	(ebuild-mode-menu): Add submenus for ebuild commands and for
+	keyword manipulation.
+
+2008-10-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (easymenu): Require.
+	(ebuild-mode-menu): Add menu support for both Emacs and XEmacs.
+	(ebuild-mode): Activate the menu.
+
+2008-09-26  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-make-keywords-list): \< \> around
+	a regexp can be obtained via paren option of regexp-opt
+
+2008-09-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-deprecated):
+	New variable.
+	(ebuild-mode-keywords-elisp-common): Deprecate "elisp-comp".
+
+2008-09-07  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Add EAPI
+	variable, so it gets highlighted
+	Remove all occurrences of PHP 4 functions
+
+2008-05-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.9 released.
+
+2008-03-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (sh-script): Require sh-script, in order to
+	quieten the byte-compiler.
+	(ebuild-mode, eselect-mode): Call make-local-hook only for XEmacs.
+	(ebuild-mode-get-keywords): Don't use match-string-no-properties
+	since the function doesn't exist in XEmacs 21.4.
+
+2008-02-24  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-arch-stable-list)
+	(ebuild-mode-arch-list): Move mips to unstable, remove ppc-macos.
+
+2008-02-21  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-pam):
+	Change "pamd_mimic_system" in "pamd_mimic".
+
+2007-12-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.8 released.
+
+2007-11-26  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-run-echangelog): Fix bug that the
+	default directory was still the one from the previous command.
+
+2007-11-24  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el, eselect-mode-keywords.el:
+	New files, split off from gentoo-syntax.el.
+	* Makefile (DISTFILES): Add new files.
+
+	* gentoo-syntax.el: Move keyword lists to new files and load them.
+	(ebuild-mode-keyword): Ask first for the action, then for the
+	architecture. Suggestion by Flameeyes.
+	(ebuild-run-echangelog): New function, support for echangelog.
+
+2007-11-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-run-command): Bug fix, use
+	ebuild-commands-list instead of alist.
+	(ebuild-mode-keyword, ebuild-mode-ekeyword-complete)
+	(ebuild-mode-ekeyword): New functions, rewritten user interface.
+	(ebuild-mode-map): Keybindings adapted accordingly.
+	(ebuild-mode-keyword-stable, ebuild-mode-keyword-unstable)
+	(ebuild-mode-keyword-mask, ebuild-mode-keyword-drop):
+	Functions removed.
+
+2007-11-11  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-get-keywords)
+	(ebuild-mode-put-keywords, ebuild-mode-sort-keywords)
+	(ebuild-mode-modify-keywords, ebuild-mode-keyword-stable)
+	(ebuild-mode-keyword-unstable, ebuild-mode-keyword-mask)
+	(ebuild-mode-keyword-drop):
+	New functions for package keyword modification.
+	(ebuild-mode-arch-stable-list, ebuild-mode-arch-list)
+	(ebuild-mode-keywords-regexp): New variables.
+	(ebuild-mode-map): Keybindings for above.
+
+2007-11-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode, eselect-mode): Set shell to bash.
+	(ebuild-commands-list): New variable, replaces previous alist.
+	(ebuild-run-command): Use it.
+	Add local variables block to declare utf-8 encoding.
+
+2007-10-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-common-lisp):
+	Add common-lisp-symlink-asdf, which will obsolete
+	common-lisp-system-symlink.
+
+2007-10-11  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-flag-o-matic)
+	(ebuild-mode-commands-toolchain)
+	(ebuild-mode-commands-fixheadtails)
+	(ebuild-mode-commands-webapp)
+	(ebuild-mode-commands-cvs)
+	(ebuild-mode-commands-bash-completion)
+	(ebuild-mode-commands-vim-plugin)
+	(ebuild-mode-commands-multilib)
+	(ebuild-mode-commands-64-bit)
+	(ebuild-mode-commands-toolchain-funcs)
+	(ebuild-mode-commands-games)
+	(ebuild-mode-commands-subversion)
+	(ebuild-mode-commands-python)
+	(ebuild-mode-commands-check-kernel)
+	(ebuild-mode-commands-distutils)
+	(ebuild-mode-commands-depend-apache)
+	(ebuild-mode-commands-apache-module)
+	(ebuild-mode-commands-gnome2):
+	Added missing functions from marienz' ebuild-mode.
+	Added comment about deprecated eclasses.
+
+2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-functions):
+	Added standard functions of ebuild.sh
+	(ebuild-mode-commands-eutils): Added missing functions from
+	marienz' ebuild-mode
+
+2007-09-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-toolchain-funcs):
+	Remove spurious braces from tc-getBUILD_CC keyword.
+	(ebuild-mode-commands-php-common-r1): Add a space.
+
+2007-09-01  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-map): Remove obsolete "C-c e"
+	keybinding.
+
+	* Version 1.7 released.
+
+2007-07-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-warn): New keyword.
+
+2007-07-05  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-php-ext): New keywords
+	(ebuild-mode-commands-php-pear-r1): New keywords
+	(ebuild-mode-commands-php-sapi): New keywords
+	(ebuild-mode-commands-php4_4-sapi): New keywords
+	(ebuild-mode-commands-php5-sapi-r3): New keywords
+	(ebuild-mode-commands-mysql): New keywords
+	(ebuild-mode-commands-mysql_fx): New keywords
+	(ebuild-mode-commands-kernel-mod): New keywords
+	(ebuild-mode-commands-kernel-2): New keywords
+	(ebuild-mode-commands-games-etmod): New keywords
+	(ebuild-mode-commands-games-mods): New keywords
+	(ebuild-mode-commands-games-q3mod): New keywords
+	(ebuild-mode-commands-games-ut2k4mod): New keywords
+	(ebuild-mode-commands-games): New keywords
+	(ebuild-mode-commands-perl-module): New keywords
+	(ebuild-mode-commands-perl-app): New keywords
+
+2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-vim): New keywords
+	(ebuild-mode-commands-vim-doc): New keywords
+	(ebuild-mode-commands-vim-plugin): New keywords
+	(ebuild-mode-commands-xfce44): New keywords
+	(ebuild-mode-commands-db): New keywords
+	(ebuild-mode-commands-db-use): New keywords
+	(ebuild-mode-commands-db4-fix): New keywords
+	(ebuild-mode-commands-mozilla-launcher): New keywords
+	(ebuild-mode-commands-mozconfig): New keywords
+	(ebuild-mode-commands-mozconfig-2): New keywords
+	(ebuild-mode-commands-mozcoreconf): New keywords
+	(ebuild-mode-commands-mozextensions): New keywords
+	changed version number to 1.7-pre and changed Copyright date
+	(ebuild-mode): reordered: sandbox commands to top
+	(ebuild-mode-commands-toolchain): New keywords
+	(ebuild-mode-commands-toolchain-funcs): New keywords
+	(ebuild-mode-commands-toolchain-binutils): New keywords
+	(ebuild-mode-commands-gnustep-funcs): New keywords
+	(ebuild-mode-commands-gst-plugins): New keywords
+	(ebuild-mode-commands-gst-plugins10): New keywords
+	(ebuild-mode-commands-php-ext-base-r1): New keywords
+	(ebuild-mode-commands-php-common-r1): New keywords
+
+2007-06-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-map): Bind ebuild-run-command to
+	"C-c C-e" since the "C-c letter" sequences are reserved for users.
+
+2007-06-28  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-x11): New keywords
+	(ebuild-mode-commands-confutils): New keywords
+	(ebuild-mode-commands-linux-info): New keywords
+	(ebuild-mode-commands-linux-mod): New keywords
+
+2007-06-27  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-gtk-sharp-component):
+	New keywords
+	(ebuild-mode-commands-qt3): New keywords
+	(ebuild-mode-commands-qt4): New keywords
+	(ebuild-mode-commands-kde-functions): New keywords
+	(ebuild-mode-commands-kde-meta): New keywords
+	(ebuild-mode-commands-kde): New keywords
+	(ebuild-mode-commands-libtool): New keywords
+	(ebuild-mode-commands-cron): New keywords
+	(ebuild-mode-commands-darcs): New keywords
+	(ebuild-mode-commands-nsplugin): New keywords
+	(ebuild-mode-commands-latex-package): New keywords
+	(ebuild-mode-commands-freebsd): New keywords
+
+2007-06-25  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-common-lisp-common-3):
+	new class of functions
+	(ebuild-mode-commands-common-lisp-common): new class of functions
+	(ebuild-mode-commands-common-lisp-common-2): new class of functions
+	(ebuild-mode-commands-elisp-common): new class of functions
+	(ebuild-mode-commands-ruby): new class of functions
+	(ebuild-mode): added all above new functions to keyword list
+
+2007-06-24  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el: removed some comments
+	(ebuild-mode-commands-elisp-common): renamed from elisp to
+	elisp-common
+	(ebuild-mode-commands-elisp): NEED_EMACS as keyword in new class
+	-elisp, only variable that needs highlighting
+	(ebuild-mode-commands-scm): deleted
+	(ebuild-mode-commands-cvs): new split-off from -scm
+	(ebuild-mode-commands-subversion): new split-off from -scm
+	(ebuild-mode-commands-git): new split-off from -scm
+	(ebuild-mode-commands-mercurial): new split-off from -scm
+	(ebuild-mode-commands-rpm): new split-off from -scm
+	(ebuild-mode-commands-python): new class of functions for
+	python.eclass
+	(ebuild-mode): added all above new functions to keyword list
+
+2007-06-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-tabify): Code copied from Emacs 22
+	function for XEmacs compatibility.
+	(ebuild-mode, eselect-mode): Explicitely make write-contents-hooks
+	local, for XEmacs compatibility.
+	(delete-trailing-whitespace): If not bound, then define it.
+	Add autoload cookies.
+
+2007-06-21  Ulrich Müller  <ulm@gentoo.org>
+
+	* Version 1.6 released.
+
+	* gentoo-syntax.el: Rename file.
+	(interpreter-mode-alist): Syntax highlighting for Gentoo init
+	scripts, as suggested by John R. Graham
+	<john_r_graham@mindspring.com> in bug #182636.
+	(ebuild-mode): Provide for backwards compatibility.
+
+2007-06-19  Christian Faulhammer  <opfer@gentoo.org>
+
+	* put keywords from -java and -misc in separate classes so they
+	are properly ordered
+	* added keywords for versionator eclass
+
+2007-06-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode, eselect-mode): Use mapcar for
+	font-lock keyword assignments.
+
+2007-06-18  Christian Faulhammer  <opfer@gentoo.org>
+
+	* added keywords for:
+	pam, git, cvs, subversion, multilib, autotools, rpm, mercurial,
+	alternatives, java-ant-2, java-utils-2, fdo-mime,
+	bash-completion, gnome2-utils
+	* reordered keywords for:
+	eutils
+
+2007-06-11  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode, eselect-mode): Do not quote faces.
+
+2007-06-11  Christian Faulhammer  <opfer@gentoo.org>
+
+	* added missing quotes in eselect highlighting
+
+2007-06-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode, eselect-mode): Use
+	write-contents-hooks instead of write-file-functions for Emacs 21
+	and XEmacs compatibility. Move call of font-lock-add-keywords out
+	of function definition.
+
+2007-06-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-map): Fix key definition.
+	(ebuild-run-command): Use compile instead of start-process;
+	inspired by ebuild-mode-marienz.el.
+	(auto-mode-alist): Add elements for ebuild-mode and eselect-mode.
+
+2007-06-06  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-commands-alist): New variable.
+	(ebuild-mode-run-command): Function reworked. Use completing-read
+	for completion of commands.
+	(ebuild-mode-map): Define sparse keymap.
+	(ebuild-mode-commands-elisp): elisp-emacs-major-version replaced
+	by elisp-emacs-version.
+
+2007-06-01  Christian Faulhammer  <opfer@gentoo.org>
+
+	* added elisp-emacs-major-version() and elisp-make-autoload-file()
+	to highlighted keywords in elisp group
+
+	* renamed command groups 0 to sandbox and 1 to eclass to reflect
+	their offspring in the name
+
+2007-05-26  Ulrich Müller  <ulm@gentoo.org>
+
+	* Makefile: New file.
+
+2007-05-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-tabify): Tabify whitespace only at
+	beginning of lines.
+
+2007-05-23  Christian Faulhammer  <opfer@gentoo.org>
+
+	* group 3 now is named flag-o-matic, group 4 renamed to elisp to
+	reflect source of them
+
+	* changed version to 1.6
+
+2007-03-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el: version 1.5
+
+2007-03-19  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (sh-must-be-shell-mode): Make TAB key work in
+	Emacs 21.
+
+2007-03-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-commands-0): Sort keywords in
+	alphabetical order. Duplicate keyword "into" removed.
+
+2007-03-16  Christian Faulhammer  <opfer@gentoo.org>
+
+	* should really add elisp-* functions
+
+2007-03-15  Christian Faulhammer  <opfer@gentoo.org>
+
+	* functions from elisp-common.eclass, flag-o-matic.eclass,
+	some from eutils.eclass added to highlighted keywords
+
+	* keywords grouped by type (not yet finished)
+
+	* version 1.4
+
+Distributed under the terms of the GNU General Public License v2 or later

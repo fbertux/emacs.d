@@ -585,6 +585,11 @@
 ** Bitbake
 
 #+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/ebuild-mode-1.50")
+(load "ebuild-mode.el")
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
   (use-package mmm-mode
     :config (require 'mmm-mode))
 
