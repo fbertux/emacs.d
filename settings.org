@@ -65,10 +65,13 @@
   (if (system-is-desktop)
       (set-frame-font "Source Code Pro-12" nil t))
 
-(use-package doom-themes
-  :config
-  (load-theme 'doom-one t)
-  (doom-themes-org-config))
+  (use-package zenburn-theme
+    :config
+    (setq zenburn-use-variable-pitch t)
+    (setq zenburn-scale-org-headlines t)
+    (setq zenburn-scale-outline-headlines t)
+    (load-theme 'zenburn t))
+
 #+END_SRC
 
 *** Use a thin window divider in terminal
