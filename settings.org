@@ -466,6 +466,18 @@
     (setq org-image-actual-width 600)
     (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
     (setq org-src-fontify-natively t)
+    (setq org-latex-listings 'minted
+        org-latex-packages-alist '(("" "minted"))
+        org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")
+        org-latex-minted-options '(("breaklines" "true")
+                                   ("breakanywhere" "true")
+                                   ("fontsize" "\\footnotesize")
+                                   ("bgcolor" "white")
+                                   ("obeytabs" "true")))
+
     (org-babel-do-load-languages
      'org-babel-load-languages
      '(
