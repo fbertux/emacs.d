@@ -130,6 +130,13 @@
   (setq tab-always-indent 'complete)
 #+END_SRC
 
+*** Live reload of the settings, from inside of the Emacs
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c i")
+                  (lambda()(interactive)
+                    (org-babel-load-file "~/.emacs.d/settings.org")))
+#+END_SRC
+
 ** Encoding
 
 #+BEGIN_SRC emacs-lisp
