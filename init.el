@@ -21,7 +21,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-guru go-eldoc go-mode latex-preview-pane auctex pdf-tools mmm-mode sane-term ox-hugo ob-async htmlize smex flx-ido aggressive-indent yaml-mode systemd pkgbuild-mode json-mode dts-mode dockerfile-mode forge git-gutter git-timemachine magit flycheck company undo-tree ws-butler smartparens rainbow-delimiters expand-region browse-kill-ring projectile gnu-elpa-keyring-update diminish zenburn-theme use-package))))
+    (qt-pro-mode go-guru go-eldoc go-mode latex-preview-pane auctex pdf-tools mmm-mode sane-term ox-hugo ob-async htmlize smex flx-ido aggressive-indent yaml-mode systemd pkgbuild-mode json-mode dts-mode dockerfile-mode forge git-gutter git-timemachine magit flycheck company undo-tree ws-butler smartparens rainbow-delimiters expand-region browse-kill-ring projectile gnu-elpa-keyring-update diminish zenburn-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

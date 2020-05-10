@@ -401,6 +401,9 @@
     :init (require 'yaml-mode))
 
   (use-package aggressive-indent)
+
+  (use-package qt-pro-mode
+    :mode ("\\.pro\\'" "\\.pri\\'"))
 #+END_SRC
 
 ** Navigation
