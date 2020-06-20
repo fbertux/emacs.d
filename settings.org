@@ -575,6 +575,16 @@
   :after ox)
 #+END_SRC
 
+*** Org Journal
+- [[https://github.com/bastibe/org-journal][org-journal]]
+#+BEGIN_SRC emacs-lisp
+  (use-package org-journal
+    :defer t
+    :config
+    (setq org-journal-dir "~/org/journal/"
+          org-journal-date-format "%A, %d %B %Y"))
+#+END_SRC
+
 *** References:
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
