@@ -170,6 +170,11 @@
   (setq column-number-mode t)
 #+END_SRC
 
+** Display a more compact mode line
+#+BEGIN_SRC emacs-lisp
+  (use-package smart-mode-line)
+#+END_SRC
+
 ** Projectile
 
 #+BEGIN_SRC emacs-lisp
