@@ -901,4 +901,8 @@ point reaches the beginning or end of the buffer, stop there."
     (setq markdown-command "multimarkdown")
     (setq-default fill-column 80))
 #+END_SRC
-.
+
+** Restore gc-cons-threshold
+#+BEGIN_SRC emacs-lisp
+  (setq gc-cons-threshold (* 2 1000 1000))
+#+END_SRC
