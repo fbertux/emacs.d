@@ -179,6 +179,7 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
+    :defer t
     :diminish projectile-mode
     :config
     (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
@@ -188,7 +189,9 @@
 ** Spelling
 
 #+BEGIN_SRC emacs-lisp
-  (use-package flyspell :diminish flyspell-mode)
+  (use-package flyspell
+    :defer t
+    :diminish flyspell-mode)
 #+END_SRC
 
 ** Custom Keybindings
@@ -320,6 +323,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package whitespace
+    :defer t
     :diminish global-whitespace-mode
     :init
     (setq whitespace-style
@@ -327,30 +331,36 @@ point reaches the beginning or end of the buffer, stop there."
     (global-whitespace-mode 1))
 
   (use-package browse-kill-ring
+    :defer t
     :init
     (browse-kill-ring-default-keybindings))
 
   (use-package expand-region
+    :defer t
     :bind
     ("M-=" . er/expand-region))
 
   (use-package rainbow-delimiters
+    :defer t
     :init
     (progn
       (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)))
 
   (use-package smartparens
+    :defer t
     :diminish smartparens-mode
     :config
     (show-smartparens-global-mode +1)
     (smartparens-global-mode 1))
 
   (use-package ws-butler
+    :defer t
     :diminish ws-butler-mode
     :config
     (ws-butler-global-mode t))
 
   (use-package undo-tree
+    :defer t
     :diminish undo-tree-mode
     :config
     (progn
@@ -363,6 +373,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package company
+    :defer t
     :diminish company-mode
     :init
     (add-hook 'after-init-hook 'global-company-mode)
@@ -382,6 +393,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
+    :defer t
     :diminish flycheck-mode
     :init (global-flycheck-mode))
 #+END_SRC
@@ -392,6 +404,7 @@ point reaches the beginning or end of the buffer, stop there."
   (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
 
   (use-package magit
+    :defer t
     :init
     (global-git-commit-mode)
     (add-hook 'git-commit-mode-hook 'flyspell-mode)
@@ -404,10 +417,12 @@ point reaches the beginning or end of the buffer, stop there."
     ("C-x g" . magit-status))
 
   (use-package git-timemachine
+    :defer t
     :bind
     ("C-c g" . git-timemachine))
 
   (use-package git-gutter
+    :defer t
     :diminish git-gutter-mode
     :init
     (global-git-gutter-mode +1)
@@ -415,6 +430,7 @@ point reaches the beginning or end of the buffer, stop there."
               #'git-gutter:update-all-windows))
 
   (use-package forge
+    :defer t
     :after magit)
 #+END_SRC
 
@@ -422,26 +438,34 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package dockerfile-mode
+    :defer t
     :init (require 'dockerfile-mode))
 
   (use-package dts-mode
+    :defer t
     :init (require 'dts-mode))
 
   (use-package json-mode
+    :defer t
     :init (require 'json-mode))
 
   (use-package pkgbuild-mode
+    :defer t
     :init (require 'pkgbuild-mode))
 
   (use-package systemd
+    :defer t
     :init (require 'systemd))
 
   (use-package yaml-mode
+    :defer t
     :init (require 'yaml-mode))
 
-  (use-package aggressive-indent)
+  (use-package aggressive-indent
+    :defer t)
 
   (use-package qt-pro-mode
+    :defer t
     :mode ("\\.pro\\'" "\\.pri\\'"))
 #+END_SRC
 
@@ -482,9 +506,11 @@ point reaches the beginning or end of the buffer, stop there."
 *** Org package configuration
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
+    :defer t
     :init (require 'htmlize))
 
   (use-package ob-async
+    :defer t
     :config
     (require 'ob-async))
 
@@ -496,7 +522,8 @@ point reaches the beginning or end of the buffer, stop there."
     (add-to-list 'ispell-skip-region-alist '("=" "="))
     (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
 
-  (use-package org :defer
+  (use-package org
+    :defer t
     :init
     (add-hook 'org-mode-hook 'turn-on-flyspell)
     (add-hook 'org-mode-hook #'endless/org-ispell)
@@ -611,6 +638,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
 (use-package ox-hugo
+  :defer t
   :after ox)
 #+END_SRC
 
@@ -641,6 +669,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package sane-term
+    :defer t
     :if window-system
     :bind
     ("C-x t" . sane-term)
@@ -720,10 +749,11 @@ point reaches the beginning or end of the buffer, stop there."
 ** C/C++
 
 #+BEGIN_SRC emacs-lisp
-  (use-package aggressive-indent)
+  (use-package aggressive-indent
+    :defer t)
 
   (use-package cc-mode
-    :defer
+    :defer t
     :config
     (c-set-offset 'case-label '+)
     (setq-default c-basic-offset 4))
@@ -765,6 +795,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
+    :defer t
     :if window-system
     :config
     (pdf-tools-install)
@@ -843,6 +874,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package auctex
+    :defer t
     :preface
     (defun apm-latex-mode-setup ()
       "Tweaks and customisations for LaTeX mode."
@@ -853,7 +885,6 @@ point reaches the beginning or end of the buffer, stop there."
       (setq-local company-backends
                   (append '((company-math-symbols-latex company-latex-commands))
                           company-backends)))
-    :defer t
     :commands (LaTeX-math-mode TeX-source-correlate-mode)
     :mode ("\\.tex\\'" . LaTeX-mode)
     :hook
@@ -867,13 +898,15 @@ point reaches the beginning or end of the buffer, stop there."
     (setq-default flyspell-mode t)
     (setq-default TeX-source-correlate-start-server t))
 
-  (use-package latex-preview-pane)
+  (use-package latex-preview-pane
+    :defer t)
 #+END_SRC
 
 ** Go
 
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
+    :defer t
     :init (add-hook 'go-mode-hook
                     (lambda ()
                       (setq gofmt-command "goimports")
@@ -883,9 +916,11 @@ point reaches the beginning or end of the buffer, stop there."
                       (setq tab-width 4))))
 
   (use-package go-eldoc
+    :defer t
     :init (add-hook 'go-mode-hook 'go-eldoc-setup))
 
   (use-package go-guru
+    :defer t
     :init (add-hook 'go-mode-hook 'go-guru-hl-identifier-mode))
 #+END_SRC
 
@@ -893,6 +928,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode
+    :defer t
     :mode
     (("README\\.md\\'" . gfm-mode)
      ("\\.md\\'" . markdown-mode)
