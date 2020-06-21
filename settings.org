@@ -797,7 +797,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
-    :defer t
+    :magic ("%PDF" . pdf-view-mode)
     :if window-system
     :config
     (pdf-tools-install)
