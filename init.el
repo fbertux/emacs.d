@@ -3,9 +3,8 @@
 ;;; Code:
 
 ;;; Early settings
+(setq gc-cons-threshold (* 100 1024 1024))
 (menu-bar-mode -1)
-(setq gc-cons-threshold 67108864)
-(setq large-file-warning-threshold 100000000)
 (setq package-enable-at-startup nil)
 (setq site-run-file nil)
 (unless (display-graphic-p)
