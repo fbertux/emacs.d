@@ -128,6 +128,8 @@
 
   (setq require-final-newline t)
   (setq tab-always-indent 'complete)
+
+  (setq large-file-warning-threshold nil)
 #+END_SRC
 
 *** Live reload of the settings, from inside of the Emacs
