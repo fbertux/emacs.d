@@ -624,6 +624,12 @@ point reaches the beginning or end of the buffer, stop there."
           org-journal-date-format "%A, %d %B %Y"))
 #+END_SRC
 
+*** Org-Noter
+#+BEGIN_SRC emacs-lisp
+  (use-package org-noter
+    :defer t)
+#+END_SRC
+
 *** References:
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
