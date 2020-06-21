@@ -352,8 +352,11 @@ point reaches the beginning or end of the buffer, stop there."
 
   (use-package undo-tree
     :diminish undo-tree-mode
-    :init
-    (global-undo-tree-mode))
+    :config
+    (progn
+      (global-undo-tree-mode)
+      (setq undo-tree-visualizer-timestamps t)
+      (setq undo-tree-visualizer-diff t)))
 #+END_SRC
 
 ** Company
