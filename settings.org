@@ -181,7 +181,6 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
-    :defer t
     :diminish projectile-mode
     :config
     (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
