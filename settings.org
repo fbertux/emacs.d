@@ -659,6 +659,15 @@ point reaches the beginning or end of the buffer, stop there."
     :defer t)
 #+END_SRC
 
+*** Org GitHub Markdown
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-gfm
+    :defer t
+    :after org
+    :init
+    (require 'ox-gfm nil t))
+#+END_SRC
+
 *** References:
 - https://superuser.com/questions/695096/how-to-enable-flyspell-in-org-mode-by-default
 - https://endlessparentheses.com/ispell-and-org-mode.html
