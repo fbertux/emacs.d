@@ -361,7 +361,6 @@ point reaches the beginning or end of the buffer, stop there."
     (ws-butler-global-mode t))
 
   (use-package undo-tree
-    :defer t
     :diminish undo-tree-mode
     :config
     (progn
