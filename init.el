@@ -20,7 +20,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ox-gfm zenburn-theme yaml-mode ws-butler use-package undo-tree systemd smex smartparens smart-mode-line sane-term rainbow-delimiters qt-pro-mode projectile pkgbuild-mode pdf-tools ox-hugo org-noter org-journal ob-async mmm-mode latex-preview-pane json-mode htmlize go-guru go-eldoc gnu-elpa-keyring-update git-timemachine git-gutter forge flycheck flx-ido expand-region dts-mode dockerfile-mode diminish company browse-kill-ring auctex aggressive-indent))))
+    (ox-gfm zenburn-theme yaml-mode ws-butler use-package undo-tree systemd smex smartparens sane-term rainbow-delimiters qt-pro-mode projectile pkgbuild-mode pdf-tools ox-hugo org-noter org-journal ob-async mmm-mode latex-preview-pane json-mode htmlize go-guru go-eldoc gnu-elpa-keyring-update git-timemachine git-gutter forge flycheck flx-ido expand-region dts-mode dockerfile-mode diminish company browse-kill-ring auctex aggressive-indent))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
