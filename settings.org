@@ -66,7 +66,7 @@
       (set-frame-font "Source Code Pro-12" nil t))
 
   (use-package zenburn-theme
-    :config
+    :init
     (setq zenburn-use-variable-pitch t)
     (setq zenburn-scale-org-headlines t)
     (setq zenburn-scale-outline-headlines t)
