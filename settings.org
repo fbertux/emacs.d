@@ -642,6 +642,8 @@ point reaches the beginning or end of the buffer, stop there."
 #+BEGIN_SRC emacs-lisp
   (use-package org-journal
     :defer t
+    :bind
+    ("C-c j n" . org-journal-new-entry)
     :config
     (setq org-journal-dir "~/org/journal/"
           org-journal-date-format "%A, %d %B %Y"))
