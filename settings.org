@@ -186,7 +186,6 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
-    :defer t
     :diminish flyspell-mode)
 #+END_SRC
 
@@ -319,7 +318,6 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package whitespace
-    :defer t
     :diminish global-whitespace-mode
     :init
     (setq whitespace-style
@@ -327,30 +325,25 @@ point reaches the beginning or end of the buffer, stop there."
     (global-whitespace-mode 1))
 
   (use-package browse-kill-ring
-    :defer t
     :init
     (browse-kill-ring-default-keybindings))
 
   (use-package expand-region
-    :defer t
     :bind
     ("M-=" . er/expand-region))
 
   (use-package rainbow-delimiters
-    :defer t
     :init
     (progn
       (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)))
 
   (use-package smartparens
-    :defer t
     :diminish smartparens-mode
     :config
     (show-smartparens-global-mode +1)
     (smartparens-global-mode 1))
 
   (use-package ws-butler
-    :defer t
     :diminish ws-butler-mode
     :config
     (ws-butler-global-mode t))
@@ -388,7 +381,6 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
-    :defer t
     :diminish flycheck-mode
     :init (global-flycheck-mode))
 #+END_SRC
@@ -425,7 +417,6 @@ point reaches the beginning or end of the buffer, stop there."
               #'git-gutter:update-all-windows))
 
   (use-package forge
-    :defer t
     :after magit)
 #+END_SRC
 
@@ -455,9 +446,6 @@ point reaches the beginning or end of the buffer, stop there."
   (use-package yaml-mode
     :defer t
     :init (require 'yaml-mode))
-
-  (use-package aggressive-indent
-    :defer t)
 
   (use-package qt-pro-mode
     :defer t
@@ -633,7 +621,6 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
 (use-package ox-hugo
-  :defer t
   :after ox)
 #+END_SRC
 
@@ -755,8 +742,7 @@ point reaches the beginning or end of the buffer, stop there."
 ** C/C++
 
 #+BEGIN_SRC emacs-lisp
-  (use-package aggressive-indent
-    :defer t)
+  (use-package aggressive-indent)
 
   (use-package cc-mode
     :defer t
