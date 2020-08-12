@@ -86,8 +86,9 @@
 
 #+BEGIN_SRC emacs-lisp
   (use-package diminish
-    :config
-    (eval-after-load "eldoc" '(diminish 'eldoc-mode)))
+    :diminish auto-fill-function
+    :diminish eldoc-mode
+    )
 #+END_SRC
 
 ** GNU Elpa Keyring Update
@@ -676,13 +677,12 @@ point reaches the beginning or end of the buffer, stop there."
 ** Bitbake
 
 #+BEGIN_SRC emacs-lisp
-  (use-package bitbake
+  (use-package bitbake-modes
     :defer t
-    :init
-    (add-to-list 'auto-mode-alist '("\\.bb\\'" . bitbake-mode))
-    (add-to-list 'auto-mode-alist '("\\.bbappend\\'" . bitbake-mode))
-    (add-to-list 'auto-mode-alist '("\\.bbclass\\'" . bitbake-mode))
-    (add-to-list 'auto-mode-alist '("\\.inc\\'" . bitbake-mode))
+    )
+
+  (use-package mmm-mode
+    :diminish mmm-mode
     )
 #+END_SRC
 
