@@ -432,7 +432,7 @@ point reaches the beginning or end of the buffer, stop there."
     :init (require 'dts-mode))
 
   (use-package json-mode
-    :defer t
+    :mode ("\\.uhupkg.config\\'")
     :init (require 'json-mode))
 
   (use-package pkgbuild-mode
