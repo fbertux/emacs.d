@@ -678,6 +678,7 @@ point reaches the beginning or end of the buffer, stop there."
 #+BEGIN_SRC emacs-lisp
   (use-package bitbake-modes
     :defer t
+    :init (setq mmm-bitbake-decoration-level 0)
     )
 
   (use-package mmm-mode
