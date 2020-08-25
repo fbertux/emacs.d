@@ -8,3 +8,4 @@ projectile*
 settings.el
 transient/history.el
 forge-database.sqlite
+tramp
