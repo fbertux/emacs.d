@@ -425,34 +425,27 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package dockerfile-mode
-    :defer t
-    :init (require 'dockerfile-mode))
+    :defer t )
 
   (use-package dts-mode
-    :defer t
-    :init (require 'dts-mode))
+    :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
   (use-package json-mode
-    :mode ("\\.uhupkg.config\\'")
-    :init (require 'json-mode))
+    :mode ("\\.uhupkg.config\\'"))
 
   (use-package pkgbuild-mode
-    :defer t
-    :init (require 'pkgbuild-mode))
+    :defer t )
 
   (use-package systemd
-    :defer t
-    :init (require 'systemd))
+    :defer t )
 
   (use-package yaml-mode
-    :defer t
-    :init (require 'yaml-mode))
+    :mode ("\\.yaml\\'" "\\.yml\\'"))
 
   (use-package qml-mode
     :mode ("\\.qml\\'" ))
 
   (use-package qt-pro-mode
-    :defer t
     :mode ("\\.pro\\'" "\\.pri\\'"))
 #+END_SRC
 
