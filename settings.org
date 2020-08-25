@@ -448,6 +448,9 @@ point reaches the beginning or end of the buffer, stop there."
     :defer t
     :init (require 'yaml-mode))
 
+  (use-package qml-mode
+    :mode ("\\.qml\\'" ))
+
   (use-package qt-pro-mode
     :defer t
     :mode ("\\.pro\\'" "\\.pri\\'"))
