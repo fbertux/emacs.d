@@ -132,6 +132,8 @@
   (setq tab-always-indent 'complete)
 
   (setq large-file-warning-threshold nil)
+
+  (global-hl-line-mode 1)
 #+END_SRC
 
 *** Live reload of the settings, from inside of the Emacs
