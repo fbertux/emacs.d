@@ -782,15 +782,16 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 
 ** C/C++
 
+*** C mode
 #+BEGIN_SRC emacs-lisp
-  (use-package aggressive-indent)
-
   (use-package cc-mode
-    :defer t
     :config
-    (c-set-offset 'case-label '+)
-    (setq-default c-basic-offset 4))
+    (setq c-default-style "k&r")
+    (setq c-basic-offset 4))
+#+END_SRC
 
+*** Custom Linux kernel style
+#+begin_src emacs-lisp
   (defconst linux-kernel
     '((c-basic-offset . 8)
       (c-label-minimum-indentation . 0)
@@ -822,7 +823,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
       (indent-tabs-mode . t)
       (show-trailing-whitespace . t)))
   (c-add-style "linux-kernel" linux-kernel)
-#+END_SRC
+#+end_src
 
 ** PDF
 
