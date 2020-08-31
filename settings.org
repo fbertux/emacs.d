@@ -831,7 +831,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     :magic ("%PDF" . pdf-view-mode)
     :if window-system
     :config
-    (pdf-tools-install)
+    (pdf-loader-install)
     (setq-default pdf-view-display-size 'fit-page)
     (setq pdf-annot-activate-created-annotations t)
     (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
