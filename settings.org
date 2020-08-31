@@ -364,11 +364,9 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package company
-    :defer t
     :diminish company-mode
+    :hook (after-init . global-company-mode)
     :init
-    (add-hook 'after-init-hook 'global-company-mode)
-    :config
     (setq company-idle-delay              nil
           company-dabbrev-downcase          nil
           company-minimum-prefix-length     2
@@ -376,8 +374,9 @@ point reaches the beginning or end of the buffer, stop there."
           company-tooltip-limit             20
           company-tooltip-align-annotations t
           company-lsp-enable-snippet        t)
-    (company-mode)
-    (global-set-key (kbd "TAB") #'company-indent-or-complete-common))
+    :bind
+    (:map prog-mode-map
+          ("<tab>" . company-indent-or-complete-common)))
 #+END_SRC
 
 ** Flycheck
