@@ -87,6 +87,7 @@
   (use-package diminish
     :diminish auto-fill-function
     :diminish eldoc-mode
+    :diminish abbrev-mode
     )
 #+END_SRC
 
