@@ -334,9 +334,8 @@ point reaches the beginning or end of the buffer, stop there."
     ("M-=" . er/expand-region))
 
   (use-package rainbow-delimiters
-    :init
-    (progn
-      (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)))
+    :hook
+    (prog-mode . rainbow-delimiters-mode))
 
   (use-package smartparens
     :diminish smartparens-mode
