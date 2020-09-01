@@ -361,7 +361,7 @@ point reaches the beginning or end of the buffer, stop there."
     :diminish company-mode
     :hook (after-init . global-company-mode)
     :init
-    (setq company-idle-delay              nil
+    (setq company-idle-delay                nil
           company-dabbrev-downcase          nil
           company-minimum-prefix-length     2
           company-show-numbers              t
@@ -925,28 +925,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 
   (use-package latex-preview-pane
     :defer t)
-#+END_SRC
-
-** Go
-
-#+BEGIN_SRC emacs-lisp
-  (use-package go-mode
-    :defer t
-    :init (add-hook 'go-mode-hook
-                    (lambda ()
-                      (setq gofmt-command "goimports")
-                      (add-hook 'before-save-hook 'gofmt-before-save)
-                      (setq truncate-lines t)
-                      (setq indent-tabs-mode t)
-                      (setq tab-width 4))))
-
-  (use-package go-eldoc
-    :defer t
-    :init (add-hook 'go-mode-hook 'go-eldoc-setup))
-
-  (use-package go-guru
-    :defer t
-    :init (add-hook 'go-mode-hook 'go-guru-hl-identifier-mode))
 #+END_SRC
 
 ** Markdown
