@@ -148,7 +148,7 @@
   (set-keyboard-coding-system 'utf-8)
 #+END_SRC
 
-** Ui customizations
+** Ui customization
 
 #+BEGIN_SRC emacs-lisp
   (if (system-is-laptop)
