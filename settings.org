@@ -335,13 +335,10 @@ point reaches the beginning or end of the buffer, stop there."
     :hook
     (prog-mode . rainbow-delimiters-mode))
 
-  (use-package smartparens-config
-    :ensure smartparens
+  (use-package smartparens
+    :diminish smartparens-mode
     :config
-    (progn
-      (show-smartparens-global-mode t)
-      (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-      (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)))
+    (smartparens-global-mode t))
 
   (use-package ws-butler
     :diminish ws-butler-mode
