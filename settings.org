@@ -365,15 +365,14 @@ point reaches the beginning or end of the buffer, stop there."
           company-dabbrev-downcase          nil
           company-minimum-prefix-length     2
           company-show-numbers              t
-          company-tooltip-limit             20
+          company-tooltip-limit             10
           company-tooltip-align-annotations t
           company-lsp-enable-snippet        t)
     :bind
     (:map prog-mode-map
-          ("<tab>" . company-indent-or-complete-common)))
-
-  (setq tab-always-indent 'complete)
-  (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
+          ("<tab>" . company-indent-or-complete-common))
+    :config
+    (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
 #+END_SRC
 
 ** Flycheck
