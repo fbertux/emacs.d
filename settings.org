@@ -499,6 +499,7 @@ point reaches the beginning or end of the buffer, stop there."
 
   (use-package org
     :defer t
+    :diminish org-indent-mode
     :init
     (add-hook 'org-mode-hook 'turn-on-flyspell)
     (add-hook 'org-mode-hook #'endless/org-ispell)
