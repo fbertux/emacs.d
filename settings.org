@@ -839,13 +839,17 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     (define-key pdf-view-mode-map (kbd "D") 'pdf-annot-delete))
 #+END_SRC
 
-** ibuffer
+** Ibuffer
 
+*** General modifications
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-b") 'ibuffer)
 
   (setq ibuffer-expert t)
   (setq ibuffer-show-empty-filter-groups nil)
+
+  (require 'ibuf-ext)
+  (add-to-list 'ibuffer-never-show-predicates "^\\*")
 
   (setq ibuffer-saved-filter-groups
         '(("default"
@@ -890,8 +894,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
              (mode . term-mode)
              (mode . eshell-mode)
              (mode . shell-mode)))
-           ("Emacs"
-            (name . "^\*\.*\*\$"))
            )))
 
   (add-hook 'ibuffer-mode-hook
@@ -900,6 +902,16 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
                (ibuffer-switch-to-saved-filter-groups "default")))
 #+END_SRC
 
+*** Group tramp buffers
+#+BEGIN_SRC emacs-lisp
+(use-package ibuffer-tramp
+  :config
+  (progn
+    (add-hook 'ibuffer-hook
+              (lambda ()
+                (ibuffer-tramp-set-filter-groups-by-tramp-connection)
+                (ibuffer-do-sort-by-alphabetic)))))
+#+END_SRC
 ** Latex
 
 #+BEGIN_SRC emacs-lisp
