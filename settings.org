@@ -371,6 +371,9 @@ point reaches the beginning or end of the buffer, stop there."
     :bind
     (:map prog-mode-map
           ("<tab>" . company-indent-or-complete-common)))
+
+  (setq tab-always-indent 'complete)
+  (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
 #+END_SRC
 
 ** Flycheck
