@@ -373,6 +373,7 @@ point reaches the beginning or end of the buffer, stop there."
           ("<tab>" . company-indent-or-complete-common))
     :config
     (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
+    (delete 'company-clang company-backends))
 #+END_SRC
 
 ** Flycheck
