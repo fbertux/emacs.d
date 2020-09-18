@@ -386,9 +386,15 @@ point reaches the beginning or end of the buffer, stop there."
 
 ** Git
 
+*** Common settings
+
 #+BEGIN_SRC emacs-lisp
   (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
+#+END_SRC
 
+*** Magit
+
+#+BEGIN_SRC emacs-lisp
   (use-package magit
     :defer t
     :init
@@ -396,17 +402,30 @@ point reaches the beginning or end of the buffer, stop there."
     (add-hook 'git-commit-mode-hook 'flyspell-mode)
     (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
     :config
-    (setq magit-commit-arguments (quote ("--signoff")))
-    (setq magit-revert-arguments (quote ("--signoff")))
     (setq magit-diff-refine-hunk t)
     :bind
     ("C-x g" . magit-status))
+#+END_SRC
 
+*** Git timemachine
+
+#+BEGIN_SRC emacs-lisp
   (use-package git-timemachine
     :defer t
     :bind
     ("C-c g" . git-timemachine))
+#+END_SRC
 
+*** Forge
+
+#+BEGIN_SRC emacs-lisp
+  (use-package forge
+    :after magit)
+#+END_SRC
+
+*** Git gutter
+
+#+BEGIN_SRC emacs-lisp
   (use-package git-gutter
     :defer t
     :diminish git-gutter-mode
@@ -415,8 +434,6 @@ point reaches the beginning or end of the buffer, stop there."
     (add-hook 'magit-post-refresh-hook
               #'git-gutter:update-all-windows))
 
-  (use-package forge
-    :after magit)
 #+END_SRC
 
 ** Misc
