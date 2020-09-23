@@ -413,7 +413,6 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package git-timemachine
-    :defer t
     :bind
     ("C-c g" . git-timemachine))
 #+END_SRC
