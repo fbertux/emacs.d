@@ -452,9 +452,6 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 ** Misc
 
 #+BEGIN_SRC emacs-lisp
-  (use-package dockerfile-mode
-    :defer t )
-
   (use-package dts-mode
     :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
@@ -475,6 +472,16 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 
   (use-package qt-pro-mode
     :mode ("\\.pro\\'" "\\.pri\\'"))
+#+END_SRC
+
+** Docker
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dockerfile-mode
+    :defer t )
+
+  (use-package docker-tramp
+    :defer t )
 #+END_SRC
 
 ** Navigation
