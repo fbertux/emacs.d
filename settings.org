@@ -88,6 +88,7 @@
     :diminish auto-fill-function
     :diminish eldoc-mode
     :diminish abbrev-mode
+    :diminish visual-line-mode
     )
 #+END_SRC
 
