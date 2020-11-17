@@ -445,7 +445,6 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 #+BEGIN_SRC emacs-lisp
   (use-package magit-todos
     :after (magit)
-    :hook (magit-mode . magit-todos-mode)
     :init
     (setq magit-todos-exclude-globs '("*.map" "*.html")))
 #+END_SRC
