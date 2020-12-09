@@ -521,11 +521,11 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 *** Org package configuration
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
-    :defer t
+    :after org
     :init (require 'htmlize))
 
   (use-package ob-async
-    :defer t
+    :after org
     :config
     (require 'ob-async))
 
