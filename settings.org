@@ -409,14 +409,6 @@ point reaches the beginning or end of the buffer, stop there."
     :bind ((("C-c g" . magit-file-dispatch))))
 #+END_SRC
 
-*** Git timemachine
-
-#+BEGIN_SRC emacs-lisp
-  (use-package git-timemachine
-    :bind
-    ("C-c g" . git-timemachine))
-#+END_SRC
-
 *** Forge
 
 #+BEGIN_SRC emacs-lisp
