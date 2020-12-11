@@ -406,8 +406,7 @@ point reaches the beginning or end of the buffer, stop there."
     (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
     :config
     (setq magit-diff-refine-hunk t)
-    :bind
-    ("C-x g" . magit-status))
+    :bind ((("C-c g" . magit-file-dispatch))))
 #+END_SRC
 
 *** Git timemachine
