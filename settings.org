@@ -401,7 +401,7 @@ point reaches the beginning or end of the buffer, stop there."
   (use-package magit
     :defer t
     :init
-    (global-git-commit-mode)
+    (require 'git-commit)
     (add-hook 'git-commit-mode-hook 'flyspell-mode)
     (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
     :config
