@@ -31,6 +31,19 @@
     (require 'bind-key))
 #+END_SRC
 
+** exec-path-from-shell - [[https://github.com/purcell/exec-path-from-shell][Project Homepage]]
+
+Make Emacs use the $PATH set up by the user's shell
+
+#+begin_src emacs-lisp
+  (use-package exec-path-from-shell
+    :init
+    (exec-path-from-shell-copy-env "EMACS_JENKINS_API_TOKEN")
+    (exec-path-from-shell-copy-env "EMACS_JENKINS_URL")
+    (exec-path-from-shell-copy-env "EMACS_JENKINS_USERNAME")
+    )
+#+end_src
+
 ** System names
 
 #+BEGIN_SRC emacs-lisp
@@ -1014,6 +1027,19 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 #+begin_src emacs-lisp
   (use-package nix-mode
     :mode "\\.nix\\'")
+#+end_src
+
+** Jenkins - [[https://github.com/rmuslimov/jenkins.el][Project Homepage]]
+
+Jenkins plugin for Emacs
+
+#+begin_src emacs-lisp
+  (use-package jenkins
+    :after exec-path-from-shell
+    :init
+    (setq jenkins-api-token (getenv "EMACS_JENKINS_API_TOKEN"))
+    (setq jenkins-url (getenv "EMACS_JENKINS_URL"))
+    (setq jenkins-username (getenv "EMACS_JENKINS_USERNAME")))
 #+end_src
 
 ** Restore gc-cons-threshold
