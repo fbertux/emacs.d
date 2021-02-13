@@ -5,7 +5,7 @@ bookmarks
 elpa
 ido.last
 projectile*
-settings.el
+README.el
 transient/history.el
 forge-database.sqlite
 tramp
