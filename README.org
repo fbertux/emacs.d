@@ -445,6 +445,9 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 ** Misc
 
 #+BEGIN_SRC emacs-lisp
+  (use-package cmake-mode
+    :mode ("CmakeLists\\.txt'" "\\.cmake\\'"))
+
   (use-package dts-mode
     :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
