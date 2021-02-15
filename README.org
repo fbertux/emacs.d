@@ -168,24 +168,12 @@ Make Emacs use the $PATH set up by the user's shell
 #+BEGIN_SRC emacs-lisp
   (if (system-is-laptop)
       (setq split-width-threshold 120))
-
   (blink-cursor-mode t)
-
   (setq-default cursor-type 'hbar)
   (setq ring-bell-function 'ignore)
   (setq scroll-conservatively 10)
   (setq scroll-margin 7)
-
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-
-  (if (display-graphic-p)
-      (scroll-bar-mode -1))
-
-  (setq inhibit-startup-message t)
-  (setq inhibit-splash-screen t)
   (setq column-number-mode t)
-
   (show-paren-mode 1)
 #+END_SRC
 
