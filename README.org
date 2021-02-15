@@ -43,7 +43,8 @@ Make Emacs use the $PATH set up by the user's shell
 
 #+begin_src emacs-lisp
   (use-package exec-path-from-shell
-    :init
+    :defer 2
+    :config
     (exec-path-from-shell-copy-env "EMACS_JENKINS_API_TOKEN")
     (exec-path-from-shell-copy-env "EMACS_JENKINS_URL")
     (exec-path-from-shell-copy-env "EMACS_JENKINS_USERNAME")
@@ -180,17 +181,18 @@ Make Emacs use the $PATH set up by the user's shell
 
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
-    :diminish projectile-mode
-    :config
-    (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
-    (projectile-mode +1))
+    :bind-keymap
+    ("C-c p" . projectile-command-map))
 #+END_SRC
 
 ** Spelling
 
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
-    :diminish flyspell-mode)
+    :diminish flyspell-mode
+    :hook
+    (text-mode . flyspell-mode)
+    (prog-mode . flyspell-prog-mode))
 #+END_SRC
 
 ** Custom Keybindings
@@ -294,6 +296,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package dired
+    :defer t
     :ensure nil
     :custom
     ;; Always delete and copy recursively
@@ -322,14 +325,14 @@ point reaches the beginning or end of the buffer, stop there."
 #+BEGIN_SRC emacs-lisp
   (use-package whitespace
     :diminish global-whitespace-mode
-    :init
+    :hook
+    (after-init . global-whitespace-mode)
+    :config
     (setq whitespace-style
-          '(face newline trailing space-before-tab space-after-tab))
-    (global-whitespace-mode 1))
+          '(face newline trailing space-before-tab space-after-tab)))
 
   (use-package browse-kill-ring
-    :init
-    (browse-kill-ring-default-keybindings))
+    :bind ("M-y" . browse-kill-ring))
 
   (use-package expand-region
     :bind
@@ -341,16 +344,19 @@ point reaches the beginning or end of the buffer, stop there."
 
   (use-package smartparens
     :diminish smartparens-mode
+    :hook
+    (after-init . smartparens-global-mode)
     :config
-    (smartparens-global-mode t))
+    (require 'smartparens-config))
 
   (use-package ws-butler
     :diminish ws-butler-mode
-    :config
-    (ws-butler-global-mode t))
+    :hook
+    (after-init . ws-butler-global-mode))
 
   (use-package undo-tree
     :diminish undo-tree-mode
+    :bind ("C-x u" . 'undo-tree-redo)
     :config
     (progn
       (global-undo-tree-mode)
@@ -385,27 +391,21 @@ point reaches the beginning or end of the buffer, stop there."
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
     :diminish flycheck-mode
-    :init (global-flycheck-mode))
+    :hook
+    (after-init . global-flycheck-mode))
 #+END_SRC
 
 ** Git
-
-*** Common settings
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
-#+END_SRC
 
 *** Magit
 
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :defer t
-    :init
+    :config
     (require 'git-commit)
     (add-hook 'git-commit-mode-hook 'flyspell-mode)
     (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-    :config
+    (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
     (setq magit-diff-refine-hunk t)
     :bind ((("C-c g" . magit-file-dispatch))))
 #+END_SRC
@@ -421,13 +421,12 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package git-gutter
-    :defer t
     :diminish git-gutter-mode
-    :init
-    (global-git-gutter-mode +1)
+    :hook
+    (after-init . global-git-gutter-mode)
+    :config
     (add-hook 'magit-post-refresh-hook
               #'git-gutter:update-all-windows))
-
 #+END_SRC
 
 *** Magit Todo
@@ -437,7 +436,7 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 #+BEGIN_SRC emacs-lisp
   (use-package magit-todos
     :after (magit)
-    :init
+    :config
     (setq magit-todos-exclude-globs '("*.map" "*.html")))
 #+END_SRC
 
@@ -451,13 +450,13 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
     :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
   (use-package json-mode
-    :mode ("\\.uhupkg.config\\'"))
+    :mode ("\\.uhupkg.config\\'" "\\.json\\'"))
 
   (use-package pkgbuild-mode
-    :defer t )
+    :mode ("PKGBUILD\\'"))
 
   (use-package systemd
-    :defer t )
+    :mode ("\\.automount\\'\\|\\.busname\\'\\|\\.mount\\'\\|\\.service\\'\\|\\.slice\\'\\|\\.socket\\'\\|\\.target\\'\\|\\.timer\\'\\|\\.link\\'\\|\\.netdev\\'\\|\\.network\\'\\|\\.override\\.conf.*\\'" . systemd-mode))
 
   (use-package yaml-mode
     :mode ("\\.yaml\\'" "\\.yml\\'"))
@@ -473,10 +472,10 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package dockerfile-mode
-    :defer t )
+    :mode ("/Dockerfile\\'"))
 
   (use-package docker-tramp
-    :defer t )
+    :defer t)
 #+END_SRC
 
 ** Navigation
@@ -571,14 +570,6 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
        (shell . t)
        )))
 
-  (require 'ox-beamer)
-  (add-to-list 'org-latex-classes
-               '("beamer"
-                 "\\documentclass\[presentation\]\{beamer\}"
-                 ("\\section\{%s\}" . "\\section*\{%s\}")
-                 ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
-                 ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
-
   (setq org-hide-emphasis-markers t)
 
   (setq org-todo-keywords
@@ -615,6 +606,17 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 
   (setq org-refile-targets '(("~/org/todo.org" :level . 1)
                              ("~/org/projects.org" :level . 1)))
+
+  (use-package ox-beamer
+    :ensure org
+    :after ox
+    :config
+    (add-to-list 'org-latex-classes
+                 '("beamer"
+                   "\\documentclass\[presentation\]\{beamer\}"
+                   ("\\section\{%s\}" . "\\section*\{%s\}")
+                   ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+                   ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}"))))
 #+END_SRC
 
 *** Blogging with Org Mode and Jekyll on Github Pages
@@ -649,15 +651,14 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 *** Blogging Org Mode with Hugo
 
 #+BEGIN_SRC emacs-lisp
-(use-package ox-hugo
-  :after ox)
+  (use-package ox-hugo
+    :after ox)
 #+END_SRC
 
 *** Org Journal
 - [[https://github.com/bastibe/org-journal][org-journal]]
 #+BEGIN_SRC emacs-lisp
   (use-package org-journal
-    :defer t
     :bind
     ("C-c j n" . org-journal-new-entry)
     :config
@@ -674,8 +675,7 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 *** Org GitHub Markdown
 #+BEGIN_SRC emacs-lisp
   (use-package ox-gfm
-    :defer t
-    :after org
+    :after ox
     :init
     (require 'ox-gfm nil t))
 #+END_SRC
@@ -691,7 +691,6 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package sane-term
-    :defer t
     :if window-system
     :bind
     ("C-x t" . sane-term)
@@ -712,7 +711,7 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 
 #+end_src
 
-***  Bitbake Mode
+*** Bitbake Mode
 #+BEGIN_SRC emacs-lisp
   (require 'mmm-mode)
 
@@ -813,6 +812,8 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 *** C mode
 #+BEGIN_SRC emacs-lisp
   (use-package cc-mode
+    :mode (("\\.h\\(h\\|xx\\|pp\\)\\'" . c++-mode)
+           ("\\.tpp\\'" . c++-mode))
     :config
     (setq c-default-style "k&r")
     (setq c-basic-offset 4)
@@ -937,6 +938,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 *** Group tramp buffers
 #+BEGIN_SRC emacs-lisp
 (use-package ibuffer-tramp
+  :after (tramp)
   :config
   (progn
     (add-hook 'ibuffer-hook
@@ -948,7 +950,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 
 #+BEGIN_SRC emacs-lisp
   (use-package auctex
-    :defer t
+    :mode ("\\.tex\\'" . LaTeX-mode)
     :preface
     (defun apm-latex-mode-setup ()
       "Tweaks and customisations for LaTeX mode."
@@ -960,11 +962,10 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
                   (append '((company-math-symbols-latex company-latex-commands))
                           company-backends)))
     :commands (LaTeX-math-mode TeX-source-correlate-mode)
-    :mode ("\\.tex\\'" . LaTeX-mode)
     :hook
     ((LaTeX-mode . apm-latex-mode-setup)
      (LaTex-mode . my-latex-mode-setup))
-    :init
+    :config
     (setq-default TeX-auto-save t)
     (setq-default TeX-parse-self t)
     (setq-default TeX-PDF-mode t)
@@ -980,12 +981,11 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode
-    :defer t
     :mode
     (("README\\.md\\'" . gfm-mode)
      ("\\.md\\'" . markdown-mode)
      ("\\.markdown\\'" . markdown-mode))
-    :init
+    :config
     (setq markdown-command "multimarkdown")
     (setq-default fill-column 80))
 #+END_SRC
@@ -1026,8 +1026,9 @@ Jenkins plugin for Emacs
 
 #+begin_src emacs-lisp
   (use-package jenkins
+    :defer t
     :after exec-path-from-shell
-    :init
+    :config
     (setq jenkins-api-token (getenv "EMACS_JENKINS_API_TOKEN"))
     (setq jenkins-url (getenv "EMACS_JENKINS_URL"))
     (setq jenkins-username (getenv "EMACS_JENKINS_USERNAME")))
