@@ -1027,6 +1027,10 @@ Jenkins plugin for Emacs
 #+end_src
 
 ** Restore gc-cons-threshold
+
+The garbage collector is set to a higher value in early-init.el file to reduce
+startup time, set it back to a sane value.
+
 #+BEGIN_SRC emacs-lisp
-  (setq gc-cons-threshold (* 2 1000 1000))
+  (setq gc-cons-threshold (* 2 1024 1024))
 #+END_SRC
