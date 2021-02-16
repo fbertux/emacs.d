@@ -7,7 +7,6 @@
 
 #+BEGIN_SRC emacs-lisp
   (require 'package)
-  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
   (package-initialize)
@@ -103,12 +102,6 @@ Make Emacs use the $PATH set up by the user's shell
     :diminish abbrev-mode
     :diminish visual-line-mode
     )
-#+END_SRC
-
-** GNU Elpa Keyring Update
-
-#+BEGIN_SRC emacs-lisp
-  (use-package gnu-elpa-keyring-update)
 #+END_SRC
 
 ** General modifications
