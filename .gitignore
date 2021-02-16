@@ -10,3 +10,4 @@ transient/history.el
 forge-database.sqlite
 tramp
 url
+custom.el

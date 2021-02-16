@@ -2,6 +2,13 @@
 #+STARTUP: indent
 
 * Configurations
+
+** Move customization away from =init.el=
+
+#+begin_src emacs-lisp
+(setq custom-file "~/.emacs.d/custom.el")
+#+end_src
+
 ** Package Setup
 *** Setup the package repositories.
 
