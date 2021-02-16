@@ -808,7 +808,8 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (use-package cc-mode
     :config
     (setq c-default-style "k&r")
-    (setq c-basic-offset 4))
+    (setq c-basic-offset 4)
+    (c-add-style "linux-kernel" linux-kernel))
 #+END_SRC
 
 *** Custom Linux kernel style
@@ -843,7 +844,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
                           ))
       (indent-tabs-mode . t)
       (show-trailing-whitespace . t)))
-  (c-add-style "linux-kernel" linux-kernel)
 #+end_src
 
 ** PDF
