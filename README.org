@@ -1140,6 +1140,13 @@ Jenkins plugin for Emacs
     :defer t)
 #+end_src
 
+** Pocket Reader
+
+#+begin_src emacs-lisp
+  (use-package pocket-reader
+    :commands (pocket-reader))
+#+end_src
+
 ** Restore gc-cons-threshold
 
 The garbage collector is set to a higher value in early-init.el file to reduce
