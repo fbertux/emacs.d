@@ -987,17 +987,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     (setq-default fill-column 80))
 #+END_SRC
 
-** Bongo
-
-[[https://github.com/dbrock/bongo][Bongo]] is a flexible and usable media player for GNU Emacs.
-
-#+begin_src emacs-lisp
-  (use-package bongo
-    :defer t
-    :config
-    (setq bongo-enabled-backends '(mpv)))
-#+end_src
-
 ** Olivetti
 
 [[https://github.com/rnkn/olivetti][Olivetti:]] A simple Emacs minor mode for a nice writing environment.
