@@ -296,8 +296,8 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+BEGIN_SRC emacs-lisp
   (use-package dired
-    :defer t
     :ensure nil
+    :commands (dired)
     :custom
     ;; Always delete and copy recursively
     (dired-recursive-deletes 'always)
@@ -475,7 +475,7 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
     :mode ("/Dockerfile\\'"))
 
   (use-package docker-tramp
-    :defer t)
+    :after tramp )
 #+END_SRC
 
 ** Navigation
@@ -496,48 +496,44 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
     (setq ido-enable-flex-matching t))
 
   (use-package smex
-    :init
-    (smex-initialize)
     :config
+    (smex-initialize)
     (setq smex-save-file (concat user-emacs-directory ".smex-items"))
     :bind
     ("M-x" . smex))
 #+END_SRC
 
 ** Org
-*** Make main Org command available everywhere
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-c l") 'org-store-link)
-  (global-set-key (kbd "C-c a") 'org-agenda)
-  (global-set-key (kbd "C-c c") 'org-capture)
-#+END_SRC
 
 *** Org package configuration
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
     :after org
-    :init (require 'htmlize))
+    :config (require 'htmlize))
 
   (use-package ob-async
     :after org
-    :config
-    (require 'ob-async))
-
-  (defun endless/org-ispell ()
-    "Configure `ispell-skip-region-alist' for `org-mode'."
-    (make-local-variable 'ispell-skip-region-alist)
-    (add-to-list 'ispell-skip-region-alist '(org-property-drawer-re))
-    (add-to-list 'ispell-skip-region-alist '("~" "~"))
-    (add-to-list 'ispell-skip-region-alist '("=" "="))
-    (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
+    :config (require 'ob-async))
 
   (use-package org
-    :defer t
-    :diminish org-indent-mode
-    :init
+    :preface
+    (defun endless/org-ispell ()
+      "Configure `ispell-skip-region-alist' for `org-mode'."
+      (make-local-variable 'ispell-skip-region-alist)
+      (add-to-list 'ispell-skip-region-alist '(org-property-drawer-re))
+      (add-to-list 'ispell-skip-region-alist '("~" "~"))
+      (add-to-list 'ispell-skip-region-alist '("=" "="))
+      (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
+
+    :mode ("\\.org$" . org-mode)
+    :bind (("C-c l" . org-store-link)
+           ("C-c c" . org-capture)
+           ("C-c a" . org-agenda))
+    :hook ((org-mode . org-indent-mode)
+           (org-indent-mode . (lambda() (diminish 'org-indent-mode))))
+    :config
     (add-hook 'org-mode-hook 'turn-on-flyspell)
     (add-hook 'org-mode-hook #'endless/org-ispell)
-    :config
     (setq org-confirm-babel-evaluate nil
           org-export-babel-evaluate 'inline-only)
     (setq org-src-tab-acts-natively t)
@@ -669,15 +665,14 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 *** Org-Noter
 #+BEGIN_SRC emacs-lisp
   (use-package org-noter
-    :defer t)
+    :commands (org-noter))
 #+END_SRC
 
 *** Org GitHub Markdown
 #+BEGIN_SRC emacs-lisp
   (use-package ox-gfm
     :after ox
-    :init
-    (require 'ox-gfm nil t))
+    :config (require 'ox-gfm nil t))
 #+END_SRC
 
 *** References:
@@ -1012,7 +1007,7 @@ Jenkins plugin for Emacs
 
 #+begin_src emacs-lisp
   (use-package jenkins
-    :defer t
+    :commands (jenkins-mode)
     :after exec-path-from-shell
     :config
     (setq jenkins-api-token (getenv "EMACS_JENKINS_API_TOKEN"))
@@ -1024,7 +1019,7 @@ Jenkins plugin for Emacs
 
 #+begin_src emacs-lisp
   (use-package erc
-    :defer t
+    :commands (bitlbee erc-tls erc-next-channel-buffer fb/erc-connect-all)
     :preface
     (defun fb/reset-erc-track-mode ()
       (interactive)
@@ -1123,7 +1118,7 @@ Jenkins plugin for Emacs
 
 #+begin_src emacs-lisp
   (use-package esup
-    :defer t)
+    :commands (esup))
 #+end_src
 
 ** Pocket Reader
