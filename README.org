@@ -811,43 +811,8 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
            ("\\.tpp\\'" . c++-mode))
     :config
     (setq c-default-style "k&r")
-    (setq c-basic-offset 4)
-    (c-add-style "linux-kernel" linux-kernel))
+    (setq c-basic-offset 4))
 #+END_SRC
-
-*** Custom Linux kernel style
-#+begin_src emacs-lisp
-  (defconst linux-kernel
-    '((c-basic-offset . 8)
-      (c-label-minimum-indentation . 0)
-      (c-offsets-alist . (
-                          (arglist-close         . c-lineup-arglist-tabs-only)
-                          (arglist-cont-nonempty .
-                                                 (c-lineup-gcc-asm-reg c-lineup-arglist-tabs-only))
-                          (arglist-intro         . +)
-                          (brace-list-intro      . +)
-                          (c                     . c-lineup-C-comments)
-                          (case-label            . 0)
-                          (comment-intro         . c-lineup-comment)
-                          (cpp-define-intro      . +)
-                          (cpp-macro             . -1000)
-                          (cpp-macro-cont        . +)
-                          (defun-block-intro     . +)
-                          (else-clause           . 0)
-                          (func-decl-cont        . +)
-                          (inclass               . +)
-                          (inher-cont            . c-lineup-multi-inher)
-                          (knr-argdecl-intro     . 0)
-                          (label                 . -1000)
-                          (statement             . 0)
-                          (statement-block-intro . +)
-                          (statement-case-intro  . +)
-                          (statement-cont        . +)
-                          (substatement          . +)
-                          ))
-      (indent-tabs-mode . t)
-      (show-trailing-whitespace . t)))
-#+end_src
 
 ** PDF
 
