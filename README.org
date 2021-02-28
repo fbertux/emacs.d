@@ -1089,6 +1089,10 @@ Jenkins plugin for Emacs
 ** Pocket Reader
 
 #+begin_src emacs-lisp
+  (use-package pocket-lib
+    :commands (pocket-reader)
+    :config (setq pocket-lib-token-file (expand-file-name "~/.dotfiles/emacs/emacs-pocket-lib-token.json")))
+
   (use-package pocket-reader
     :commands (pocket-reader))
 #+end_src
