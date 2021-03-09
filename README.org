@@ -181,8 +181,9 @@ Make Emacs use the $PATH set up by the user's shell
 
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
-    :bind-keymap
-    ("C-c p" . projectile-command-map))
+    :diminish projectile-mode
+    :bind-keymap ("C-c p" . projectile-command-map)
+    :hook (after-init . projectile-mode))
 #+END_SRC
 
 ** Spelling
