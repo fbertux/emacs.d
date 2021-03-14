@@ -11,3 +11,4 @@ forge-database.sqlite
 tramp
 url
 custom.el
+eshell*
