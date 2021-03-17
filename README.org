@@ -145,6 +145,8 @@ Make Emacs use the $PATH set up by the user's shell
   (setq tab-always-indent 'complete)
 
   (setq large-file-warning-threshold nil)
+
+  (setq initial-major-mode 'fundamental-mode)
 #+END_SRC
 
 *** Live reload of the settings, from inside of the Emacs
