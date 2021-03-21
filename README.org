@@ -538,6 +538,7 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
     (setq org-image-actual-width 600)
     (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
     (setq org-src-fontify-natively t)
+    (setq org-src-preserve-indentation t)
     (setq org-latex-listings 'minted
           org-latex-packages-alist '(("" "minted"))
           org-latex-pdf-process
