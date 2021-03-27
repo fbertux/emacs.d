@@ -310,29 +310,29 @@ point reaches the beginning or end of the buffer, stop there."
 ** Dired
 
 #+BEGIN_SRC emacs-lisp
-  (use-package dired
-    :ensure nil
-    :commands (dired)
-    :custom
-    ;; Always delete and copy recursively
-    (dired-recursive-deletes 'always)
-    (dired-recursive-copies 'always)
-    ;; Auto refresh Dired, but be quiet about it
-    (global-auto-revert-non-file-buffers t)
-    (auto-revert-verbose nil)
-    ;; Quickly copy/move file in Dired
-    (dired-dwim-target t)
-    ;; Move files to trash when deleting
-    (delete-by-moving-to-trash t)
-    :config
-    ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
-    (put 'dired-find-alternate-file 'disabled nil)
-    :hook
-    (dired-mode . (lambda ()
-                    (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)
-                    (local-set-key (kbd "RET") #'dired-find-alternate-file)
-                    (local-set-key (kbd "^")
-                                   (lambda () (interactive) (find-alternate-file ".."))))))
+(use-package dired
+  :ensure nil
+  :commands (dired)
+  :custom
+  ;; Always delete and copy recursively
+  (dired-recursive-deletes 'always)
+  (dired-recursive-copies 'always)
+  ;; Auto refresh Dired, but be quiet about it
+  (global-auto-revert-non-file-buffers t)
+  (auto-revert-verbose nil)
+  ;; Quickly copy/move file in Dired
+  (dired-dwim-target t)
+  ;; Move files to trash when deleting
+  (delete-by-moving-to-trash t)
+  :config
+  ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
+  (put 'dired-find-alternate-file 'disabled nil)
+  :hook
+  (dired-mode . (lambda ()
+                  (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)
+                  (local-set-key (kbd "RET") #'dired-find-alternate-file)
+                  (local-set-key (kbd "^")
+                                 (lambda () (interactive) (find-alternate-file ".."))))))
 #+END_SRC
 
 ** Editing
