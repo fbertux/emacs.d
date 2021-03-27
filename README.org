@@ -333,6 +333,14 @@ point reaches the beginning or end of the buffer, stop there."
                   (local-set-key (kbd "RET") #'dired-find-alternate-file)
                   (local-set-key (kbd "^")
                                  (lambda () (interactive) (find-alternate-file ".."))))))
+
+(use-package dired-x
+  :ensure nil
+  :after dired
+  :hook (dired-mode . dired-omit-mode)
+  :config
+  (setq dired-omit-files
+        (concat dired-omit-files "\\|^\\..+$")))
 #+END_SRC
 
 ** Editing
