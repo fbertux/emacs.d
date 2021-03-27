@@ -104,12 +104,12 @@ Make Emacs use the $PATH set up by the user's shell
 ** Diminish
 
 #+BEGIN_SRC emacs-lisp
-  (use-package diminish
-    :diminish auto-fill-function
-    :diminish eldoc-mode
-    :diminish abbrev-mode
-    :diminish visual-line-mode
-    )
+(use-package diminish
+  :diminish abbrev-mode
+  :diminish auto-fill-function
+  :diminish eldoc-mode
+  :diminish visual-line-mode
+  )
 #+END_SRC
 
 ** General modifications
