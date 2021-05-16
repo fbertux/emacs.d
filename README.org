@@ -689,9 +689,7 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
                 ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
                 ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
 
-  (setq org-agenda-files '("~/org/engineering.org"
-                           "~/org/todo.org"
-                           "~/org/projects.org"))
+  (setq org-agenda-files '("~/org/todo.org"))
 
   (setq org-capture-templates
         '(("b" "Bookmark" entry (file "~/org/bookmarks.org")
