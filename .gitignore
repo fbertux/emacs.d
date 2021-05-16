@@ -12,3 +12,6 @@ tramp
 url
 custom.el
 eshell*
+# excorporate files
+excorporate
+diary
