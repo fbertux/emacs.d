@@ -1056,15 +1056,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     (setq-default fill-column 80))
 #+END_SRC
 
-** Nix
-
-[[https://github.com/NixOS/nix-mode][nix-mode]]: An Emacs major mode for editing Nix expressions.
-
-#+begin_src emacs-lisp
-  (use-package nix-mode
-    :mode "\\.nix\\'")
-#+end_src
-
 ** ERC
 
 #+begin_src emacs-lisp
