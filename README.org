@@ -1056,16 +1056,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     (setq-default fill-column 80))
 #+END_SRC
 
-** Olivetti
-
-[[https://github.com/rnkn/olivetti][Olivetti:]] A simple Emacs minor mode for a nice writing environment.
-#+begin_src emacs-lisp
-  (use-package olivetti
-    :defer t
-    :config
-    (setq olivetti-body-width 100))
-#+end_src
-
 ** Nix
 
 [[https://github.com/NixOS/nix-mode][nix-mode]]: An Emacs major mode for editing Nix expressions.
