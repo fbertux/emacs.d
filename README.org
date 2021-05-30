@@ -598,99 +598,99 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 *** Org Mode settings
 
 #+BEGIN_SRC emacs-lisp
-  (use-package org
-    :preface
-    (defun endless/org-ispell ()
-      "Configure `ispell-skip-region-alist' for `org-mode'."
-      (make-local-variable 'ispell-skip-region-alist)
-      (add-to-list 'ispell-skip-region-alist '(org-property-drawer-re))
-      (add-to-list 'ispell-skip-region-alist '("~" "~"))
-      (add-to-list 'ispell-skip-region-alist '("=" "="))
-      (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
+(use-package org
+  :preface
+  (defun endless/org-ispell ()
+    "Configure `ispell-skip-region-alist' for `org-mode'."
+    (make-local-variable 'ispell-skip-region-alist)
+    (add-to-list 'ispell-skip-region-alist '(org-property-drawer-re))
+    (add-to-list 'ispell-skip-region-alist '("~" "~"))
+    (add-to-list 'ispell-skip-region-alist '("=" "="))
+    (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
 
-    :mode ("\\.org$" . org-mode)
-    :bind (("C-c l" . org-store-link)
-           ("C-c c" . org-capture)
-           ("C-c a" . org-agenda))
-    :hook ((org-mode . org-indent-mode)
-           (org-indent-mode . (lambda() (diminish 'org-indent-mode))))
-    :config
-    (add-hook 'org-mode-hook 'turn-on-flyspell)
-    (add-hook 'org-mode-hook #'endless/org-ispell)
-    (setq org-confirm-babel-evaluate nil
-          org-export-babel-evaluate 'inline-only)
-    (setq org-src-tab-acts-natively t)
-    (setq org-startup-with-inline-images t)
-    (setq org-startup-indented t)
-    (setq org-startup-folded t)
-    (setq org-image-actual-width 600)
-    (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-    (setq org-src-fontify-natively t)
-    (setq org-src-preserve-indentation t)
-    (setq org-latex-listings 'minted
-          org-latex-packages-alist '(("" "minted"))
-          org-latex-pdf-process
-          '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")
-          org-latex-minted-options '(("breaklines" "true")
-                                     ("breakanywhere" "true")
-                                     ("fontsize" "\\footnotesize")
-                                     ("bgcolor" "white")
-                                     ("obeytabs" "true")))
+  :mode ("\\.org$" . org-mode)
+  :bind (("C-c l" . org-store-link)
+         ("C-c c" . org-capture)
+         ("C-c a" . org-agenda))
+  :hook ((org-mode . org-indent-mode)
+         (org-indent-mode . (lambda() (diminish 'org-indent-mode))))
+  :config
+  (add-hook 'org-mode-hook 'turn-on-flyspell)
+  (add-hook 'org-mode-hook #'endless/org-ispell)
+  (setq org-confirm-babel-evaluate nil
+        org-export-babel-evaluate 'inline-only)
+  (setq org-src-tab-acts-natively t)
+  (setq org-startup-with-inline-images t)
+  (setq org-startup-indented t)
+  (setq org-startup-folded t)
+  (setq org-image-actual-width 600)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  (setq org-src-fontify-natively t)
+  (setq org-src-preserve-indentation t)
+  (setq org-latex-listings 'minted
+        org-latex-packages-alist '(("" "minted"))
+        org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")
+        org-latex-minted-options '(("breaklines" "true")
+                                   ("breakanywhere" "true")
+                                   ("fontsize" "\\footnotesize")
+                                   ("bgcolor" "white")
+                                   ("obeytabs" "true")))
 
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '(
-       (emacs-lisp . t)
-       (gnuplot . t)
-       (latex . t)
-       (makefile . t)
-       (org . t)
-       (python . t)
-       (shell . t)
-       )))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (emacs-lisp . t)
+     (gnuplot . t)
+     (latex . t)
+     (makefile . t)
+     (org . t)
+     (python . t)
+     (shell . t)
+     )))
 
-  (setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers t)
 
-  (setq org-todo-keywords
-        (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
-                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
-  (setq org-todo-keyword-faces
-        (quote (("TODO" :foreground "red" :weight bold)
-                ("DOING" :foreground "yellow" :weight bold)
-                ("DONE" :foreground "forest green" :weight bold)
-                ("WAITING" :foreground "orange" :weight bold)
-                ("HOLD" :foreground "magenta" :weight bold)
-                ("CANCELLED" :foreground "forest red" :weight bold)
-                ("SOMEDAY" :foreground "forest yellow" :weight bold))))
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("DOING" :foreground "yellow" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAITING" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
+              ("CANCELLED" :foreground "forest red" :weight bold)
+              ("SOMEDAY" :foreground "forest yellow" :weight bold))))
 
-  (setq org-todo-state-tags-triggers
-        (quote (("CANCELLED" ("CANCELLED" . t))
-                ("WAITING" ("WAITING" . t))
-                ("DOING" ("DOING" . t))
-                ("HOLD" ("WAITING") ("HOLD" . t))
-                (done ("WAITING") ("HOLD") ("DOING"))
-                ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
-                ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
+(setq org-todo-state-tags-triggers
+      (quote (("CANCELLED" ("CANCELLED" . t))
+              ("WAITING" ("WAITING" . t))
+              ("DOING" ("DOING" . t))
+              ("HOLD" ("WAITING") ("HOLD" . t))
+              (done ("WAITING") ("HOLD") ("DOING"))
+              ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
+              ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
 
-  (setq org-agenda-files '("~/org/todo.org"))
+(setq org-agenda-files '("~/org/todo.org"))
 
-  (setq org-capture-templates
-        '(("b" "Bookmark" entry (file "~/org/bookmarks.org")
-           "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
-          ("B" "Bookmark with Cliplink" entry (file "~/org/bookmarks.org")
-           "* %(org-cliplink-capture)\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
-          ("t" "Todo" entry (file "~/org/inbox.org")
-           "* TODO %?\n%U" :empty-lines 1)
-          ("n" "Note" entry (file "~/org/inbox.org")
-           "* NOTE %?\n%U" :empty-lines 1)))
+(setq org-capture-templates
+      '(("b" "Bookmark" entry (file "~/org/bookmarks.org")
+         "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
+        ("B" "Bookmark with Cliplink" entry (file "~/org/bookmarks.org")
+         "* %(org-cliplink-capture)\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
+        ("t" "Todo" entry (file "~/org/inbox.org")
+         "* TODO %?\n%U" :empty-lines 1)
+        ("n" "Note" entry (file "~/org/inbox.org")
+         "* NOTE %?\n%U" :empty-lines 1)))
 
-  (setq org-default-notes-file (concat org-directory "~/org/inbox.org"))
+(setq org-default-notes-file (concat org-directory "~/org/inbox.org"))
 
-  (setq org-refile-targets '(("~/org/todo.org" :level . 1)
-                             ("~/org/projects.org" :level . 1)))
+(setq org-refile-targets '(("~/org/todo.org" :level . 1)
+                           ("~/org/projects.org" :level . 1)))
 
 #+END_SRC
 
@@ -701,20 +701,20 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 Handle bookmark capture links.
 
 #+begin_src emacs-lisp
-  (use-package org-cliplink
-    :commands (org-cliplink))
+(use-package org-cliplink
+  :commands (org-cliplink))
 #+end_src
 
 **** Add languages to =org-structure-template-alist=
 
 #+begin_src emacs-lisp
-  (use-package org-tempo
-    :ensure nil
-    :after org
-    :config
-    (add-to-list 'org-structure-template-alist '("sl" . "src emacs-lisp"))
-    (add-to-list 'org-structure-template-alist '("sp" . "src python"))
-    (add-to-list 'org-structure-template-alist '("ss" . "src sh")))
+(use-package org-tempo
+  :ensure nil
+  :after org
+  :config
+  (add-to-list 'org-structure-template-alist '("sl" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("sp" . "src python"))
+  (add-to-list 'org-structure-template-alist '("ss" . "src sh")))
 #+end_src
 
 *** Org Babel
@@ -722,9 +722,9 @@ Handle bookmark capture links.
 **** [[https://github.com/astahlman/ob-async][ob-async: Asynchronous src_block execution for org-babel]]
 
 #+begin_src emacs-lisp
-  (use-package ob-async
-    :after org
-    :config (require 'ob-async))
+(use-package ob-async
+  :after org
+  :config (require 'ob-async))
 #+end_src
 
 *** Org Export Engines
@@ -732,57 +732,57 @@ Handle bookmark capture links.
 **** HTML back-End
 
 #+begin_src emacs-lisp
-  (use-package htmlize
-    :after org
-    :config (require 'htmlize))
+(use-package htmlize
+  :after org
+  :config (require 'htmlize))
 #+end_src
 
 **** Beamer back-End
 
 #+begin_src emacs-lisp
-  (use-package ox-beamer
-    :ensure org
-    :after ox
-    :config
-    (add-to-list 'org-latex-classes
-                 '("beamer"
-                   "\\documentclass\[presentation\]\{beamer\}"
-                   ("\\section\{%s\}" . "\\section*\{%s\}")
-                   ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
-                   ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}"))))
+(use-package ox-beamer
+  :ensure org
+  :after ox
+  :config
+  (add-to-list 'org-latex-classes
+               '("beamer"
+                 "\\documentclass\[presentation\]\{beamer\}"
+                 ("\\section\{%s\}" . "\\section*\{%s\}")
+                 ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+                 ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}"))))
 #+end_src
 
 **** GitHub back-end
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ox-gfm
-    :after ox
-    :config (require 'ox-gfm nil t))
+(use-package ox-gfm
+  :after ox
+  :config (require 'ox-gfm nil t))
 #+END_SRC
 
 **** Hugo back-end
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ox-hugo
-    :after ox)
+(use-package ox-hugo
+  :after ox)
 #+END_SRC
 
 *** [[https://github.com/bastibe/org-journal][org-journal: A simple org-mode based journaling mode]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package org-journal
-    :bind
-    ("C-c j n" . org-journal-new-entry)
-    :config
-    (setq org-journal-dir "~/org/journal/"
-          org-journal-date-format "%A, %d %B %Y"))
+(use-package org-journal
+  :bind
+  ("C-c j n" . org-journal-new-entry)
+  :config
+  (setq org-journal-dir "~/org/journal/"
+        org-journal-date-format "%A, %d %B %Y"))
 #+END_SRC
 
 *** [[https://github.com/weirdNox/org-noter][org-noter: Emacs document annotator, using Org-mode]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package org-noter
-    :commands (org-noter))
+(use-package org-noter
+  :commands (org-noter))
 #+END_SRC
 
 *** References:
