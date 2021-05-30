@@ -641,15 +641,18 @@ Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '(
-     (emacs-lisp . t)
+   '((emacs-lisp . t)
      (gnuplot . t)
      (latex . t)
      (makefile . t)
      (org . t)
      (python . t)
      (shell . t)
-     )))
+     (C . t)
+     (awk . t)
+     (lisp . t)
+     (matlab . t)
+     (sed . t))))
 
 (setq org-hide-emphasis-markers t)
 
