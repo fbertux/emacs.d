@@ -1075,8 +1075,10 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (defun fb/erc-connect-freenode ()
     "Connect to Freenode IRC network."
     (interactive)
-    (erc :server "irc.freenode.net" :port 6667
-         :nick "berton" :full-name "Fabio Berton"))
+    (erc-tls :server "irc.freenode.net"
+             :port 6697
+             :nick "berton"
+             :full-name "Fabio Berton"))
 
   (defun fb/erc-connect-gitter ()
     "Connect to Gitter IRC network."
