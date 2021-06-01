@@ -1178,7 +1178,10 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (defvar erc-insert-post-hook)
   (add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
   (setq erc-truncate-buffer-on-save t)
-  (setq whitespace-global-modes '(not erc-mode)))
+  (setq whitespace-global-modes '(not erc-mode))
+  (setq erc-track-shorten-start 8
+        erc-kill-buffer-on-part t)
+  )
 #+end_src
 
 - Reference: [[https://github.com/rememberYou/.emacs.d/blob/master/config.org#irc][github.com/rememberYou]]
