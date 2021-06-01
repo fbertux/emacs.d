@@ -1115,15 +1115,14 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (erc-autojoin-mode 1)
   (setq erc-autojoin-channels-alist
         '(("freenode.net"
-           "#archlinux"
-           "#gentoo"
-           "#nm"
            "#oe"
-           "#qt"
            "#suckless"
-           "#systemd"
            "#u-boot"
            "#yocto"
+           )
+          ("irc.libera.chat"
+           "#archlinux"
+           "#gentoo"
            )))
 
   (require 'erc-match)
