@@ -1089,12 +1089,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
              :nick "berton"
              :full-name "Fabio Berton"))
 
-  (defun fb/erc-connect-bitlbee ()
-    "Connect to Bitlbee IRC network."
-    (interactive)
-    (erc-tls :server "18.222.217.135" :port 6697
-             :nick "berton"))
-
   (defun fb/erc-connect-all ()
     "Connect to all configured IRC networks."
     (interactive)
