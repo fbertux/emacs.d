@@ -1072,14 +1072,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     (erc-modified-channels-update))
   (global-set-key (kbd "C-c r") 'fb/reset-erc-track-mode)
 
-  (defun fb/erc-connect-freenode ()
-    "Connect to Freenode IRC network."
-    (interactive)
-    (erc-tls :server "irc.freenode.net"
-             :port 6697
-             :nick "berton"
-             :full-name "Fabio Berton"))
-
   (defun fb/erc-connect-gitter ()
     "Connect to Gitter IRC network."
     (interactive)
@@ -1106,7 +1098,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (defun fb/erc-connect-all ()
     "Connect to all configured IRC networks."
     (interactive)
-    (fb/erc-connect-freenode)
     (fb/erc-connect-libera)
     (fb/erc-connect-gitter))
 
@@ -1114,15 +1105,11 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (require 'erc-join)
   (erc-autojoin-mode 1)
   (setq erc-autojoin-channels-alist
-        '(("freenode.net"
-           "#oe"
-           "#suckless"
-           "#u-boot"
-           "#yocto"
-           )
-          ("irc.libera.chat"
+        '(("irc.libera.chat"
            "#archlinux"
            "#gentoo"
+           "#oe"
+           "#yocto"
            )))
 
   (require 'erc-match)
