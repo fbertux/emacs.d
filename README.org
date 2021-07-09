@@ -1176,6 +1176,27 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (setq excorporate-configuration
         (quote ("CTW01359@criticaltechworks.com" . "https://outlook.office365.com/EWS/Exchange.asmx"))))
 #+end_src
+
+** Tramp
+#+begin_src emacs-lisp
+(use-package tramp
+  :config
+  (with-eval-after-load 'tramp-cache
+    (setq tramp-persistency-file-name "~/.emacs.d/tramp"))
+  (setq tramp-default-method "ssh"
+        tramp-default-user-alist '(("\\`su\\(do\\)?\\'" nil "root"))
+        ;; use the settings in ~/.ssh/config instead of Tramp's
+        tramp-use-ssh-controlmaster-options nil
+        ;; don't generate backups for remote files opened as root (security hazzard)
+        backup-enable-predicate
+        (lambda (name)
+          (and (normal-backup-enable-predicate name)
+               (not (let ((method (file-remote-p name 'method)))
+                      (when (stringp method)
+                        (member method '("su" "sudo"))))))))
+  (setq tramp-auto-save-directory "/tmp/tramp/")
+  (setq tramp-chunksize 2000))
+#+end_src
 ** Restore gc-cons-threshold
 
 The garbage collector is set to a higher value in early-init.el file to reduce
