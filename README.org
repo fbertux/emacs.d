@@ -485,40 +485,35 @@ point reaches the beginning or end of the buffer, stop there."
     (after-init . global-flycheck-mode))
 #+END_SRC
 
-** Git
-
-*** Magit
-
+** Git configuration
+*** Magit  - [[https://github.com/magit/magit][It's Magit! A Git porcelain inside Emacs]]
 #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :config
-    (require 'git-commit)
-    (add-hook 'git-commit-mode-hook 'flyspell-mode)
-    (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
-    (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
-    (setq magit-diff-refine-hunk t)
-    :bind ((("C-c g" . magit-file-dispatch))))
+(use-package magit
+  :config
+  (require 'git-commit)
+  (add-hook 'git-commit-mode-hook 'flyspell-mode)
+  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+  (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
+  (setq magit-diff-refine-hunk t)
+  :bind ((("C-c g" . magit-file-dispatch))))
 #+END_SRC
 
-*** Forge
-
+*** Forge - [[https://github.com/magit/forge][Work with Git forges from the comfort of Magit]]
 #+BEGIN_SRC emacs-lisp
-  (use-package forge
-    :after magit)
+(use-package forge
+  :after magit)
 #+END_SRC
 
-*** Git gutter
-
+*** Git gutter - [[https://github.com/emacsorphanage/git-gutter][Emacs port of GitGutter which is Sublime Text Plugin]]
 #+BEGIN_SRC emacs-lisp
-  (use-package git-gutter
-    :diminish git-gutter-mode
-    :hook
-    (after-init . global-git-gutter-mode)
-    :config
-    (add-hook 'magit-post-refresh-hook
-              #'git-gutter:update-all-windows))
+(use-package git-gutter
+  :diminish git-gutter-mode
+  :hook
+  (after-init . global-git-gutter-mode)
+  :config
+  (add-hook 'magit-post-refresh-hook
+            #'git-gutter:update-all-windows))
 #+END_SRC
-
 
 ** Misc
 
