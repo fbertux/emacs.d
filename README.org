@@ -519,16 +519,6 @@ point reaches the beginning or end of the buffer, stop there."
               #'git-gutter:update-all-windows))
 #+END_SRC
 
-*** Magit Todo
-
-Project homepage: [[https://github.com/alphapapa/magit-todos][Github]]
-
-#+BEGIN_SRC emacs-lisp
-  (use-package magit-todos
-    :after (magit)
-    :config
-    (setq magit-todos-exclude-globs '("*.map" "*.html")))
-#+END_SRC
 
 ** Misc
 
