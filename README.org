@@ -643,14 +643,14 @@ point reaches the beginning or end of the buffer, stop there."
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
+              (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
               ("DOING" :foreground "yellow" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
-              ("HOLD" :foreground "magenta" :weight bold)
+              ("BLOCKED" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "forest red" :weight bold)
               ("SOMEDAY" :foreground "forest yellow" :weight bold))))
 
@@ -658,10 +658,10 @@ point reaches the beginning or end of the buffer, stop there."
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
               ("DOING" ("DOING" . t))
-              ("HOLD" ("WAITING") ("HOLD" . t))
-              (done ("WAITING") ("HOLD") ("DOING"))
-              ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("DOING"))
-              ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("DOING")))))
+              ("BLOCKED" ("WAITING") ("BLOCKED" . t))
+              (done ("WAITING") ("BLOCKED") ("DOING"))
+              ("TODO" ("WAITING") ("CANCELLED") ("BLOCKED") ("DOING"))
+              ("DONE" ("WAITING") ("CANCELLED") ("BLOCKED") ("DOING")))))
 
 (setq org-agenda-files '("~/org/todo.org"))
 
