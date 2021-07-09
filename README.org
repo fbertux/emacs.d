@@ -168,10 +168,15 @@
 ** Projectile
 
 #+BEGIN_SRC emacs-lisp
-  (use-package projectile
-    :diminish projectile-mode
-    :bind-keymap ("C-c p" . projectile-command-map)
-    :hook (after-init . projectile-mode))
+(use-package projectile
+  :diminish projectile-mode
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :hook (after-init . projectile-mode)
+  :config
+  (add-hook 'find-file-hook
+            (lambda ()
+              (when (file-remote-p default-directory)
+                (setq-local projectile-mode-line "Projectile")))))
 #+END_SRC
 
 ** Spelling
