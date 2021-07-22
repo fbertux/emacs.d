@@ -763,6 +763,13 @@ Handle bookmark capture links.
   :after ox)
 #+END_SRC
 
+**** Jira back-end
+
+#+BEGIN_SRC emacs-lisp
+(use-package ox-jira
+  :after ox)
+#+END_SRC
+
 *** [[https://github.com/bastibe/org-journal][org-journal: A simple org-mode based journaling mode]]
 
 #+BEGIN_SRC emacs-lisp
