@@ -136,6 +136,7 @@
 
   (setq python-indent-guess-indent-offset t)
   (setq python-indent-guess-indent-offset-verbose nil)
+  (setq python-shell-completion-native-enable nil)
 #+END_SRC
 
 *** Live reload of the settings, from inside of the Emacs
@@ -812,74 +813,73 @@ Handle bookmark capture links.
 
 *** mmm-mode
 #+begin_src emacs-lisp
-  (use-package mmm-mode
-    :defer t
-    :diminish mmm-mode
-    )
-
+(use-package mmm-mode
+  :defer t
+  :diminish mmm-mode
+  )
 #+end_src
 
 *** Bitbake Mode
 #+BEGIN_SRC emacs-lisp
-  (require 'mmm-mode)
+(require 'mmm-mode)
 
-  (defun bitbake-comment-dwim (arg)
-    (interactive "*P")
-    (require 'newcomment)
-    (let ((comment-start "#") (comment-end ""))
-      (comment-dwim arg)))
+(defun bitbake-comment-dwim (arg)
+  (interactive "*P")
+  (require 'newcomment)
+  (let ((comment-start "#") (comment-end ""))
+    (comment-dwim arg)))
 
-  (defvar bitbake-mode-syntax-table
-    (let ((st (make-syntax-table)))
-      ;; Comments start with # and end at eol
-      (modify-syntax-entry ?#	  "<" st)
-      (modify-syntax-entry ?\n  ">" st)
-      (modify-syntax-entry ?\^m ">" st)
-      (modify-syntax-entry ?\"  "\""  st) ;strings are delimited by "
-      (modify-syntax-entry ?\'  "\""  st) ;strings are delimited by '
-      (modify-syntax-entry ?\\  "\\"  st) ;backslash is escape
-      st)
-    "Syntax table for `bitbake-mode'.")
+(defvar bitbake-mode-syntax-table
+  (let ((st (make-syntax-table)))
+    ;; Comments start with # and end at eol
+    (modify-syntax-entry ?#	  "<" st)
+    (modify-syntax-entry ?\n  ">" st)
+    (modify-syntax-entry ?\^m ">" st)
+    (modify-syntax-entry ?\"  "\""  st) ;strings are delimited by "
+    (modify-syntax-entry ?\'  "\""  st) ;strings are delimited by '
+    (modify-syntax-entry ?\\  "\\"  st) ;backslash is escape
+    st)
+  "Syntax table for `bitbake-mode'.")
 
-  (defvar bitbake-font-lock-defaults
-    `((
-       ;; fakeroot python do_foo() {
-       ("\\b\\(include\\|require\\|inherit\\|python\\|addtask\\|export\\|fakeroot\\|unset\\)\\b" . font-lock-keyword-face)
-       ;; do_install_append() {
-       ("^\\(fakeroot *\\)?\\(python *\\)?\\([a-zA-Z0-9\-_+.${}/~]+\\) *( *) *{" 3 font-lock-function-name-face)
-       ;; do_deploy[depends] ??=
-       ("^\\(export *\\)?\\([a-zA-Z0-9\-_+.${}/~]+\\(\\[[a-zA-Z0-9\-_+.${}/~]+\\]\\)?\\) *\\(=\\|\\?=\\|\\?\\?=\\|:=\\|+=\\|=+\\|.=\\|=.\\)" 2 font-lock-variable-name-face)
-       )))
+(defvar bitbake-font-lock-defaults
+  `((
+     ;; fakeroot python do_foo() {
+     ("\\b\\(include\\|require\\|inherit\\|python\\|addtask\\|export\\|fakeroot\\|unset\\)\\b" . font-lock-keyword-face)
+     ;; do_install_append() {
+     ("^\\(fakeroot *\\)?\\(python *\\)?\\([a-zA-Z0-9\-_+.${}/~]+\\) *( *) *{" 3 font-lock-function-name-face)
+     ;; do_deploy[depends] ??=
+     ("^\\(export *\\)?\\([a-zA-Z0-9\-_+.${}/~]+\\(\\[[a-zA-Z0-9\-_+.${}/~]+\\]\\)?\\) *\\(=\\|\\?=\\|\\?\\?=\\|:=\\|+=\\|=+\\|.=\\|=.\\)" 2 font-lock-variable-name-face)
+     )))
 
-  (define-derived-mode bitbake-mode shell-script-mode
-    "Bitbake"
-    :syntax-table bitbake-mode-syntax-table
-    (setq font-lock-defaults bitbake-font-lock-defaults)
-    (setq mode-name "BitBake")
-    (define-key bitbake-mode-map [remap comment-dwim] 'bitbake-comment-dwim))
+(define-derived-mode bitbake-mode shell-script-mode
+  "Bitbake"
+  :syntax-table bitbake-mode-syntax-table
+  (setq font-lock-defaults bitbake-font-lock-defaults)
+  (setq mode-name "BitBake")
+  (define-key bitbake-mode-map [remap comment-dwim] 'bitbake-comment-dwim))
 
-  (mmm-add-classes
-   '((bitbake-shell
-      :submode shell-script-mode
-      :delimiter-mode nil
-      :case-fold-search nil
-      :front "^\\(?:fakeroot[[:blank:]]+\\)?\\([-[:alnum:]_${}]+[[:blank:]]*()[[:blank:]]*{\\)"
-      :back "^}")
-     (bitbake-python
-      :submode python-mode
-      :delimiter-mode nil
-      :case-fold-search nil
-      :front "^[ \t]*\\(?:fakeroot[ \t]+\\)?python[ \t]*\\(?:[ \t][^ \t]+[ \t]*\\)?([ \t]*)[ \t]*{[ \t]*\n"
-      :back "^}")))
+(mmm-add-classes
+ '((bitbake-shell
+    :submode shell-script-mode
+    :delimiter-mode nil
+    :case-fold-search nil
+    :front "^\\(?:fakeroot[[:blank:]]+\\)?\\([-[:alnum:]_${}]+[[:blank:]]*()[[:blank:]]*{\\)"
+    :back "^}")
+   (bitbake-python
+    :submode python-mode
+    :delimiter-mode nil
+    :case-fold-search nil
+    :front "^[ \t]*\\(?:fakeroot[ \t]+\\)?python[ \t]*\\(?:[ \t][^ \t]+[ \t]*\\)?([ \t]*)[ \t]*{[ \t]*\n"
+    :back "^}")))
 
-  (mmm-add-mode-ext-class 'bitbake-mode "\\.bb\\(append\\|class\\)?\\'" 'bitbake-shell)
-  (mmm-add-mode-ext-class 'bitbake-mode "\\.bb\\(append\\|class\\)?\\'" 'bitbake-python)
-  (mmm-add-mode-ext-class 'bitbake-mode "\\.inc\\" 'bitbake-shell)
-  (mmm-add-mode-ext-class 'bitbake-mode "\\.inc\\" 'bitbake-python)
-  (add-to-list 'auto-mode-alist
-               '("\\.bb\\(append\\|class\\)?\\'" . bitbake-mode))
-  (add-to-list 'auto-mode-alist
-               '("\\.inc\\'" . bitbake-mode))
+(mmm-add-mode-ext-class 'bitbake-mode "\\.bb\\(append\\|class\\)?\\'" 'bitbake-shell)
+(mmm-add-mode-ext-class 'bitbake-mode "\\.bb\\(append\\|class\\)?\\'" 'bitbake-python)
+(mmm-add-mode-ext-class 'bitbake-mode "\\.inc\\" 'bitbake-shell)
+(mmm-add-mode-ext-class 'bitbake-mode "\\.inc\\" 'bitbake-python)
+(add-to-list 'auto-mode-alist
+             '("\\.bb\\(append\\|class\\)?\\'" . bitbake-mode))
+(add-to-list 'auto-mode-alist
+             '("\\.inc\\'" . bitbake-mode))
 #+END_SRC
 
 *** WKS support
@@ -888,8 +888,8 @@ Handle bookmark capture links.
 
 (defun wks-mode-font-lock-keywords ()
   "Return the default font lock keywords for `wks-mode2'."
-   `("part" "bootloader" "include" "long-description" "short-description")
-   )
+  `("part" "bootloader" "include" "long-description" "short-description")
+  )
 
 ;;;###autoload
 (define-derived-mode wks-mode prog-mode "wks"
