@@ -250,6 +250,12 @@
 (defun unhighlight-tabs ()
   (interactive)
   (hi-lock-unface-buffer "\t"))
+
+(global-set-key (kbd "C-x p")
+				'(lambda ()
+				   (interactive)
+				   (switch-to-buffer "*scratch*")))
+
 #+END_SRC
 
 *** Copy buffer name or full path with name
