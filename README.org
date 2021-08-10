@@ -200,57 +200,56 @@
 #+END_SRC
 
 ** Custom function
-
 #+BEGIN_SRC emacs-lisp
-  (defun buffer-cleanup ()
-    (interactive)
-    (whitespace-cleanup)
-    (untabify (point-min) (point-max)))
+(defun buffer-cleanup ()
+  (interactive)
+  (whitespace-cleanup)
+  (untabify (point-min) (point-max)))
 
-  ;; Copy to clipboard
-  (defun copy-to-clipboard ()
-    "Copies selection to x-clipboard."
-    (interactive)
-    (if (display-graphic-p)
+;; Copy to clipboard
+(defun copy-to-clipboard ()
+  "Copies selection to x-clipboard."
+  (interactive)
+  (if (display-graphic-p)
+      (progn
+        (message "Yanked region to x-clipboard!")
+        (call-interactively 'clipboard-kill-ring-save)
+        )
+    (if (region-active-p)
         (progn
-          (message "Yanked region to x-clipboard!")
-          (call-interactively 'clipboard-kill-ring-save)
-          )
-      (if (region-active-p)
-          (progn
-            (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
-            (message "Yanked region to clipboard!")
-            (deactivate-mark))
-        (message "No region active; can't yank to clipboard!")))
+          (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+          (message "Yanked region to clipboard!")
+          (deactivate-mark))
+      (message "No region active; can't yank to clipboard!")))
+  )
+
+;; Paste from clipboard
+(defun paste-from-clipboard ()
+  (interactive)
+  (if (display-graphic-p)
+      (progn
+        (clipboard-yank)
+        (message "graphics active")
+        )
+    (insert (shell-command-to-string "xsel -o -b"))
     )
+  )
 
-  ;; Paste from clipboard
-  (defun paste-from-clipboard ()
-    (interactive)
-    (if (display-graphic-p)
-        (progn
-          (clipboard-yank)
-          (message "graphics active")
-          )
-      (insert (shell-command-to-string "xsel -o -b"))
-      )
-    )
+(global-set-key (kbd "C-x c") 'copy-to-clipboard)
+(global-set-key (kbd "C-x v") 'paste-from-clipboard)
 
-  (global-set-key (kbd "C-x c") 'copy-to-clipboard)
-  (global-set-key (kbd "C-x v") 'paste-from-clipboard)
+;; Indent commit messages
+(fset 'indent-commit
+      (lambda (&optional arg) "Keyboard macro." (interactive "p")
+        (kmacro-exec-ring-item (quote ([67108896 134217829 1 24 114 116 32 32 32 32 45 32 13] 0 "%d")) arg)))
 
-  ;; Indent commit messages
-  (fset 'indent-commit
-        (lambda (&optional arg) "Keyboard macro." (interactive "p")
-          (kmacro-exec-ring-item (quote ([67108896 134217829 1 24 114 116 32 32 32 32 45 32 13] 0 "%d")) arg)))
-
-  ;; Highlight tabs
-  (defun highlight-tabs ()
-    (interactive)
-    (hi-lock-face-buffer "\t"))
-  (defun unhighlight-tabs ()
-    (interactive)
-    (hi-lock-unface-buffer "\t"))
+;; Highlight tabs
+(defun highlight-tabs ()
+  (interactive)
+  (hi-lock-face-buffer "\t"))
+(defun unhighlight-tabs ()
+  (interactive)
+  (hi-lock-unface-buffer "\t"))
 #+END_SRC
 
 *** Copy buffer name or full path with name
