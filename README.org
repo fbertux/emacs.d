@@ -1185,14 +1185,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
     :commands (pocket-reader))
 #+end_src
 
-** Excorporate
-#+begin_src emacs-lisp
-(use-package excorporate
-  :config
-  (setq excorporate-configuration
-        (quote ("CTW01359@criticaltechworks.com" . "https://outlook.office365.com/EWS/Exchange.asmx"))))
-#+end_src
-
 ** Tramp
 #+begin_src emacs-lisp
 (use-package tramp
