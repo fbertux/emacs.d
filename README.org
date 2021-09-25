@@ -1179,12 +1179,13 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 ** Pocket Reader
 
 #+begin_src emacs-lisp
-  (use-package pocket-lib
-    :commands (pocket-reader)
-    :config (setq pocket-lib-token-file (expand-file-name "~/.dotfiles/emacs/emacs-pocket-lib-token.json")))
+(use-package pocket-lib
+  :commands (pocket-reader)
+  :config (setq pocket-lib-token-file (expand-file-name "~/.dotfiles/emacs/emacs-pocket-lib-token.json")))
 
-  (use-package pocket-reader
-    :commands (pocket-reader))
+(use-package pocket-reader
+  :commands (pocket-reader)
+  :config (setq-default fill-column 120))
 #+end_src
 
 ** Tramp
