@@ -782,7 +782,9 @@ Handle bookmark capture links.
   ("C-c j n" . org-journal-new-entry)
   :config
   (setq org-journal-dir "~/org/journal/"
-        org-journal-date-format "%A, %d %B %Y"))
+        org-journal-date-format "%A, %d %B %Y"
+        org-journal-enable-encryption t
+        org-journal-encrypt-journal t))
 #+END_SRC
 
 *** [[https://github.com/weirdNox/org-noter][org-noter: Emacs document annotator, using Org-mode]]
