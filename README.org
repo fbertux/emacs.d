@@ -37,6 +37,12 @@
     (require 'bind-key))
 #+END_SRC
 
+** Auth
+#+begin_src emacs-lisp
+(use-package auth-source
+  :config
+  (setq auth-sources '("~/.authinfo.gpg")))
+#+end_src
 ** System names
 
 #+BEGIN_SRC emacs-lisp
