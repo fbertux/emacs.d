@@ -1217,6 +1217,15 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (setq tramp-auto-save-directory "/tmp/tramp/")
   (setq tramp-chunksize 2000))
 #+end_src
+
+** Yafolding - [[https://github.com/zenozeng/yafolding.el][Yet another folding extension for Emacs]]
+#+begin_src emacs-lisp
+(use-package yafolding
+  :hook ((prog-mode . yafolding-mode)
+         (conf-mode . yafolding-mode))
+  :bind ("C-<tab>" . yafolding-toggle-element))
+#+end_src
+
 ** Restore gc-cons-threshold
 
 The garbage collector is set to a higher value in early-init.el file to reduce
