@@ -255,7 +255,7 @@
   (hi-lock-unface-buffer "\t"))
 
 (global-set-key (kbd "C-x p")
-				'(lambda ()
+				#'(lambda ()
 				   (interactive)
 				   (switch-to-buffer "*scratch*")))
 
@@ -1015,7 +1015,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
            )))
 
   (add-hook 'ibuffer-mode-hook
-            '(lambda ()
+            #'(lambda ()
                (ibuffer-auto-mode 1)
                (ibuffer-switch-to-saved-filter-groups "default")))
 #+END_SRC
