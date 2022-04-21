@@ -522,15 +522,17 @@ point reaches the beginning or end of the buffer, stop there."
   :after magit)
 #+END_SRC
 
-*** Git gutter - [[https://github.com/emacsorphanage/git-gutter][Emacs port of GitGutter which is Sublime Text Plugin]]
+*** diff-hl - [[https://github.com/dgutov/diff-hl][Emacs package for highlighting uncommitted changes]]
 #+BEGIN_SRC emacs-lisp
-(use-package git-gutter
-  :diminish git-gutter-mode
-  :hook
-  (after-init . global-git-gutter-mode)
+(use-package diff-hl
+  :hook ((after-init         . global-diff-hl-mode)
+         (dired-mode         . diff-hl-dired-mode-unless-remote)
+         (magit-pre-refresh  . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
   :config
-  (add-hook 'magit-post-refresh-hook
-            #'git-gutter:update-all-windows))
+  ;; When Emacs runs in terminal, show the indicators in margin instead.
+  (unless (display-graphic-p)
+    (diff-hl-margin-mode)))
 #+END_SRC
 
 ** Misc
