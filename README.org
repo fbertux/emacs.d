@@ -139,6 +139,8 @@
   (setq python-indent-guess-indent-offset t)
   (setq python-indent-guess-indent-offset-verbose nil)
   (setq python-shell-completion-native-enable nil)
+
+  (setq bookmark-save-flag 1)
 #+END_SRC
 
 *** Live reload of the settings, from inside of the Emacs
