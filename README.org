@@ -141,6 +141,8 @@
   (setq python-shell-completion-native-enable nil)
 
   (setq bookmark-save-flag 1)
+
+  (global-set-key [remap dabbrev-expand] 'hippie-expand)
 #+END_SRC
 
 *** Live reload of the settings, from inside of the Emacs
