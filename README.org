@@ -184,8 +184,7 @@
   (add-hook 'find-file-hook
             (lambda ()
               (when (file-remote-p default-directory)
-                (setq-local projectile-mode-line "Projectile"))))
-  (add-to-list 'projectile-globally-ignored-directories "build_*"))
+                (setq-local projectile-mode-line "Projectile")))))
 #+END_SRC
 
 ** Spelling
