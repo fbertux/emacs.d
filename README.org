@@ -488,10 +488,11 @@ point reaches the beginning or end of the buffer, stop there."
 #+END_SRC
 
 *** Forge - [[https://github.com/magit/forge][Work with Git forges from the comfort of Magit]]
-#+BEGIN_SRC emacs-lisp
-(use-package forge
-  :after magit)
-#+END_SRC
+Configuration in private file
+#+begin_src emacs-lisp
+;; (use-package forge
+;;   :after magit)
+#+end_src
 
 *** diff-hl - [[https://github.com/dgutov/diff-hl][Emacs package for highlighting uncommitted changes]]
 #+BEGIN_SRC emacs-lisp
