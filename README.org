@@ -752,14 +752,9 @@ Handle bookmark capture links.
 
 ** Shell
 #+BEGIN_SRC emacs-lisp
-(use-package sane-term
-  :if window-system
+(use-package vterm
   :bind
-  ("C-x t" . sane-term)
-  ("C-x T" . sane-term-create))
-
-(eval-after-load "term"
-  '(define-key term-raw-map (kbd "C-c C-y") 'term-paste))
+  ("C-x t" . vterm))
 #+END_SRC
 
 ** Bitbake
