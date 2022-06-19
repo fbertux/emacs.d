@@ -461,6 +461,19 @@ point reaches the beginning or end of the buffer, stop there."
   (after-init . global-flycheck-mode))
 #+END_SRC
 
+** Eglot
+#+BEGIN_SRC emacs-lisp
+(use-package eglot
+  :after flycheck
+  :commands (eglot eglot-ensure eglot-server-programs)
+  :hook ((c-mode . eglot-ensure)
+         (c++-mode . eglot-ensure)
+         (shell-script-mode . eglot-ensure)
+         (python-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("/usr/bin/clangd" "--log=error" "--background-index=false"))))
+#+END_SRC
+
 ** Git configuration
 *** Magit  - [[https://github.com/magit/magit][It's Magit! A Git porcelain inside Emacs]]
 #+BEGIN_SRC emacs-lisp
