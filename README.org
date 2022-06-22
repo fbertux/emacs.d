@@ -689,6 +689,14 @@ Handle bookmark capture links.
   (add-to-list 'org-structure-template-alist '("ss" . "src sh")))
 #+end_src
 
+**** Org Contrib
+#+begin_src emacs-lisp
+(use-package org-contrib
+  :after org
+  :config
+  (require 'ox-confluence))
+#+end_src
+
 *** Org Babel
 **** [[https://github.com/astahlman/ob-async][ob-async: Asynchronous src_block execution for org-babel]]
 #+begin_src emacs-lisp
