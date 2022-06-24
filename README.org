@@ -33,12 +33,22 @@
   (require 'bind-key))
 #+END_SRC
 
-** Auth
+** Speed up
 #+begin_src emacs-lisp
-(use-package auth-source
-  :config
-  (setq auth-sources '("~/.authinfo.gpg")))
+(add-hook 'focus-out-hook 'garbage-collect)
+(run-with-idle-timer 5 t 'garbage-collect)
 #+end_src
+
+** UI customization
+#+BEGIN_SRC emacs-lisp
+(blink-cursor-mode -1)
+(setq-default cursor-type 'hbar)
+(setq ring-bell-function 'ignore)
+(setq scroll-conservatively 10)
+(setq scroll-margin 7)
+(setq column-number-mode t)
+(show-paren-mode 1)
+#+END_SRC
 
 ** Theme and fonts
 #+begin_src emacs-lisp
@@ -52,22 +62,6 @@
   (setq zenburn-scale-org-headlines t)
   (setq zenburn-scale-outline-headlines t)
   (load-theme 'zenburn t))
-#+END_SRC
-
-** Personal Information
-#+BEGIN_SRC emacs-lisp
-(setq user-full-name "Fabio Berton"
-      user-mail-address "fbberton@gmail.com")
-#+END_SRC
-
-** Diminish
-#+BEGIN_SRC emacs-lisp
-(use-package diminish
-  :diminish abbrev-mode
-  :diminish auto-fill-function
-  :diminish eldoc-mode
-  :diminish visual-line-mode
-  )
 #+END_SRC
 
 ** General modifications
@@ -112,15 +106,16 @@
 (setq bookmark-save-flag 1)
 
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
+
+(setq select-active-regions nil)
 #+END_SRC
 
-*** Live reload of the settings, from inside of the Emacs
+** Live reload of the settings, from inside of the Emacs
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-c i")
                 (lambda()(interactive)
                   (org-babel-load-file "~/.emacs.d/README.org")))
 #+END_SRC
-
 
 ** Ui customization
 #+BEGIN_SRC emacs-lisp
@@ -131,28 +126,6 @@
 (setq scroll-margin 7)
 (setq column-number-mode t)
 (show-paren-mode 1)
-#+END_SRC
-
-** Projectile
-#+BEGIN_SRC emacs-lisp
-(use-package projectile
-  :diminish projectile-mode
-  :bind-keymap ("C-c p" . projectile-command-map)
-  :hook (after-init . projectile-mode)
-  :config
-  (add-hook 'find-file-hook
-            (lambda ()
-              (when (file-remote-p default-directory)
-                (setq-local projectile-mode-line "Projectile")))))
-#+END_SRC
-
-** Spelling
-#+BEGIN_SRC emacs-lisp
-(use-package flyspell
-  :diminish flyspell-mode
-  :hook
-  (text-mode . flyspell-mode)
-  (prog-mode . flyspell-prog-mode))
 #+END_SRC
 
 ** Custom Keybindings
@@ -341,9 +314,43 @@ point reaches the beginning or end of the buffer, stop there."
                 'smarter-move-beginning-of-line)
 #+END_SRC
 
-** Avoids saving active regions to the primary selection
+** Diminish
 #+BEGIN_SRC emacs-lisp
-(setq select-active-regions nil)
+(use-package diminish
+  :diminish abbrev-mode
+  :diminish auto-fill-function
+  :diminish eldoc-mode
+  :diminish visual-line-mode
+  )
+#+END_SRC
+
+** Authentication
+#+begin_src emacs-lisp
+(use-package auth-source
+  :config
+  (setq auth-sources '("~/.authinfo.gpg")))
+#+end_src
+
+** Projectile
+#+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :diminish projectile-mode
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :hook (after-init . projectile-mode)
+  :config
+  (add-hook 'find-file-hook
+            (lambda ()
+              (when (file-remote-p default-directory)
+                (setq-local projectile-mode-line "Projectile")))))
+#+END_SRC
+
+** Spelling
+#+BEGIN_SRC emacs-lisp
+(use-package flyspell
+  :diminish flyspell-mode
+  :hook
+  (text-mode . flyspell-mode)
+  (prog-mode . flyspell-prog-mode))
 #+END_SRC
 
 ** Dired
@@ -1065,11 +1072,3 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 (use-package wgrep
   :commands (wgrep-change-to-wgrep-mode))
 #+end_src
-
-** Restore gc-cons-threshold
-The garbage collector is set to a higher value in early-init.el file to reduce
-startup time, set it back to a sane value.
-
-#+BEGIN_SRC emacs-lisp
-(setq gc-cons-threshold (* 2 1024 1024))
-#+END_SRC
