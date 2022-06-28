@@ -338,6 +338,11 @@ point reaches the beginning or end of the buffer, stop there."
   :bind-keymap ("C-c p" . projectile-command-map)
   :hook (after-init . projectile-mode)
   :config
+  (add-to-list 'projectile-globally-ignored-directories "build_*/buildhistory")
+  (add-to-list 'projectile-globally-ignored-directories "build_*/cache")
+  (add-to-list 'projectile-globally-ignored-directories "build_*/downloads")
+  (add-to-list 'projectile-globally-ignored-directories "build_*/sstate-cache")
+  (add-to-list 'projectile-globally-ignored-directories "build_*/tmp")
   (add-hook 'find-file-hook
             (lambda ()
               (when (file-remote-p default-directory)
