@@ -108,6 +108,7 @@
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 (setq select-active-regions nil)
+(setq native-comp-async-report-warnings-errors nil)
 #+END_SRC
 
 ** Live reload of the settings, from inside of the Emacs
