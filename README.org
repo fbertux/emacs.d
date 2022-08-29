@@ -999,33 +999,6 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
                 (ibuffer-do-sort-by-alphabetic)))))
 #+END_SRC
 
-** Latex
-#+BEGIN_SRC emacs-lisp
-(use-package auctex
-  :mode ("\\.tex\\'" . LaTeX-mode)
-  :preface
-  (defun apm-latex-mode-setup ()
-    "Tweaks and customisations for LaTeX mode."
-    (TeX-source-correlate-mode 1)
-    (LaTeX-math-mode 1)
-    (turn-on-reftex))
-  (defun my-latex-mode-setup ()
-    (setq-local company-backends
-                (append '((company-math-symbols-latex company-latex-commands))
-                        company-backends)))
-  :commands (LaTeX-math-mode TeX-source-correlate-mode)
-  :hook
-  ((LaTeX-mode . apm-latex-mode-setup)
-   (LaTex-mode . my-latex-mode-setup))
-  :config
-  (setq-default TeX-auto-save t)
-  (setq-default TeX-parse-self t)
-  (setq-default TeX-PDF-mode t)
-  (setq-default TeX-master nil)
-  (setq-default flyspell-mode t)
-  (setq-default TeX-source-correlate-start-server t))
-#+END_SRC
-
 ** Markdown
 #+BEGIN_SRC emacs-lisp
 (use-package markdown-mode
