@@ -556,9 +556,6 @@ Configuration in private file
 #+BEGIN_SRC emacs-lisp
 (use-package dockerfile-mode
   :mode ("/Dockerfile\\'"))
-
-(use-package docker-tramp
-  :after tramp )
 #+END_SRC
 
 ** Navigation
