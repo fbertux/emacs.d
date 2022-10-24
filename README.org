@@ -359,6 +359,10 @@ point reaches the beginning or end of the buffer, stop there."
   (prog-mode . flyspell-prog-mode))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+(setq ispell-program-name "aspell")
+#+END_SRC
+
 ** Dired
 #+BEGIN_SRC emacs-lisp
 (use-package dired
