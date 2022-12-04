@@ -129,6 +129,17 @@
 (show-paren-mode 1)
 #+END_SRC
 
+** Tree-sitter
+#+begin_src emacs-lisp
+(use-package tree-sitter
+  :diminish tree-sitter-mode
+  :hook (prog-mode . global-tree-sitter-mode))
+
+(use-package tree-sitter-langs
+  :after tree-sitter
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
+#+end_src
+
 ** Custom Keybindings
 #+BEGIN_SRC emacs-lisp
 (define-key global-map (kbd "RET") 'newline-and-indent)
