@@ -487,10 +487,12 @@ point reaches the beginning or end of the buffer, stop there."
   :commands (eglot eglot-ensure eglot-server-programs)
   :hook ((c-mode . eglot-ensure)
          (c++-mode . eglot-ensure)
+         (markdown-mode-hook . eglot-ensure)
          (shell-script-mode . eglot-ensure)
          (python-mode . eglot-ensure))
   :config
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("/usr/bin/clangd" "--log=error" "--background-index=false"))))
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("/usr/bin/clangd" "--log=error" "--background-index=false")))
+  (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman")))
 #+END_SRC
 
 ** Git configuration
