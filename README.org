@@ -18,10 +18,6 @@
 
 *** Automatically install and then setup =use-package=
 #+BEGIN_SRC emacs-lisp
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
 (eval-and-compile
   (setq use-package-always-ensure t)
   (setq use-package-expand-minimally t)
@@ -118,7 +114,7 @@
                   (org-babel-load-file "~/.emacs.d/README.org")))
 #+END_SRC
 
-** Ui customization
+** UI customization
 #+BEGIN_SRC emacs-lisp
 (blink-cursor-mode -1)
 (setq-default cursor-type 'hbar)
