@@ -494,6 +494,7 @@ point reaches the beginning or end of the buffer, stop there."
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("/usr/bin/clangd" "--log=error" "--background-index=false")))
   (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pylsp"))) ;;; sudo apt-get install python3-pylsp
+  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
 #+END_SRC
 
 ** Git configuration
