@@ -263,6 +263,7 @@ point reaches the beginning or end of the buffer, stop there."
   (windmove-default-keybindings)
 
   (global-auto-revert-mode t)
+  (setq auto-revert-remote-files t)
   (setq vc-follow-symlinks nil)
 
   (setq load-prefer-newer t)
