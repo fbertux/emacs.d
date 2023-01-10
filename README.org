@@ -296,6 +296,8 @@ point reaches the beginning or end of the buffer, stop there."
   (global-set-key [remap dabbrev-expand] 'hippie-expand)
   (global-set-key (kbd "RET") 'newline-and-indent)
 
+  (setq ispell-program-name "aspell")
+
   ;;; Live reload of the settings, from inside of the Emacs
   (global-set-key (kbd "C-c i")
                   (lambda()(interactive)
@@ -324,10 +326,6 @@ point reaches the beginning or end of the buffer, stop there."
   (setq smex-save-file (concat user-emacs-directory ".smex-items"))
   :bind
   ("M-x" . smex))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
-(setq ispell-program-name "aspell")
 #+END_SRC
 
 ** Dired
