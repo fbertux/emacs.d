@@ -230,6 +230,10 @@ point reaches the beginning or end of the buffer, stop there."
   (load-theme 'zenburn t))
 #+END_SRC
 
+#+begin_src emacs-lisp
+(set-frame-font "Source Code Pro-12" nil t)
+#+end_src
+
 ** General modifications
 #+BEGIN_SRC emacs-lisp
 (use-package emacs
@@ -237,6 +241,7 @@ point reaches the beginning or end of the buffer, stop there."
   ;;; Speed up
   (add-hook 'focus-out-hook 'garbage-collect)
   (run-with-idle-timer 5 t 'garbage-collect)
+
   ;;; UI tweaks
   (blink-cursor-mode -1)
   (setq-default cursor-type 'hbar)
@@ -245,8 +250,6 @@ point reaches the beginning or end of the buffer, stop there."
   (setq scroll-margin 7)
   (setq column-number-mode t)
   (show-paren-mode 1)
-
-  (set-frame-font "Source Code Pro-12" nil t)
 
   (fset 'yes-or-no-p 'y-or-n-p)
   (setq confirm-kill-emacs 'yes-or-no-p)
@@ -263,7 +266,7 @@ point reaches the beginning or end of the buffer, stop there."
 
   (windmove-default-keybindings)
 
-  (global-auto-revert-mode t)
+  (setq global-auto-revert-mode t)
   (setq auto-revert-remote-files t)
   (setq vc-follow-symlinks nil)
 
@@ -299,6 +302,8 @@ point reaches the beginning or end of the buffer, stop there."
 
   (setq ispell-program-name "aspell")
 
+  (define-key global-map (kbd "M-g l") 'goto-line)
+
   ;;; Live reload of the settings, from inside of the Emacs
   (global-set-key (kbd "C-c i")
                   (lambda()(interactive)
@@ -307,26 +312,26 @@ point reaches the beginning or end of the buffer, stop there."
 
 ** Navigation
 #+BEGIN_SRC emacs-lisp
-(use-package ido
+(use-package helm
+  :diminish helm-mode
+  :defer 1
   :config
-  (require 'ido)
-  (setq ido-auto-merge-work-directories-length -1)
-  (setq ido-use-filename-at-point nil)
-  (setq ido-use-faces nil)
-  (ido-everywhere t)
-  (ido-mode 1))
-
-(use-package flx-ido
-  :config
-  (flx-ido-mode 1)
-  (setq ido-enable-flex-matching t))
-
-(use-package smex
-  :config
-  (smex-initialize)
-  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
+  (helm-mode 1)
+  (setq completion-styles '(flex))
+  (setq helm-mode-fuzzy-match t)
+  (setq helm-completion-in-region-fuzzy-match t)
+  (setq helm-candidate-number-limit 30)
+  (setq helm-always-two-windows nil)
+  (setq helm-display-buffer-default-height 20)
+  (setq helm-default-display-buffer-functions '(display-buffer-in-side-window))
   :bind
-  ("M-x" . smex))
+  ("C-x C-f" . helm-find-files)
+  ("C-x b"   . helm-buffers-list)
+  ("M-g a"   . helm-do-grep-ag)
+  ("M-g g"   . helm-grep-do-git-grep)
+  ("M-x"     . helm-M-x)
+  ("M-'"     . helm-keyboard-quit)
+  ("M-y"     . helm-show-kill-ring))
 #+END_SRC
 
 ** Dired
@@ -505,11 +510,21 @@ point reaches the beginning or end of the buffer, stop there."
   :hook (after-init . projectile-mode)
   :config
   (add-hook 'project-find-functions #'project-root-override)
+  (setq projectile-completion-system 'helm)
   (setq projectile-enable-caching t)
+  ;; (setq projectile-auto-update-cache nil)
+  ;; (setq projectile-dynamic-mode-line nil)
   (add-hook 'find-file-hook
             (lambda ()
               (when (file-remote-p default-directory)
-                (setq-local projectile-mode-line "Projectile")))))
+                (setq-local projectile-mode-line "Projectile"))))
+  (add-to-list 'tramp-connection-properties
+         (list "/ssh:" "direct-async-process" t)))
+
+(use-package helm-projectile
+  :after projectile
+  :config
+  (helm-projectile-on))
 #+END_SRC
 
 ** Editing
@@ -521,8 +536,6 @@ point reaches the beginning or end of the buffer, stop there."
   :config
   (setq whitespace-style
         '(face newline tab-mark trailing space-before-tab space-after-tab)))
-(use-package browse-kill-ring
-  :bind ("M-y" . browse-kill-ring))
 
 (use-package expand-region
   :bind
@@ -576,28 +589,27 @@ point reaches the beginning or end of the buffer, stop there."
   (delete 'company-clang company-backends))
 #+END_SRC
 
-** Flycheck
+** Flymake
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck
-  :diminish flycheck-mode
+(use-package flymake
+  :diminish flymake-mode
   :hook
-  (after-init . global-flycheck-mode)
-  :config
-  (setq flycheck-check-syntax-automatically '(mode-enabled save)))
+  (prog-mode . (lambda () (flymake-mode t)))
+  (text-mode . (lambda () (flymake-mode t))))
 #+END_SRC
 
 ** Eglot
 #+BEGIN_SRC emacs-lisp
 (use-package eglot
-  :after flycheck
   :commands (eglot eglot-ensure eglot-server-programs)
   :hook ((c-mode . eglot-ensure)
          (c++-mode . eglot-ensure)
          (markdown-mode-hook . eglot-ensure)
-         (shell-script-mode . eglot-ensure)
+         (sh-mode . eglot-ensure)
          (python-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("/usr/bin/clangd" "--log=error" "--background-index=false")))
+  (add-to-list 'eglot-server-programs '((sh-mode) . ("bash-language-server" "start")))
   (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pylsp"))) ;;; sudo apt-get install python3-pylsp
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
