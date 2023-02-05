@@ -11,7 +11,8 @@ forge-database.sqlite
 tramp
 url
 custom.el
-eshell*
+eshell/history
+eshell/lastdir
 # excorporate files
 excorporate
 diary
