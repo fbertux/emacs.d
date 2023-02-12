@@ -761,7 +761,7 @@ Configuration in private file
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
-              (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
+              (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "REVIEW(r@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
@@ -769,7 +769,7 @@ Configuration in private file
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
               ("BLOCKED" :foreground "magenta" :weight bold)
-              ("HOLD" :foreground "magenta" :weight bold)
+              ("REVIEW" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "forest red" :weight bold)
               ("SOMEDAY" :foreground "forest yellow" :weight bold))))
 
