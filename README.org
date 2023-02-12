@@ -903,6 +903,24 @@ Handle bookmark capture links.
 - https://orgmode.org/manual/Tracking-TODO-state-changes.html#Tracking-TODO-state-changes
 - https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 
+** Org Roam
+#+begin_src emacs-lisp
+(use-package org-roam
+  :custom
+  (org-roam-directory (file-truename "~/roam"))
+  (org-roam-completion-everywhere t)
+  (org-roam-database-connector 'sqlite-builtin)
+  :bind
+  (("C-c r l" . org-roam-buffer-toggle)
+   ("C-c r f" . org-roam-node-find)
+   ("C-c r i" . org-roam-node-insert)
+   ("C-c r c" . org-roam-capture)
+   :map org-mode-map
+   ("C-M-i"    . completion-at-point))
+  :config
+  (org-roam-db-autosync-mode))
+#+end_src
+
 ** Shell
 #+BEGIN_SRC emacs-lisp
 (use-package vterm
