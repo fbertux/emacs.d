@@ -341,6 +341,11 @@ point reaches the beginning or end of the buffer, stop there."
   ("M-y"     . helm-show-kill-ring))
 #+END_SRC
 
+#+begin_src emacs-lisp
+(use-package helm-ag
+  :after helm)
+#+end_src
+
 ** Dired
 #+BEGIN_SRC emacs-lisp
 (use-package dired
