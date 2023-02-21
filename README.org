@@ -764,12 +764,12 @@ Configuration in private file
               (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "REVIEW(r@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
 
 (setq org-todo-keyword-faces
-      (quote (("TODO" :foreground "red" :weight bold)
+      (quote (("TODO" :foreground "crimson" :weight bold)
               ("DOING" :foreground "yellow" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
-              ("WAITING" :foreground "orange" :weight bold)
-              ("BLOCKED" :foreground "magenta" :weight bold)
-              ("REVIEW" :foreground "magenta" :weight bold)
+              ("WAITING" :foreground "cyan" :weight bold)
+              ("BLOCKED" :foreground "orange" :weight bold)
+              ("REVIEW" :foreground "dark blue" :weight bold)
               ("CANCELLED" :foreground "forest red" :weight bold)
               ("SOMEDAY" :foreground "forest yellow" :weight bold))))
 
