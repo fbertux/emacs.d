@@ -257,17 +257,20 @@ point reaches the beginning or end of the buffer, stop there."
   (require 'saveplace)
   (setq-default save-place t)
   (setq save-place-file (concat user-emacs-directory "places"))
-  (setq auto-save-default nil)
   (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                  "backups"))))
+
+  (setq auto-save-default t)
+  (setq auto-save-visited-file-name t)
 
   (setq browse-url-browser-function 'browse-url-generic
         browse-url-generic-program "explorer.exe")
 
   (windmove-default-keybindings)
 
-  (setq global-auto-revert-mode t)
+  (global-auto-revert-mode t)
   (setq auto-revert-remote-files t)
+
   (setq remote-file-name-inhibit-cache nil)
   (setq vc-handled-backends '(Git))
   (setq vc-follow-symlinks nil)
