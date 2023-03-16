@@ -481,7 +481,8 @@ point reaches the beginning or end of the buffer, stop there."
                       (when (stringp method)
                         (member method '("su" "sudo"))))))))
   (setq tramp-auto-save-directory "/tmp/tramp/")
-  (setq tramp-chunksize 2000))
+  (setq tramp-chunksize 2000)
+  (setq tramp-controlmaster-options "-o ControlMaster=auto -o ControlPersiste=no"))
 #+end_src
 
 ** Spelling
