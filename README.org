@@ -668,12 +668,6 @@ Configuration in private file
     (diff-hl-margin-mode)))
 #+END_SRC
 
-*** git-timemachine
-#+begin_src emacs-lisp
-(use-package git-timemachine
-  :commands (git-timemachine))
-#+end_src
-
 ** Misc
 #+BEGIN_SRC emacs-lisp
 (use-package cmake-mode
