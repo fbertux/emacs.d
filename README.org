@@ -403,7 +403,10 @@ point reaches the beginning or end of the buffer, stop there."
           (or
            (filename . "\\.bb$")
            (filename . "\\.bbappend$")
-           (filename . "\\.inc$")))
+           (filename . "\\.bbclass$")
+           (filename . "\\.inc$")
+           (filename . "\\.wic$")
+           (filename . "\\.wks$")))
          ("Shell scripts"
           (or
            (mode . sh-mode)
