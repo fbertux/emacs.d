@@ -986,6 +986,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
    ("\\.md\\'" . markdown-mode)
    ("\\.markdown\\'" . markdown-mode))
   :config
+  (setq markdown-ts-mode-hook markdown-mode-hook)
   (setq markdown-command "multimarkdown")
   (setq-default fill-column 80))
 #+END_SRC
