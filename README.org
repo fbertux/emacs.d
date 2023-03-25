@@ -969,6 +969,14 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (setq python-ts-mode-hook python-mode-hook))
 #+end_src
 
+** Shell Script
+#+begin_src emacs-lisp
+(use-package sh-script
+  :ensure nil
+  :config
+  (setq bash-ts-mode-hook sh-mode-hook))
+#+end_src
+
 ** PDF
 #+BEGIN_SRC emacs-lisp
 (use-package pdf-tools
