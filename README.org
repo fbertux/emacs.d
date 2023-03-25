@@ -879,6 +879,12 @@ Handle bookmark capture links.
   :after ox)
 #+END_SRC
 
+**** Org-Reveal
+#+BEGIN_SRC emacs-lisp
+(use-package org-re-reveal
+  :after ox)
+#+END_SRC
+
 *** [[https://github.com/bastibe/org-journal][org-journal: A simple org-mode based journaling mode]]
 #+BEGIN_SRC emacs-lisp
 (use-package org-journal
