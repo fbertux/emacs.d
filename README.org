@@ -499,12 +499,9 @@ point reaches the beginning or end of the buffer, stop there."
 
 ** Tree-sitter
 #+begin_src emacs-lisp
-(use-package tree-sitter
-  :hook (prog-mode . global-tree-sitter-mode)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
-
-(use-package tree-sitter-langs
-  :after tree-sitter)
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode))
 #+end_src
 
 ** Authentication
