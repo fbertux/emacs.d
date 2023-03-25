@@ -961,6 +961,14 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
   (setq c-basic-offset 4))
 #+END_SRC
 
+** Python
+#+begin_src emacs-lisp
+(use-package python
+  :ensure nil
+  :config
+  (setq python-ts-mode-hook python-mode-hook))
+#+end_src
+
 ** PDF
 #+BEGIN_SRC emacs-lisp
 (use-package pdf-tools
