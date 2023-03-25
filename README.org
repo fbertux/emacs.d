@@ -1064,3 +1064,12 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 (use-package wgrep
   :commands (wgrep-change-to-wgrep-mode))
 #+end_src
+** Edit server
+#+begin_src emacs-lisp
+(use-package edit-server
+  :commands edit-server-start
+  :config (if after-init-time
+              (edit-server-start)
+            (add-hook 'after-init-hook
+                      #'(lambda() (edit-server-start)))))
+#+end_src
