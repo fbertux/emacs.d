@@ -936,16 +936,14 @@ Handle bookmark capture links.
 #+END_SRC
 
 ** Bitbake
-*** mmm-mode
+*** bitbake-modes
 #+begin_src emacs-lisp
 (use-package mmm-mode
   :defer t
   :diminish mmm-mode)
-#+end_src
 
-*** bitbake-modes
-#+begin_src emacs-lisp
-(use-package bitbake-modes)
+(use-package bitbake-modes
+  :load-path "~/src/bitbake-modes/")
 #+end_src
 
 *** Reference:
