@@ -743,10 +743,15 @@ Configuration in private file
   (setq org-startup-with-inline-images t)
   (setq org-startup-indented t)
   (setq org-startup-folded t)
+  (setq org-return-follows-link t)
   (setq org-image-actual-width 600)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
+  (setq org-use-speed-commands t)
+  (setq org-archive-all-done t)
+  (setq org-deadline-warning-days 30)
+  (setq org-agenda-tags-column 75)
   (setq org-latex-listings 'minted
         org-latex-packages-alist '(("" "minted"))
         org-latex-pdf-process
@@ -777,29 +782,30 @@ Configuration in private file
 (setq org-hide-emphasis-markers t)
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "DOING(s)" "|" "DONE(d!)")
-              (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "REVIEW(r@/!)" "|" "CANCELLED(c@/!)" "SOMEDAY"))))
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "crimson" :weight bold)
-              ("DOING" :foreground "yellow" :weight bold)
+              ("NEXT" :foreground "yellow" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "cyan" :weight bold)
-              ("BLOCKED" :foreground "orange" :weight bold)
-              ("REVIEW" :foreground "dark blue" :weight bold)
-              ("CANCELLED" :foreground "forest red" :weight bold)
-              ("SOMEDAY" :foreground "forest yellow" :weight bold))))
+              ("HOLD" :foreground "orange" :weight bold)
+              ("CANCELLED" :foreground "forest red" :weight bold))))
 
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
-              ("DOING" ("DOING" . t))
-              ("BLOCKED" ("WAITING") ("BLOCKED" . t))
-              (done ("WAITING") ("BLOCKED") ("DOING"))
-              ("TODO" ("WAITING") ("CANCELLED") ("BLOCKED") ("DOING"))
-              ("DONE" ("WAITING") ("CANCELLED") ("BLOCKED") ("DOING")))))
+              ("NEXT" ("NEXT" . t))
+              ("HOLD" ("WAITING") ("HOLD" . t))
+              (done ("WAITING") ("HOLD") ("NEXT"))
+              ("TODO" ("WAITING") ("CANCELLED") ("HOLD") ("NEXT"))
+              ("DONE" ("WAITING") ("CANCELLED") ("HOLD") ("NEXT")))))
 
-(setq org-agenda-files '("~/org/todo.org"))
+(setq org-agenda-files '("~/org/inbox.org"
+                         "~/org/projects.org"
+                         "~/org/repeaters.org"
+                         "~/org/todo.org"))
 
 (setq org-capture-templates
       '(("b" "Bookmark" entry (file "~/org/bookmarks.org")
@@ -809,7 +815,23 @@ Configuration in private file
         ("t" "Todo" entry (file "~/org/inbox.org")
          "* TODO %?\n%U" :empty-lines 1)
         ("n" "Note" entry (file "~/org/inbox.org")
-         "* NOTE %?\n%U" :empty-lines 1)))
+         "* TODO %?\n%U" :empty-lines 1)
+        ("w" "CTW WORK" entry (file "~/org/ctw/inbox.org")
+         "* TODO %?\n%U" :empty-lines 1)))
+
+(setq org-agenda-custom-commands
+      '(("d" "Agenda Dashboard"
+         ((agenda ""
+                  ((org-agenda-span 'week)))
+          (todo "TODO"
+                ((org-agenda-overriding-header "Unscheduled tasks")
+                 (org-agenda-files '("~/org/inbox.org"))
+                 (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
+                 ))
+          (todo "TODO"
+                ((org-agenda-overriding-header "Unscheduled project tasks")
+                 (org-agenda-files '("~/org/projects.org"))
+                 (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))))))))
 
 (setq org-default-notes-file (concat org-directory "~/org/inbox.org"))
 
