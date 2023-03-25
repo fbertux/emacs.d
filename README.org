@@ -389,66 +389,69 @@ point reaches the beginning or end of the buffer, stop there."
 ** Ibuffer
 *** General modifications
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(use-package ibuffer-sidebar
+  :bind (("C-x C-b" . ibuffer))
+  :ensure nil
+  :commands (ibuffer)
+  :config
+  (setq ibuffer-expert t)
+  (setq ibuffer-show-empty-filter-groups nil)
 
-(setq ibuffer-expert t)
-(setq ibuffer-show-empty-filter-groups nil)
+  (require 'ibuf-ext)
+  (add-to-list 'ibuffer-never-show-predicates "^\\*")
 
-(require 'ibuf-ext)
-(add-to-list 'ibuffer-never-show-predicates "^\\*")
+  (setq ibuffer-saved-filter-groups
+        '(("default"
+           ("Bitbake"
+            (or
+             (filename . "\\.bb$")
+             (filename . "\\.bbappend$")
+             (filename . "\\.bbclass$")
+             (filename . "\\.inc$")
+             (filename . "\\.wic$")
+             (filename . "\\.wks$")))
+           ("Shell scripts"
+            (or
+             (mode . sh-mode)
+             (mode . shell-mode)
+             (mode . makefile-bsdmake-mode)
+             (mode . makefile-imake-mode)
+             (mode . makefile-automake-mode)
+             (mode . makefile-gmake-mode)
+             (mode . makefile-makeapp-mode)))
+           ("Git" (or
+                   (derived-mode . magit-mode)
+                   (mode . diff-mode)))
+           ("Org"
+            (or (mode . org-mode)
+                (filename . "OrgMode")))
+           ("Markup"
+            (or
+             (mode . tex-mode)
+             (mode . latex-mode)
+             (mode . tex-fold-mode)
+             (mode . tex-doctex-mode)
+             (mode . context-mode)
+             (mode . bibtex-style-mode)
+             (mode . sgml-mode)
+             (mode . css-mode)
+             (mode . nxml-mode)
+             (mode . html-mode)))
+           ("Dired" (mode . dired-mode))
+           ("Man pages"
+            (mode . Man-mode))
+           ("Shells"
+            (or
+             (mode . ansi-term-mode)
+             (mode . term-mode)
+             (mode . eshell-mode)
+             (mode . shell-mode)))
+           )))
 
-(setq ibuffer-saved-filter-groups
-      '(("default"
-         ("Bitbake"
-          (or
-           (filename . "\\.bb$")
-           (filename . "\\.bbappend$")
-           (filename . "\\.bbclass$")
-           (filename . "\\.inc$")
-           (filename . "\\.wic$")
-           (filename . "\\.wks$")))
-         ("Shell scripts"
-          (or
-           (mode . sh-mode)
-           (mode . shell-mode)
-           (mode . makefile-bsdmake-mode)
-           (mode . makefile-imake-mode)
-           (mode . makefile-automake-mode)
-           (mode . makefile-gmake-mode)
-           (mode . makefile-makeapp-mode)))
-         ("Git" (or
-                 (derived-mode . magit-mode)
-                 (mode . diff-mode)))
-         ("Org"
-          (or (mode . org-mode)
-              (filename . "OrgMode")))
-         ("Markup"
-          (or
-           (mode . tex-mode)
-           (mode . latex-mode)
-           (mode . tex-fold-mode)
-           (mode . tex-doctex-mode)
-           (mode . context-mode)
-           (mode . bibtex-style-mode)
-           (mode . sgml-mode)
-           (mode . css-mode)
-           (mode . nxml-mode)
-           (mode . html-mode)))
-         ("Dired" (mode . dired-mode))
-         ("Man pages"
-          (mode . Man-mode))
-         ("Shells"
-          (or
-           (mode . ansi-term-mode)
-           (mode . term-mode)
-           (mode . eshell-mode)
-           (mode . shell-mode)))
-         )))
-
-(add-hook 'ibuffer-mode-hook
-          #'(lambda ()
-              (ibuffer-auto-mode 1)
-              (ibuffer-switch-to-saved-filter-groups "default")))
+  (add-hook 'ibuffer-mode-hook
+            #'(lambda ()
+                (ibuffer-auto-mode 1)
+                (ibuffer-switch-to-saved-filter-groups "default"))))
 #+END_SRC
 
 *** Group tramp buffers
