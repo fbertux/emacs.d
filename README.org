@@ -625,7 +625,7 @@ point reaches the beginning or end of the buffer, stop there."
   :commands (eglot eglot-ensure eglot-server-programs)
   :hook ((c-mode . eglot-ensure)
          (c++-mode . eglot-ensure)
-         (markdown-mode-hook . eglot-ensure)
+         (markdown-mode . eglot-ensure)
          (sh-mode . eglot-ensure)
          (python-mode . eglot-ensure))
   :config
