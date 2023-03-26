@@ -868,6 +868,13 @@ Handle bookmark capture links.
   (require 'ox-confluence))
 #+end_src
 
+**** Org Alert
+#+begin_src emacs-lisp
+(use-package org-alert
+  :config
+  (setq org-alert-interval 300))
+#+end_src
+
 *** Org Babel
 **** [[https://github.com/astahlman/ob-async][ob-async: Asynchronous src_block execution for org-babel]]
 #+begin_src emacs-lisp
