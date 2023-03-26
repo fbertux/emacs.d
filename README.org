@@ -966,6 +966,16 @@ Handle bookmark capture links.
   (org-roam-db-autosync-mode))
 #+end_src
 
+** Alert notification
+#+begin_src emacs-lisp
+(use-package alert
+  :commands (alert)
+  :config (setq alert-default-style 'toast))
+
+(use-package alert-toast
+  :after alert)
+#+end_src
+
 ** Shell
 #+BEGIN_SRC emacs-lisp
 (use-package vterm
