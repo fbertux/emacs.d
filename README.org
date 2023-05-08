@@ -464,7 +464,8 @@ point reaches the beginning or end of the buffer, stop there."
     (add-hook 'ibuffer-hook
               (lambda ()
                 (ibuffer-tramp-set-filter-groups-by-tramp-connection)
-                (ibuffer-do-sort-by-alphabetic)))))
+                (ibuffer-do-sort-by-alphabetic))))
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 #+END_SRC
 
 ** Tramp
