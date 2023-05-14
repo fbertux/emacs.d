@@ -509,6 +509,7 @@ point reaches the beginning or end of the buffer, stop there."
 #+begin_src emacs-lisp
 (use-package treesit-auto
   :config
+  (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
 #+end_src
 
