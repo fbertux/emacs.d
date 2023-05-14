@@ -921,40 +921,10 @@ Handle bookmark capture links.
   :config (require 'ox-gfm nil t))
 #+END_SRC
 
-**** Hugo back-end
-#+BEGIN_SRC emacs-lisp
-(use-package ox-hugo
-  :after ox)
-#+END_SRC
-
 **** Jira back-end
 #+BEGIN_SRC emacs-lisp
 (use-package ox-jira
   :after ox)
-#+END_SRC
-
-**** Org-Reveal
-#+BEGIN_SRC emacs-lisp
-(use-package org-re-reveal
-  :after ox)
-#+END_SRC
-
-*** [[https://github.com/bastibe/org-journal][org-journal: A simple org-mode based journaling mode]]
-#+BEGIN_SRC emacs-lisp
-(use-package org-journal
-  :bind
-  ("C-c j n" . org-journal-new-entry)
-  :config
-  (setq org-journal-dir "~/org/journal/"
-        org-journal-date-format "%A, %d %B %Y"
-        org-journal-enable-encryption t
-        org-journal-encrypt-journal t))
-#+END_SRC
-
-*** [[https://github.com/weirdNox/org-noter][org-noter: Emacs document annotator, using Org-mode]]
-#+BEGIN_SRC emacs-lisp
-(use-package org-noter
-  :commands (org-noter))
 #+END_SRC
 
 *** References:
