@@ -347,8 +347,15 @@ point reaches the beginning or end of the buffer, stop there."
 #+END_SRC
 
 #+begin_src emacs-lisp
-(use-package helm-ag
+(use-package helm-rg
   :after helm)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package helm-projectile
+  :after projectile
+  :config
+  (helm-projectile-on))
 #+end_src
 
 ** Dired
@@ -542,12 +549,13 @@ point reaches the beginning or end of the buffer, stop there."
                 (setq-local projectile-mode-line "Projectile"))))
   (add-to-list 'tramp-connection-properties
          (list "/ssh:" "direct-async-process" t)))
-
-(use-package helm-projectile
-  :after projectile
-  :config
-  (helm-projectile-on))
 #+END_SRC
+
+*** Projectile Ripgrep
+#+begin_src emacs-lisp
+(use-package projectile-ripgrep
+  :after projectile)
+#+end_src
 
 ** Editing
 #+BEGIN_SRC emacs-lisp
@@ -1082,6 +1090,16 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 (use-package wgrep
   :commands (wgrep-change-to-wgrep-mode))
 #+end_src
+
+** Ripgrep - Rg
+#+begin_src emacs-lisp
+(use-package rg
+  :bind
+  ("C-c s" . rg-menu)
+  ("C-c s p" . rg-project)
+  ("C-c s t" . rg-literal))
+#+end_src
+
 ** Edit server
 #+begin_src emacs-lisp
 (use-package edit-server
