@@ -505,6 +505,22 @@ point reaches the beginning or end of the buffer, stop there."
   (prog-mode . flyspell-prog-mode))
 #+END_SRC
 
+#+begin_src emacs-lisp
+(use-package languagetool
+  :commands (languagetool-check
+             languagetool-clear-suggestions
+             languagetool-correct-at-point
+             languagetool-correct-buffer
+             languagetool-set-language
+             languagetool-server-mode
+             languagetool-server-start
+             languagetool-server-stop)
+  :config
+  (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8")
+        languagetool-console-command "~/.local/share/LanguageTool/languagetool-commandline.jar"
+        languagetool-server-command "~/.local/share/LanguageTool/languagetool-server.jar"))
+#+end_src
+
 ** Tree-sitter
 #+begin_src emacs-lisp
 (use-package treesit-auto
