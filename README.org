@@ -85,6 +85,10 @@
                 #'(lambda ()
                     (interactive)
                     (switch-to-buffer "*scratch*")))
+
+;; Commit message for personal org file repository
+(defalias 'fb/commit-massage-org
+   (kmacro "U p d a t e SPC C-u M-x f b / i n <tab> RET 4 RET"))
 #+END_SRC
 
 *** Copy buffer name or full path with name
