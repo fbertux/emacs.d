@@ -1084,11 +1084,7 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
 
 ** Ripgrep - Rg
 #+begin_src emacs-lisp
-(use-package rg
-  :bind
-  ("C-c s" . rg-menu)
-  ("C-c s p" . rg-project)
-  ("C-c s t" . rg-literal))
+(use-package rg)
 #+end_src
 
 ** Edit server
