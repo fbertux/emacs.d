@@ -482,6 +482,9 @@ point reaches the beginning or end of the buffer, stop there."
 #+begin_src emacs-lisp
 (use-package tramp
   :config
+  (add-to-list 'tramp-connection-properties
+               (list (regexp-quote "/ssh:user@host:")
+                     "direct-async-process" t))
   (with-eval-after-load 'tramp-cache
     (setq tramp-persistency-file-name "~/.emacs.d/tramp"))
   (setq tramp-default-method "ssh"
@@ -496,8 +499,9 @@ point reaches the beginning or end of the buffer, stop there."
                       (when (stringp method)
                         (member method '("su" "sudo"))))))))
   (setq tramp-auto-save-directory "/tmp/tramp/")
+  (setq tramp-verbose 0)
   (setq tramp-chunksize 2000)
-  (setq tramp-controlmaster-options "-o ControlMaster=auto -o ControlPersiste=no"))
+  (setq tramp-ssh-controlmaster-options nil))
 #+end_src
 
 ** Spelling
@@ -561,15 +565,7 @@ point reaches the beginning or end of the buffer, stop there."
   :config
   (add-hook 'project-find-functions #'project-root-override)
   (setq projectile-completion-system 'helm)
-  (setq projectile-enable-caching t)
-  ;; (setq projectile-auto-update-cache nil)
-  ;; (setq projectile-dynamic-mode-line nil)
-  (add-hook 'find-file-hook
-            (lambda ()
-              (when (file-remote-p default-directory)
-                (setq-local projectile-mode-line "Projectile"))))
-  (add-to-list 'tramp-connection-properties
-         (list "/ssh:" "direct-async-process" t)))
+  (setq projectile-enable-caching t))
 #+END_SRC
 
 *** Projectile Ripgrep
