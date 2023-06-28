@@ -778,6 +778,7 @@ Configuration in private file
   (setq org-archive-all-done t)
   (setq org-deadline-warning-days 30)
   (setq org-agenda-tags-column 75)
+  (setq org-export-with-sub-superscripts nil)
   (setq org-latex-listings 'minted
         org-latex-packages-alist '(("" "minted"))
         org-latex-pdf-process
