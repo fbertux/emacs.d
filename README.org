@@ -237,6 +237,11 @@ point reaches the beginning or end of the buffer, stop there."
 (set-frame-font "Source Code Pro-12" nil t)
 #+end_src
 
+#+begin_src emacs-lisp
+(use-package all-the-icons
+  :if (display-graphic-p))
+#+end_src
+
 ** General modifications
 #+BEGIN_SRC emacs-lisp
 (use-package emacs
