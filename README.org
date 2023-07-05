@@ -536,6 +536,14 @@ point reaches the beginning or end of the buffer, stop there."
 
 ** Tree-sitter
 #+begin_src emacs-lisp
+(use-package treesit
+  :ensure nil
+  :config
+  (setq treesit-font-lock-level 4)
+  (setq c-ts-mode-indent-offset 4))
+#+end_src
+
+#+begin_src emacs-lisp
 (use-package treesit-auto
   :config
   (setq treesit-auto-install 'prompt)
@@ -654,13 +662,24 @@ point reaches the beginning or end of the buffer, stop there."
 #+BEGIN_SRC emacs-lisp
 (use-package eglot
   :commands (eglot eglot-ensure eglot-server-programs)
-  :hook ((c-mode . eglot-ensure)
-         (c++-mode . eglot-ensure)
+  :hook ((c-ts-mode . eglot-ensure)
          (markdown-mode . eglot-ensure)
          (sh-mode . eglot-ensure)
          (python-mode . eglot-ensure))
   :config
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("/usr/bin/clangd" "--log=error" "--background-index=false")))
+  (setq eldoc-echo-area-use-multiline-p nil)
+  (add-to-list 'eglot-server-programs '((c-ts-mode)
+                                        . ("clangd"
+                                           "-j=8"
+                                           "--log=error"
+                                           "--malloc-trim"
+                                           "--background-index"
+                                           "--clang-tidy"
+                                           "--cross-file-rename"
+                                           "--completion-style=detailed"
+                                           "--pch-storage=memory"
+                                           "--header-insertion=never"
+                                           "--header-insertion-decorators=0")))
   (add-to-list 'eglot-server-programs '((sh-mode) . ("bash-language-server" "start")))
   (add-to-list 'eglot-server-programs '(markdown-mode . ("marksman")))
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer")))
@@ -1006,17 +1025,6 @@ Handle bookmark capture links.
 *** Reference:
 https://bitbucket.org/olanilsson/bitbake-modes/src/master/
 http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Contents
-
-** C/C++
-*** C mode
-#+BEGIN_SRC emacs-lisp
-(use-package cc-mode
-  :mode (("\\.h\\(h\\|xx\\|pp\\)\\'" . c++-mode)
-         ("\\.tpp\\'" . c++-mode))
-  :config
-  (setq c-default-style "k&r")
-  (setq c-basic-offset 4))
-#+END_SRC
 
 ** Python
 #+begin_src emacs-lisp
