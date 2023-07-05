@@ -633,7 +633,10 @@ point reaches the beginning or end of the buffer, stop there."
 (use-package company
   :diminish company-mode
   :hook (after-init . global-company-mode)
-  :init
+  :bind
+  (:map prog-mode-map
+        ("<tab>" . company-indent-or-complete-common))
+  :config
   (setq company-idle-delay                nil
         company-dabbrev-downcase          nil
         company-minimum-prefix-length     2
@@ -641,10 +644,6 @@ point reaches the beginning or end of the buffer, stop there."
         company-tooltip-limit             10
         company-tooltip-align-annotations t
         company-lsp-enable-snippet        t)
-  :bind
-  (:map prog-mode-map
-        ("<tab>" . company-indent-or-complete-common))
-  :config
   (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
   (delete 'company-clang company-backends))
 #+END_SRC
