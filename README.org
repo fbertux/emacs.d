@@ -657,6 +657,13 @@ point reaches the beginning or end of the buffer, stop there."
   (text-mode . (lambda () (flymake-mode t))))
 #+END_SRC
 
+** Yasnippet
+#+begin_src emacs-lisp
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :hook (after-init . yas-global-mode))
+#+end_src
+
 ** Eglot
 #+BEGIN_SRC emacs-lisp
 (use-package eglot
