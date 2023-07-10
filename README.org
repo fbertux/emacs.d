@@ -673,7 +673,6 @@ point reaches the beginning or end of the buffer, stop there."
          (sh-mode . eglot-ensure)
          (python-mode . eglot-ensure))
   :config
-  (setq eldoc-echo-area-use-multiline-p nil)
   (add-to-list 'eglot-server-programs '((c-ts-mode)
                                         . ("clangd"
                                            "-j=8"
@@ -707,6 +706,18 @@ point reaches the beginning or end of the buffer, stop there."
                                                                               :line_length 88
                                                                               :cache_config t)))))))
 #+END_SRC
+
+** Eldoc
+#+begin_src emacs-lisp
+(use-package eldoc
+  :ensure nil
+  :custom
+  (eldoc-documentation-strategy 'eldoc-documentation-compose-eagerly)
+  (eldoc-echo-area-display-truncation-message nil)
+  (eldoc-echo-area-prefer-doc-buffer t)
+  (eldoc-idle-delay 0.1)
+  (eldoc-echo-area-use-multiline-p nil))
+#+end_src
 
 ** Git configuration
 *** Magit  - [[https://github.com/magit/magit][It's Magit! A Git porcelain inside Emacs]]
