@@ -667,6 +667,7 @@ point reaches the beginning or end of the buffer, stop there."
 ** Eglot
 #+BEGIN_SRC emacs-lisp
 (use-package eglot
+  :ensure nil
   :commands (eglot eglot-ensure eglot-server-programs)
   :hook ((c-ts-mode . eglot-ensure)
          (markdown-mode . eglot-ensure)
