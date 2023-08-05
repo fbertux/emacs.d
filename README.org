@@ -332,7 +332,7 @@ point reaches the beginning or end of the buffer, stop there."
                     (org-babel-load-file "~/.emacs.d/README.org"))))
 #+END_SRC
 
-** Navigation
+** Helm
 #+begin_src emacs-lisp
 (defun nm-around-helm-buffers-sort-transformer (candidates source)
   candidates)
@@ -365,6 +365,11 @@ point reaches the beginning or end of the buffer, stop there."
 
 #+begin_src emacs-lisp
 (use-package helm-rg
+  :after helm)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package helm-ag
   :after helm)
 #+end_src
 
