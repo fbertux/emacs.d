@@ -500,26 +500,20 @@ point reaches the beginning or end of the buffer, stop there."
 #+begin_src emacs-lisp
 (use-package tramp
   :config
+  (setq vc-ignore-dir-regexp
+      (format "\\(%s\\)\\|\\(%s\\)"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp))
   (add-to-list 'tramp-connection-properties
-               (list (regexp-quote "/ssh:user@host:")
-                     "direct-async-process" t))
-  (with-eval-after-load 'tramp-cache
-    (setq tramp-persistency-file-name "~/.emacs.d/tramp"))
-  (setq tramp-default-method "ssh"
-        tramp-default-user-alist '(("\\`su\\(do\\)?\\'" nil "root"))
-        ;; use the settings in ~/.ssh/config instead of Tramp's
-        tramp-use-ssh-controlmaster-options nil
-        ;; don't generate backups for remote files opened as root (security hazzard)
-        backup-enable-predicate
-        (lambda (name)
-          (and (normal-backup-enable-predicate name)
-               (not (let ((method (file-remote-p name 'method)))
-                      (when (stringp method)
-                        (member method '("su" "sudo"))))))))
+               (list "/ssh:" "direct-async-process" t))
+  (setq tramp-persistency-file-name "~/.emacs.d/tramp")
+  (setq tramp-default-method "ssh")
   (setq tramp-auto-save-directory "/tmp/tramp/")
   (setq tramp-verbose 0)
   (setq tramp-chunksize 2000)
-  (setq tramp-ssh-controlmaster-options nil))
+  ;; use the settings in ~/.ssh/config instead of Tramp's
+  (setq tramp-ssh-controlmaster-options nil)
+  (setq remote-file-name-inhibit-locks t))
 #+end_src
 
 ** Spelling
