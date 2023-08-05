@@ -319,6 +319,13 @@ point reaches the beginning or end of the buffer, stop there."
 
   (define-key global-map (kbd "M-g l") 'goto-line)
 
+  (setq major-mode-remap-alist
+        '((yaml-mode . yaml-ts-mode)
+          (bash-mode . bash-ts-mode)
+          (sh-mode . bash-ts-mode)
+          (json-mode . json-ts-mode)
+          (python-mode . python-ts-mode)))
+
   ;;; Live reload of the settings, from inside of the Emacs
   (global-set-key (kbd "C-c i")
                   (lambda()(interactive)
