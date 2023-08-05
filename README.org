@@ -1138,3 +1138,12 @@ http://xemacs.sourceforge.net/Documentation/packages/html/mmm_toc.html#SEC_Conte
             (add-hook 'after-init-hook
                       #'(lambda() (edit-server-start)))))
 #+end_src
+
+** Olivetti mode
+#+begin_src emacs-lisp
+(use-package olivetti
+  :diminish
+  :commands olivetti-mode
+  :config (setq olivetti-body-width 80)
+)
+#+end_src
