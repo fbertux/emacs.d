@@ -668,7 +668,19 @@ point reaches the beginning or end of the buffer, stop there."
 #+begin_src emacs-lisp
 (use-package yasnippet
   :diminish yas-minor-mode
-  :hook (after-init . yas-global-mode))
+  :bind ("C-c y" . yas-expand)
+  :hook ((conf-mode
+          git-commit-mode
+          prog-mode
+          snippet-mode
+          text-mode) . yas-minor-mode)
+  :config
+  (add-to-list 'yas-snippet-dirs
+               "~/.emacs.d/snippets" t))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package yasnippet-snippets)
 #+end_src
 
 ** Eglot
