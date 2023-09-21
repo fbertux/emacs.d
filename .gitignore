@@ -25,3 +25,5 @@ recentf
 org-roam.db
 tree-sitter
 code-review-db-file.sqlite
+straight
+snippets
